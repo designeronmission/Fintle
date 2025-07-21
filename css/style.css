@@ -6643,7 +6643,7 @@ transform: translateY(-50px); /* Adjust the distance as needed */
         /* Responsive Styles */
         @media (max-width: 768px) {
             .help-center-hero {
-                padding: 180px 0;
+                padding: 180px 0px 40px;
             }
             
             .help-center-hero h1 {
