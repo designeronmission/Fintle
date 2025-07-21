@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual-Image Icon Hover Effect</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 40px;
+            background-color: #f8f9fa;
+        }
+        
+        .icon-list {
+            list-style: none;
+            margin: 0 auto;
+        }
+        
+        .icon-list li {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            margin-bottom: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Yellow background highlight */
+        .icon-list li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(assets/images/icons/background.png);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .icon-container {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+            z-index: 1;
+        }
+        
+        .icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s ease;
+        }
+        
+        .icon-inactive {
+            opacity: 1;
+            filter: grayscale(100%) brightness(0.8);
+        }
+        
+        .icon-active {
+            opacity: 0;
+        }
+        
+        .text {
+            flex: 1;
+            color: #495057;
+            transition: all 0.3s ease;
+            z-index: 1;
+            position: relative;
+        }
+        
+        /* Hover effects */
+        .icon-list li:hover::before {
+            opacity: 1;
+        }
+        
+        .icon-list li:hover .icon-inactive {
+            opacity: 0;
+        }
+        
+        .icon-list li:hover .icon-active {
+            opacity: 1;
+        }
+        
+        .icon-list li:hover .text {
+            color: #000;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <ul class="icon-list">
+        <li>
+            <div class="icon-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965300.png" class="icon icon-inactive" alt="folder">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965300.png" class="icon icon-active" alt="folder colored">
+            </div>
+            <span class="text">Documents</span>
+        </li>
+        <li>
+            <div class="icon-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png" class="icon icon-inactive" alt="camera">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png" class="icon icon-active" alt="camera colored">
+            </div>
+            <span class="text">Photos</span>
+        </li>
+        <li>
+            <div class="icon-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965279.png" class="icon icon-inactive" alt="music">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965279.png" class="icon icon-active" alt="music colored">
+            </div>
+            <span class="text">Music</span>
+        </li>
+        <li>
+            <div class="icon-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965298.png" class="icon icon-inactive" alt="games">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965298.png" class="icon icon-active" alt="games colored">
+            </div>
+            <span class="text">Games</span>
+        </li>
+        <li>
+            <div class="icon-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965303.png" class="icon icon-inactive" alt="settings">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965303.png" class="icon icon-active" alt="settings colored">
+            </div>
+            <span class="text">Settings</span>
+        </li>
+    </ul>
+</body>
+</html>
