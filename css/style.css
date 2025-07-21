@@ -1,9 +1,6 @@
-
-
 /* --------Font--------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
-
 
 /* -----------Css-variable------ */
 
@@ -92,7 +89,7 @@ button:focus,
 /** Text Gradient */ 
 .primary-gradient {
  color: #162862; 
- background-image: linear-gradient(90deg, #162862 0%, #7b16d9 100%); 
+ background-image: linear-gradient(90deg, #162862 0%, #25197e 100%); 
  background-clip: text; 
  -webkit-background-clip: text; 
  -webkit-text-fill-color: transparent; 
@@ -210,7 +207,7 @@ h6 {
 
 /* purple button */
 .puprple_btn {
-    background-color: var(--black);
+    background-color: #061662;
     color: var(--white);
     border-radius: 100px;
     padding: 12px 30px;
@@ -724,7 +721,8 @@ header.fixed .navbar {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link:hover {
-    color: var(--primary);
+    color: #061662;
+    font-weight: 600;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link.light_btn {
@@ -738,9 +736,11 @@ header.fixed .navbar {
     text-transform: capitalize;
 }
 
+
 .navbar-brand img {
     width: 135px;
 }
+
 
 /* navigation bar dropdown */
 .navbar-expand-lg .navbar-nav .has_dropdown {
@@ -1288,7 +1288,7 @@ header.fixed .navbar {
     z-index: 2;
 }
 
-/* Pseudo-element for animated diagonal streak */
+/* Pseudo-element for animated diagonal streak 
 .best_features .bf_inner_sec .bf_boxes .bf_box::after {
     content: "";
     position: absolute;
@@ -1297,10 +1297,10 @@ header.fixed .navbar {
     width: 250%;
     height: 100%;
 
-    /* Fading diagonal streak effect */
+    /* Fading diagonal streak effect 
     background: -webkit-linear-gradient(45deg, 
         rgba(26, 26, 26, 1) 30%,  
-        rgba(128, 0, 128, 0.5) 50%, /* Purple streak */
+        rgba(128, 0, 128, 0.5) 50%, /* Purple streak 
         rgba(26, 26, 26, 1) 70%
     );
     
@@ -1322,11 +1322,11 @@ header.fixed .navbar {
         rgba(26, 26, 26, 1) 70%
     );
 
-    opacity: 0.8; /* Subtle effect */
+    opacity: 0.8; /* Subtle effect 
     transition: transform 0.8s ease-in-out;
-    -webkit-transition: transform 0.8s ease-in-out; /* Webkit support */
+    -webkit-transition: transform 0.8s ease-in-out; /* Webkit support 
     transform: translateX(-100%);
-    -webkit-transform: translateX(-100%); /* Webkit support */
+    -webkit-transform: translateX(-100%); /* Webkit support 
     z-index: 1;
 }
 
@@ -2046,7 +2046,7 @@ iframe#youtubevideo {
     radial-gradient(circle at 0 0, #ffffff 0, #ffffff 18px, transparent 18px) 100% 100%/20px 20px no-repeat,
     linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 4px) calc(100% - 40px) no-repeat,
     linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 40px) calc(100% - 4px) no-repeat,
-    linear-gradient(90deg, #162862 0%, #7b16d9 100%);
+    linear-gradient(90deg, #162862 0%, #25197e 100%);
     box-sizing: border-box;
 }
 
@@ -2519,7 +2519,7 @@ iframe#youtubevideo {
         
         .category-link:hover,
         .category-link.active {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #061662, #142884);
             color: white;
             transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(167, 119, 227, 0.2);
@@ -2657,7 +2657,7 @@ iframe#youtubevideo {
         }
         
         .submit-btn {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #6174c9, #293b81);
             border: none;
             color: white;
             padding: 12px 30px;
@@ -3664,7 +3664,7 @@ footer .bottom_footer .developer_text a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--lighter-black);
+    background-color: #061662;
     color: var(--white);
     border-radius: 150px;
     font-size: 25px;
@@ -5733,7 +5733,7 @@ footer .bottom_footer .developer_text a {
   radial-gradient(circle at 0 0, #ffffff 0, #ffffff 19px, transparent 19px) 100% 100%/20px 20px no-repeat,
   linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 2px) calc(100% - 40px) no-repeat,
   linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 40px) calc(100% - 2px) no-repeat,
-  linear-gradient(43deg, #162862 0%, #7b16d9 100%);
+  linear-gradient(43deg, #162862 0%, #25197e 100%);
   box-sizing: content-box;
 }
 
@@ -5750,7 +5750,7 @@ footer .bottom_footer .developer_text a {
 
 .features_list .list-box:hover h6{
 	color: #162862; 
-   background-image: linear-gradient(90deg, #162862 0%, #7b16d9 100%); 
+   background-image: linear-gradient(90deg, #162862 0%, #25197e 100%); 
    background-clip: text; 
    -webkit-background-clip: text; 
    -webkit-text-fill-color: transparent; 
@@ -6417,7 +6417,7 @@ transform: translateY(-50px); /* Adjust the distance as needed */
 
         /* Help Center Main Styles */
         .help-center-hero {
-            background: linear-gradient(135deg, #E1E6F6, rgb(225, 200, 255));
+            background: linear-gradient(135deg, #d4d9ff, rgb(219 225 255));
             color: white;
             padding: 220px 0 50px 0 ;
             text-align: center;
@@ -6458,7 +6458,7 @@ transform: translateY(-50px); /* Adjust the distance as needed */
             position: absolute;
             right: 5px;
             top: 5px;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #6174c9, #293b81);
             border: none;
             color: white;
             width: 45px;
@@ -6507,7 +6507,7 @@ transform: translateY(-50px); /* Adjust the distance as needed */
         .kb-category-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #6174c9, #293b81);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -6604,7 +6604,7 @@ transform: translateY(-50px); /* Adjust the distance as needed */
         .support-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #6174c9, #293b81);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -6626,7 +6626,7 @@ transform: translateY(-50px); /* Adjust the distance as needed */
         }
         
         .support-card .btn {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+             background: linear-gradient(135deg, #6174c9, #293b81);
             color: white;
             border: none;
             padding: 10px 25px;
