@@ -1184,6 +1184,8 @@
     .contact_page_section .contact_inner .contact_info .ticket_box .icon{margin: auto; padding-bottom: 25px;}
 
     
+
+    
     /* footer */
     footer .top_footer .abt_side p { padding: 0 0px 20px 0px;  }
 }
@@ -1269,7 +1271,7 @@
     .accordion > .card:not(:last-of-type) {border-bottom: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;}
 
 
-    /* Newsletter Popup  */
+    /* Newsletter Popup */
     .popup-box {width: 350px; padding: 30px;}
 
 
