@@ -26,6 +26,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+
+  <style>
+    
+    .spacer {
+      height: 15vh; /* space before/after */
+    }
+
+    .showcase {
+      height: 110vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+.devices {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.device {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+
+
+/* Content section */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 300vh; /* enough to scroll through 3 blocks */
+  padding-left:40%; /* make space for fixed mobile */
+}
+.content-block {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+} 
+
+    .device.laptop { width: 1200px; }
+    .device.tablet { width: 800px; }
+    .device.mobile { width: 300px;}
+  </style>
 </head>
 
 <body>
@@ -131,36 +179,68 @@
       </div>
       <!-- row end -->
 
-      <!-- row start -->
-      <div class="row">
-        <!-- banner images start -->
-        <div class="hero_images">
-
-          <!-- hero image 1 -->
-          <div class="hero_image_left">
-            <img src="assets/images/mockups/menu-bar.png" class="moving_position_animatin" alt="image">
-          </div>
-
-          <!-- hero image 1 -->
-          <div class="hero_image_center">
-            <img src="assets/images/mockups/dashboard.png" class="moving_position_animatin" alt="image">
-          </div>
-
-          <!-- hero image 1 -->
-          <div class="hero_image_right">
-            <img src="assets/images/mockups/invoice.png" class="moving_position_animatin" alt="image">
-          </div>
-
-        </div>
-        <!-- banner images end -->
-
-      </div>
-      <!-- row end -->
 
     </div>
     <!-- container end -->
   </section>
   <!-- Banner-Section-end -->
+
+  
+
+
+  <div class="container res-cont">
+  <!-- Device Parallax Showcase -->
+  <section class="showcase">
+    <div class="devices">
+      <img src="assets/images/mockups/monitor.png" class="device laptop" alt="Laptop">
+      <img src="assets/images/mockups/tablet.png" class="device tablet" alt="Tablet">
+      <img src="assets/images/mockups/dashboard.png" class="device mobile" alt="Mobile">
+    </div>
+  </section>
+
+<!-- Scroll content that appears while mobile is fixed -->
+<section class="content-section">
+  <div class="content-side">
+    <div class="content-block">
+      <h2>Instant Invoice Sharing via SMS & WhatsApp</h2>
+      <p>Send invoices directly to your clients in seconds. With Fintle, your billing reaches your customers instantly through SMS or WhatsApp, ensuring faster payments and better cash flow.</p>
+      <img src="assets/images/mockups/share.png" alt="Send invoices" class="thumb-scroll">
+    </div>
+    <div class="content-block">
+      <h2>Comprehensive Sales, Purchases & Expense Tracking</h2>
+      <p>Keep your finances organized effortlessly. Track all your sales, purchases, and expenses in one place, with detailed reports to help you make smarter business decisions.</p>
+        <img src="assets/images/mockups/export.png" alt="Send invoices" class="thumb-scroll">
+    </div>
+    <div class="content-block">
+      <h2>Effortless Quotations, Estimates & Proforma Invoices</h2>
+      <p>Create professional quotations, estimates, and proforma invoices in minutes. Impress your clients with accurate documents while streamlining your sales process.</p>
+      <img src="assets/images/mockups/invoice-small.png" alt="Send invoices" class="thumb-scroll">
+    </div>
+
+     <div class="content-block">
+      <h2>Flawless Business Management</h2>
+      <p>Fintle goes beyond accounting. Automate recurring tasks, monitor your financial health, and manage all your transactions from a single, user-friendly platform.</p>
+       <img src="assets/images/mockups/management.png" alt="Send invoices" class="thumb-scroll">
+    </div>
+
+  </div>
+</section>
+
+  </div>
+
+  <!-- Spacer -->
+  <div class="spacer"></div>
+
+
+  <div class="mobile-responsive">
+    <img src="assets/images/mockups/mobile-size.png" alt="mobile-mockup" class="mob-res-image">
+  </div>
+
+
+
+<div class="background-white">
+
+
 
   <!--Best Features-->
   <section class="row_am best_features white_text">
@@ -303,7 +383,7 @@
             <!-- task images -->
             <div class="task_img">
               <div class="frame_img">
-                <img src="assets/images/mockups/receivables.png" alt="image">
+                <img src="assets/images/mockups/receivables-1.png" alt="image">
               </div>
             </div>
           </div>
@@ -452,7 +532,7 @@
             <!-- task images -->
             <div class="task_img">
               <div class="frame_img">
-                <img src="assets/images/mockups/reports.png" alt="image">
+                <img src="assets/images/mockups/report-1.png" alt="image">
               </div>
               <!-- <div class="screen_img">
                 <img class="moving_animation" src="images/feature1b.png" alt="image">
@@ -698,7 +778,7 @@
     </div>
   </section>
 
-
+</div>
 
    <!-- Footer-Section start -->
     <footer>
@@ -824,6 +904,13 @@
   <!-- main-js-Link -->
   <script src="js/main.js"></script>
 
+
+    <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+
   <script>
     // Scroll Down Window 
     $(document).ready(function () {
@@ -834,6 +921,43 @@
       });
     });
   </script>
+
+
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".showcase",
+        start: "top top",
+        end: "+=4000", 
+        scrub: true,
+        pin: true,
+      }
+    });
+
+ // Step 1: Laptop → Tablet
+  tl.fromTo(".laptop", {opacity: 1, scale: 1}, {opacity: 0, scale: 0.6, duration: 1});
+  tl.fromTo(".tablet", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1});
+
+  // Step 2: Tablet → Mobile
+  tl.set(".tablet", {opacity: 0});
+  tl.fromTo(".mobile", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1});
+
+  // Step 3: Mobile slides left and becomes sticky version
+  tl.to(".mobile", {
+    x: -window.innerWidth / 5,
+    scale: 0.9,
+    duration: 1,
+    onComplete: () => {
+      document.querySelector(".mobile-sticky").style.opacity = "1";
+      document.querySelector(".mobile").style.opacity = "0"; // handover
+    }
+  });
+
+  </script>
 </body>
+
 
 </html>

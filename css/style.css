@@ -1234,7 +1234,6 @@ header.fixed .navbar {
 .best_features {
     position: relative;
     background: #000a37;
-    padding-top: 620px;
 }
 
 .best_features .bf_inner_sec {
@@ -6658,3 +6657,42 @@ transform: translateY(-50px); /* Adjust the distance as needed */
                 grid-template-columns: 1fr;
             }
         }
+
+
+
+
+
+.background-white{
+    background: white;
+    position: relative;
+}
+
+
+@media only screen and (min-width:500px) and (max-width:3000px) {
+       .mob-res-image{
+        display: none;
+    }
+
+    .res-cont{
+        display: block;
+    }
+}
+
+
+    @media only screen and (min-width: 320px) and (max-width: 475px)  {
+       .mob-res-image{
+        display: block;
+    }
+
+    .res-cont{
+        display: none;
+    }
+
+}
+
+
+
+.thumb-scroll{
+    width: 60%;
+    margin: 0 auto;
+}
