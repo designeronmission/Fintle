@@ -192,8 +192,7 @@
   <!-- Device Parallax Showcase -->
   <section class="showcase">
     <div class="devices">
-      <img src="assets/images/mockups/monitor.png" class="device laptop" alt="Laptop">
-      <img src="assets/images/mockups/tablet.png" class="device tablet" alt="Tablet">
+      <img src="assets/images/mockups/dashboard-lap.png" class="device laptop" alt="Laptop">
       <img src="assets/images/mockups/dashboard.png" class="device mobile" alt="Mobile">
     </div>
   </section>
@@ -938,12 +937,8 @@
     });
 
  // Step 1: Laptop → Tablet
-  tl.fromTo(".laptop", {opacity: 1, scale: 1}, {opacity: 0, scale: 0.6, duration: 1});
-  tl.fromTo(".tablet", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1});
-
-  // Step 2: Tablet → Mobile
-  tl.set(".tablet", {opacity: 0});
-  tl.fromTo(".mobile", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1});
+  tl.fromTo(".laptop", {opacity: 1, scale: 1}, {opacity: 0, scale: 0.6, duration: 1.5});
+  tl.fromTo(".mobile", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1.5});
 
   // Step 3: Mobile slides left and becomes sticky version
   tl.to(".mobile", {
