@@ -6688,7 +6688,18 @@ transform: translateY(-50px); /* Adjust the distance as needed */
         display: none;
     }
 
+    .best_features{
+        margin: 0;
+        padding-top: 50px;
+    }
+
+    .mobile-responsive{
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
 }
+
 
 
 
