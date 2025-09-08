@@ -113,10 +113,21 @@
   }
 }
 
-
-@media (min-width: 1500px) and (max-width: 3000px) {
+@media (min-width: 1810px) and (max-width: 2400px) {
   .fixed-mobile {
-    left: 32% !important;
+    left: 26% !important;
+  }
+}
+
+@media (min-width: 2400px) and (max-width: 2700px) {
+  .fixed-mobile {
+    left: 24% !important;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1800px) {
+  .fixed-mobile {
+    left: 18% !important;
   }
 }
 
@@ -1001,7 +1012,7 @@
 
     // Step 4: Center mobile shifts left
     tl.to(".main-mobile", {
-      x: -Math.min(window.innerWidth / 4, 300),
+      x: -Math.min(window.innerWidth / 4, 420),
       scale: 0.9,
       duration: 1
     });
