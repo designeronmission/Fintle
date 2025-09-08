@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Meta Description -->
-  <meta name="description" content=" ">
-  <title>Home</title>
+  <meta name="description" content="Fintle - Zero-Cost Accounting for Smarter Business Finance">
+  <title>Fintle - Zero-Cost Accounting</title>
 
   <!-- icofont-css-link -->
   <link rel="stylesheet" href="css/icofont.min.css">
@@ -26,67 +26,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
 
-    <style>
+  <style>
+    /* Improved animations and transitions */
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
-
-    .section {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      background: #ccc;
-    }
-
-    .content-section {
-      height: 200vh; /* Large content */
-      background: #fff;
-      padding: 50px;
-    }
-
-    .main-mobile {
-      position: relative;
-      width: 250px;
-      height: 500px;
-      background: #000;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 50px auto;
-      border-radius: 20px;
-      z-index: 5;
-    }
-
-    .fixed-mobile {
-      position: fixed;
-      top: 50%;
-      left: 50px;
-      transform: translateY(-50%);
-      width: 250px;
-      height: 500px;
-      background: #222;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 20px;
-      z-index: 10;
-      opacity: 0; /* Hidden by default */
+      overflow-x: hidden;
     }
 
     .spacer {
-      height: 15vh; /* space before/after */
+      height: 15vh;
     }
 
     .showcase {
       height: 110vh;
       position: relative;
       overflow: hidden;
+      background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
     }
 
     .devices {
@@ -96,32 +54,41 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      perspective: 1000px;
     }
     
     .device {
       position: absolute;
       opacity: 0;
-      transform: scale(0.8);
+      transform: translateZ(0);
+      will-change: transform, opacity;
+      transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), 
+                 transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.1));
+    }
+
+    .mobile-left, .mobile-right {
+      opacity: 0;
+      transform: translateY(50px) scale(0.85);
     }
 
     .mobile-left {
       left: 16%;
-      opacity: 0;
     }
 
     .mobile-right {
       right: 16%;
-      opacity: 0;
     }
 
     /* Content section */
     .content-section {
       position: relative;
-      min-height: 300vh; /* enough to scroll through 3 blocks */
+      min-height: 300vh;
+      background: #fff;
     }
     
     .content-side {
-      margin-left: 40%; /* make space for fixed mobile */
+      margin-left: 40%;
       padding: 20px;
     }
     
@@ -131,11 +98,56 @@
       flex-direction: column;
       justify-content: center;
       padding: 50px;
-    } 
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
 
-    .device.laptop { width: 1200px; }
-    .device.tablet { width: 800px; }
-    .device.mobile { width: 300px;}
+    .content-block.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .content-block h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+
+    .content-block p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+
+    .thumb-scroll {
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.8s ease 0.3s;
+    }
+
+    .content-block.active .thumb-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .device.laptop { 
+      width: 1200px; 
+      max-width: 80%;
+    }
+    
+    .device.tablet { 
+      width: 800px; 
+    }
+    
+    .device.mobile { 
+      width: 300px;
+    }
     
     /* Fixed mobile styles */
     .fixed-mobile {
@@ -147,6 +159,8 @@
       opacity: 0;
       width: 300px;
       pointer-events: none;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15));
+      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
     
     .content-scroll-end {
@@ -156,6 +170,7 @@
       justify-content: center;
     }
 
+    /* Responsive adjustments */
     @media (min-width: 1080px) and (max-width: 1499px) {
       .fixed-mobile {
         left: 15% !important;
@@ -179,6 +194,60 @@
         left: 18% !important;
       }
     }
+
+    @media (max-width: 992px) {
+      .content-side {
+        margin-left: 0;
+        padding: 10px;
+      }
+      
+      .content-block {
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .content-block p {
+        max-width: 100%;
+      }
+      
+      .showcase {
+        height: 70vh;
+      }
+      
+      .device.laptop {
+        max-width: 95%;
+      }
+    }
+
+    /* Animation improvements */
+    .smooth-appear {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Performance optimizations */
+    .will-change {
+      will-change: transform, opacity;
+    }
+
+    /* Subtle background animation for showcase */
+    @keyframes subtleBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .showcase {
+      background: linear-gradient(270deg, #f8f9ff, #f0f4ff, #f8f9ff);
+      background-size: 200% 200%;
+      animation: subtleBackground 15s ease infinite;
+    }
   </style>
 </head>
 
@@ -191,13 +260,12 @@
       <nav class="navbar navbar-expand-lg">
         <!-- logo  -->
         <a class="navbar-brand" href="index.html">
-          <img src="assets/images/logo/fintle_logo.png" alt="image">
+          <img src="assets/images/logo/fintle_logo.png" alt="Fintle Logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon">
-            <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
             <div class="toggle-wrap">
               <span class="toggle-bar"></span>
             </div>
@@ -269,18 +337,19 @@
           <ul class="app_btn">
             <li>
               <a href="#">
-                <img class="blue_img" src="assets/images/appstore_white.png" alt="image">
+                <img class="blue_img" src="assets/images/appstore_white.png" alt="App Store">
               </a>
             </li>
             <li>
               <a href="#">
-                <img class="blue_img" src="assets/images/googleplay_white.png" alt="image">
+                <img class="blue_img" src="assets/images/googleplay_white.png" alt="Google Play">
               </a>
             </li>
           </ul>
         </div>
       </div>
       <!-- row end -->
+
     </div>
     <!-- container end -->
   </section>
@@ -290,15 +359,15 @@
     <!-- Device Parallax Showcase -->
     <section class="showcase">
       <div class="devices">
-        <img src="assets/images/mockups/dashboard-lap.png" class="device laptop" alt="Laptop">
-        <img src="assets/images/mockups/dashboard.png" class="device mobile main-mobile" alt="Mobile">
-        <img src="assets/images/mockups/left.png" class="device mobile mobile-left" alt="Mobile Left">
-        <img src="assets/images/mockups/right.png" class="device mobile mobile-right" alt="Mobile Right">
+        <img src="assets/images/mockups/dashboard-lap.png" class="device laptop will-change" alt="Laptop">
+        <img src="assets/images/mockups/dashboard.png" class="device mobile main-mobile will-change" alt="Mobile">
+        <img src="assets/images/mockups/left.png" class="device mobile mobile-left will-change" alt="Mobile Left">
+        <img src="assets/images/mockups/right.png" class="device mobile mobile-right will-change" alt="Mobile Right">
       </div>
     </section>
 
     <!-- Fixed mobile that will appear when needed -->
-    <img src="assets/images/mockups/dashboard.png" class="fixed-mobile" alt="Mobile">
+    <img src="assets/images/mockups/dashboard.png" class="fixed-mobile will-change" alt="Mobile">
 
     <!-- Scroll content that appears while mobile is fixed -->
     <section class="content-section">
@@ -311,17 +380,17 @@
         <div class="content-block">
           <h2>Comprehensive Sales, Purchases & Expense Tracking</h2>
           <p>Keep your finances organized effortlessly. Track all your sales, purchases, and expenses in one place, with detailed reports to help you make smarter business decisions.</p>
-          <img src="assets/images/mockups/export.png" alt="Send invoices" class="thumb-scroll">
+          <img src="assets/images/mockups/export.png" alt="Expense tracking" class="thumb-scroll">
         </div>
         <div class="content-block">
           <h2>Effortless Quotations, Estimates & Proforma Invoices</h2>
           <p>Create professional quotations, estimates, and proforma invoices in minutes. Impress your clients with accurate documents while streamlining your sales process.</p>
-          <img src="assets/images/mockups/invoice-small.png" alt="Send invoices" class="thumb-scroll">
+          <img src="assets/images/mockups/invoice-small.png" alt="Quotations" class="thumb-scroll">
         </div>
         <div class="content-block">
           <h2>Flawless Business Management</h2>
           <p>Fintle goes beyond accounting. Automate recurring tasks, monitor your financial health, and manage all your transactions from a single, user-friendly platform.</p>
-          <img src="assets/images/mockups/management.png" alt="Send invoices" class="thumb-scroll">
+          <img src="assets/images/mockups/management.png" alt="Business management" class="thumb-scroll">
         </div>
       </div>
     </section>
@@ -332,12 +401,597 @@
   </div>
 
   <div class="background-white">
-    <!-- Rest of your content remains the same -->
+    <!--Best Features-->
+    <section class="row_am best_features white_text">
+      <div class="bf_inner_sec py-10">
+        <!--  container  -->
+        <div class="container">
+          <!--  heading  -->
+          <div class="section_title top_content" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+            <h2>Precision Tools for Every Financial Journey</h2>
+            <p>Fintle is designed to meet the unique needs of every user, from small businesses to accounting
+              professionals.</p>
+          </div>
+          <!-- row start -->
+          <div class="row bf_boxes">
+            <!--  box 1  -->
+            <div class="col-lg-4 col-md-12">
+              <div class="bf_box smooth-appear">
+                <div class="bf_icon"><img src="assets/images/icons/bussiness.png" alt="Business icon"></div>
+                <div class="bf_text">
+                  <h6>Small Business</h6>
+                  <p>Get paid on time, track expenses, automate tasks, and make informed financial decisions.</p>
+                </div>
+              </div>
+            </div>
+
+            <!--  box 2  -->
+            <div class="col-lg-4 col-md-12">
+              <div class="bf_box smooth-appear">
+                <div class="bf_icon"><img src="assets/images/icons/student.png" alt="Student icon"></div>
+                <div class="bf_text">
+                  <h6>Students</h6>
+                  <p>Developed exclusively for students to experiment and self-learn cloud accounting.</p>
+                </div>
+              </div>
+            </div>
+
+            <!--  box 3  -->
+            <div class="col-lg-4 col-md-12">
+              <div class="bf_box smooth-appear">
+                <div class="bf_icon"><img src="assets/images/icons/accountant.png" alt="Accountant icon"></div>
+                <div class="bf_text">
+                  <h6>Accountants</h6>
+                  <p>An expert accountant community to manage books and streamline finances.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--end-->
+
+    <!--intro text-->
+    <section class="row_am intro_text">
+      <!-- container start -->
+      <div class="container">
+        <!-- intro text -->
+        <div class="intro_text_tagline smooth-appear">
+          <h2>Fintle provides comprehensive financial management tools <span class="primary-gradient"> to help you focus
+              on growing your business </span></h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Task-App-Section-Start -->
+    <section class="row_am task_app_section">
+      <!-- Task Block start -->
+      <div class="task_block">
+        <!-- row start -->
+        <div class="row">
+          <div class="task_block_inner">
+            <!-- content -->
+            <div class="col-md-6">
+              <!-- task text -->
+              <div class="task_text">
+                <div class="section_title">
+                  <span class="title_badge">Receivables</span>
+                  <!-- h2 -->
+                  <h2>Smart Receivables That Get You Paid Faster</h2>
+                  <!-- p -->
+                  <p>
+                    Generate tax-ready invoices and quotes in seconds. Automate payment reminders and send online payment
+                    links to get paid faster.
+                  </p>
+
+                  <!-- list -->
+                  <ul class="feature_list">
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Tax-compliant invoice templates</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Automated payment reminders</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p> Multi-currency support</p>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <!-- button -->
+                  <div class="btn_block">
+                    <a href="#" class="btn puprple_btn aos-init aos-animate">Explore Receivables</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- images -->
+            <div class="col-md-6">
+              <!-- task images -->
+              <div class="task_img smooth-appear">
+                <div class="frame_img">
+                  <img src="assets/images/mockups/receivables-1.png" alt="Receivables">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- Task Block end -->
+
+      <!-- Task Block start -->
+      <div class="task_block tb_2">
+        <!-- row start -->
+        <div class="row">
+          <div class="task_block_inner">
+            <!-- content -->
+            <div class="col-md-6">
+              <!-- task text -->
+              <div class="task_text">
+                <div class="section_title">
+                  <span class="title_badge">Payables</span>
+                  <!-- h2 -->
+                  <h2>Master Cash Flow & Vendor Relationships</h2>
+                  <!-- p -->
+                  <p>
+                    Track vendor bills and expenses effortlessly. Add recurring expenses and include client expenses on
+                    invoices seamlessly.
+                  </p>
+
+                  <!-- list -->
+                  <ul class="feature_list">
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Track Bills & Payments</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Expense Management</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Central Document Hub</p>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <!-- button -->
+                  <div class="btn_block">
+                    <a href="#" class="btn puprple_btn aos-init aos-animate">Explore Payables</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- images -->
+            <div class="col-md-6">
+              <!-- task images -->
+              <div class="task_img smooth-appear">
+                <div class="frame_img">
+                  <img src="assets/images/mockups/payables.png" alt="Payables">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- Task Block end -->
+
+      <!-- Task Block start -->
+      <div class="task_block">
+        <!-- row start -->
+        <div class="row">
+          <div class="task_block_inner">
+            <!-- content -->
+            <div class="col-md-6">
+              <!-- task text -->
+              <div class="task_text">
+                <div class="section_title">
+                  <span class="title_badge">Reports</span>
+                  <!-- h2 -->
+                  <h2>Automate GST & E-Invoicing</h2>
+                  <!-- p -->
+                  <p>Gain actionable insights with real-time financial reports. Schedule and share key reports with your
+                    team automatically.
+                  </p>
+
+                  <!-- list -->
+                  <ul class="feature_list">
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Cash flow analysis</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Profit & loss statements</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span><i class="icofont-check-circled primary-gradient"></i></span>
+                      </div>
+                      <div class="text">
+                        <p>Tax reports</p>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <!-- button -->
+                  <div class="btn_block">
+                    <a href="#" class="btn puprple_btn aos-init aos-animate">Explore Reports</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- images -->
+            <div class="col-md-6">
+              <!-- task images -->
+              <div class="task_img smooth-appear">
+                <div class="frame_img">
+                  <img src="assets/images/mockups/report-1.png" alt="Reports">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- Task Block end -->
+    </section>
+    <!-- Task-App-Section-end -->
+
+    <!--about us -->
+    <section class="row_am about_section">
+      <div class="inner_sec">
+        <!-- container start -->
+        <div class="container">
+          <!--row-start-->
+          <div class="row d-flex align-items-stretch">
+            <!--left colom-->
+            <div class="col-md-6 d-flex">
+              <div class="about_box white_text">
+                <div class="ab_content">
+                  <!-- heading   -->
+                  <div class="section_title aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay="100">
+                    <span class="title_badge mb-1">About Fintle</span>
+                    <!-- h2 -->
+                    <h2> Your Trusted Financial Management Partner</h2>
+                    <p> At Fintle, we believe that managing finances should be effortless, transparent, and intelligent.
+                      Our mission is to simplify financial operations for businesses of all sizes—from startups to
+                      enterprises—by providing an all-in-one platform that automates accounting, tax compliance, banking,
+                      and reporting.</p>
+                  </div>
+                </div>
+                <!-- about image   -->
+                <img class="aboutus_img smooth-appear" src="assets/images/mockups/about.png" alt="About Fintle">
+              </div>
+            </div>
+
+            <!--right colom-->
+            <div class="col-md-6 d-flex">
+              <div class="w-100">
+                <!--row-start-->
+                <div class="row">
+                  <div class="review_row">
+                    <!--colom-->
+                    <div class="col-md-6">
+                      <!--box-->
+                      <div class="review_box smooth-appear">
+                        <!-- star   -->
+                        <div class="star">
+                          <span><i class="icofont-star star"></i></span>
+                          <span><i class="icofont-star star"></i></span>
+                          <span><i class="icofont-star star"></i></span>
+                          <span><i class="icofont-star star"></i></span>
+                          <span><i class="icofont-star star"></i></span>
+                        </div>
+                        <!-- star   -->
+                        <div class="review_number">
+                          <p> 4.9</p>
+                          <span> <a href="#"> User Reviews <i class="icofont-arrow-right"></i> </a> </span>
+                        </div>
+                        <!-- image   -->
+                        <img class="review_img" src="assets/images/google_logo.png" alt="Google Reviews">
+                      </div>
+                    </div>
+                    <!--colom-->
+                    <div class="col-md-6">
+                      <!--box-->
+                      <div class="review_box smooth-appear">
+                        <!-- star   -->
+                        <div class="user-download">
+                          <img class="review_user" src="assets/images/user-download.png" alt="User Downloads">
+                        </div>
+                        <!-- star   -->
+                        <div class="review_number">
+                          <p> 1k+</p>
+                          <span> <a href="#"> Installations <i class="icofont-arrow-right"></i> </a> </span>
+                        </div>
+
+                        <img class="review_img store_icon" src="assets/images/icons/apple_icon.png" alt="App Store">
+                        <img class="review_img store_icon" src="assets/images/icons/playstore_icon.png" alt="Play Store">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="testimonail_main">
+                      <img class="quote_icon" src="assets/images/icons/quote_icon2.png" alt="Quote icon">
+
+                      <div class="home_testimonial ">
+                        <div class="testimonial_slides">
+                          <div class="owl-carousel owl-theme" id="testimonial_slider1">
+                            <!-- user 1 -->
+                            <div class="item">
+                              <div class="testimonial_box">
+                                <!--  user text  -->
+                                <div class="testi_text">
+                                  <p>Fintle cut our invoice processing time by 80% and helped recover $12K in overdue
+                                    payments. The free price tag feels like a steal!</p>
+                                </div>
+                                <!--  user image  -->
+                                <div class="testi_img">
+                                  <img class="user_img" src="assets/images/profile.png" alt="Priya K.">
+                                  <div class="user_info">
+                                    <h6>Priya K.</h6>
+                                    <p>E-commerce Founder</p>
+                                    <div class="star">
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- user 2 -->
+                            <div class="item">
+                              <div class="testimonial_box">
+                                <!--  user text  -->
+                                <div class="testi_text">
+                                  <p> As a CA student, Fintle's free inventory scenarios and tax simulations were
+                                    game-changing for my exams. The student resources are incredible.</p>
+                                </div>
+                                <!--  user image  -->
+                                <div class="testi_img">
+                                  <img class="user_img" src="assets/images/profile-male.png" alt="Arjun M">
+                                  <div class="user_info">
+                                    <h6>Arjun M </h6>
+                                    <p>ICAI Rank Holder</p>
+                                    <div class="star">
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- user 3 -->
+                            <div class="item">
+                              <div class="testimonial_box">
+                                <!--  user text  -->
+                                <div class="testi_text">
+                                  <p> We saved over $4,000/year switching to Fintle. The multi-currency handling and
+                                    project accounting features rival premium tools we used before.</p>
+                                </div>
+                                <!--  user image  -->
+                                <div class="testi_img">
+                                  <img class="user_img" src="assets/images/profile.png" alt="Sarah J.">
+                                  <div class="user_info">
+                                    <h6>Sarah J.</h6>
+                                    <p>Mid-Market Business Owner</p>
+                                    <div class="star">
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                      <span><i class="icofont-star"></i></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- usp numbers   -->
+          <div class="row growth_usp">
+            <ul class="growth_static" id="counter">
+              <div class="col-sm-4 ">
+                <!-- box 1   -->
+                <li>
+                  <div class="counter_box smooth-appear">
+                    <div class="icon">
+                      <img src="assets/images/icons/happy-icon.png" alt="Happy Users">
+                    </div>
+                    <div class="text">
+                      <p><span class="counter-value" data-count="17">17</span><span>k+</span></p>
+                      <p>Happy Users</p>
+                    </div>
+                  </div>
+                </li>
+              </div>
+
+              <div class="col-sm-4">
+                <!-- box 2   -->
+                <li>
+                  <div class="counter_box smooth-appear">
+                    <div class="icon">
+                      <img src="assets/images/icons/star-icon.png" alt="Active Reviews">
+                    </div>
+                    <div class="text">
+                      <p><span class="counter-value" data-count="20">1</span><span>k+</span></p>
+                      <p>Active Reviews</p>
+                    </div>
+                  </div>
+                </li>
+              </div>
+
+              <div class="col-sm-4">
+                <!-- box 3 -->
+                <li>
+                  <div class="counter_box smooth-appear">
+                    <div class="icon">
+                      <img src="assets/images/icons/time-icon.png" alt="Telephonic talk">
+                    </div>
+                    <div class="text">
+                      <p><span class="counter-value" data-count="09">9</span><span>k+</span></p>
+                      <p>Telephonic talk</p>
+                    </div>
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <!--end-->
+      </div>
+    </section>
   </div>
 
   <!-- Footer-Section start -->
   <footer>
-    <!-- Footer content remains the same -->
+    <div class="top_footer" id="contact">
+      <!-- container start -->
+      <div class="container">
+        <!-- row start -->
+        <div class="row">
+          <!-- footer link 1 -->
+          <div class="col-lg-5 col-md-6 col-12">
+            <div class="abt_side">
+              <div class="logo"> <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo"></div>
+              <p>Fintle is your all-in-one accounting tool to create bills, track sales, and manage purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
+              <a href="tel:1235678901" class="footer_cta_text">Call : +91 123 4567890 </a> <br>
+              <a href="mailto:example@email.com" class="footer_cta_text"> Email : fintle@email.com </a>
+            </div>
+          </div>
+
+          <!-- footer link 2 -->
+          <div class="col-lg-2 col-md-6 col-12">
+            <div class="links">
+              <h6>Quick Links</h6>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- footer link 3 -->
+          <div class="col-lg-2 col-md-6 col-12">
+            <div class="links">
+              <h6>Suport</h6>
+              <ul>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="helpcenter.html">Support</a></li>
+                <li><a href="features.html">How it works</a></li>
+                <li><a href="#">Terms & conditions</a></li>
+                <li><a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- footer link 4 -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <h6>Subscribe us</h6>
+            <div class="news_letter">
+              <p>Subscribe our newsleter to receive latest updates regularly from us!</p>
+              <form>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Enter your email">
+                  <button class="btn" aria-label="subscribe"><i class="icofont-paper-plane"></i></button>
+                </div>
+                <p class="note">By clicking send link you agree to receive message.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- container end -->
+
+      <!-- last footer -->
+      <div class="bottom_footer">
+        <!-- container start -->
+        <div class="container">
+          <!-- row start -->
+          <div class="row">
+            <div class="col-md-4">
+              <p>© 2025 Fintle. All rights reserved.</p>
+            </div>
+
+            <div class="col-md-4">
+              <ul class="social_media">
+                <li><a href="#" aria-label="facebook page"><i class="icofont-facebook"></i></a></li>
+                <li><a href="#" aria-label="instagram page"><i class="icofont-instagram"></i></a></li>
+                <li><a href="#" aria-label="pinterest page"><i class="icofont-pinterest"></i></a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-4">
+              <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="blank">Aparajayah</a></p>
+            </div>
+          </div>
+          <!-- row end -->
+        </div>
+        <!-- container end -->
+      </div>
+    </div>
   </footer>
   <!-- Footer-Section end -->
 
@@ -364,94 +1018,157 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
-    document.querySelector('.fixed-mobile').removeAttribute('style');
-
-    // Scroll Down Window 
-    $(document).ready(function () {
-      // Attach a click event handler to the button
-      $('#scrollButton').click(function () {
-        // Scroll down smoothly 200 pixels from the current position
-        $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
-      });
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize animations
+      initAnimations();
+      
+      // Initialize scroll animations
+      initScrollAnimations();
+      
+      // Initialize device showcase animation
+      initDeviceShowcase();
     });
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Main animation timeline
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".showcase",
-        start: "top top",
-        end: "+=3000",
-        scrub: true,
-        pin: true,
-      }
-    });
-
-    // Step 1: Laptop fades out → Center mobile fades in
-    tl.fromTo(".laptop", {opacity: 1, scale: 1}, {opacity: 0, scale: 0.6, duration: 1.5});
-    tl.fromTo(".main-mobile", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1.5});
-
-    // Step 2: Side mobiles slide in
-    tl.to(".mobile-left", {opacity: 1, x: "-60", duration: 1}, "+=0.5");
-    tl.to(".mobile-right", {opacity: 1, x: "60", duration: 1}, "<");
-
-    // Step 3: Side mobiles fade out
-    tl.to([".mobile-left", ".mobile-right"], {opacity: 0, duration: 1}, "+=1");
-
-    // Step 4: Center mobile moves up instead of left
-    tl.to(".main-mobile", {
-      y: -200, // Move up instead of left
-      scale: 0.9,
-      duration: 1
-    });
-
-    // Create a ScrollTrigger to show/hide the fixed mobile
-    ScrollTrigger.create({
-      trigger: ".content-section",
-      start: "top 50%",
-      end: "bottom 40%",
-      onEnter: () => {
-        // Hide the animated mobile and show the fixed one
-        gsap.to(".main-mobile", {opacity: 0, duration: 0.5});
-        gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5});
-        
-        // Position the fixed mobile where the main mobile was
-        const mainMobile = document.querySelector('.main-mobile');
-        const rect = mainMobile.getBoundingClientRect();
-        
-        gsap.set(".fixed-mobile", {
-          top: rect.top + window.scrollY,
-          left: rect.left,
-          scale: 0.9
+    function initAnimations() {
+      // Animate elements with .smooth-appear class on page load
+      gsap.utils.toArray('.smooth-appear').forEach(element => {
+        gsap.to(element, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
         });
-      },
-      onLeaveBack: () => {
-        // Show the animated mobile and hide the fixed one
-        gsap.to(".main-mobile", {opacity: 1, duration: 0.5});
-        gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5});
-      }
-    });
+      });
+    }
 
-    // Fade out fixed mobile before content ends
-    ScrollTrigger.create({
-      trigger: ".content-section",
-      start: "bottom 40%",
-      onEnter: () => gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5}),
-      onLeaveBack: () => gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5})
-    });
+    function initScrollAnimations() {
+      // Animate content blocks on scroll
+      gsap.utils.toArray('.content-block').forEach((block, i) => {
+        gsap.to(block, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: block,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none none'
+          }
+        });
+        
+        // Animate images within content blocks
+        const image = block.querySelector('.thumb-scroll');
+        if (image) {
+          gsap.to(image, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.3,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: block,
+              start: 'top 70%',
+              toggleActions: 'play none none none'
+            }
+          });
+        }
+      });
+    }
 
-    // Pin the fixed mobile
-    ScrollTrigger.create({
-      trigger: ".content-section",
-      start: "top top",
-      end: "bottom 30%",
-      pin: ".fixed-mobile",
-      pinSpacing: false
+    function initDeviceShowcase() {
+      // Ensure fixed mobile is initially hidden
+      gsap.set('.fixed-mobile', { opacity: 0 });
+      
+      // Main animation timeline
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".showcase",
+          start: "top top",
+          end: "+=3000",
+          scrub: 1.5,
+          pin: true,
+          anticipatePin: 1
+        }
+      });
+
+      // Step 1: Laptop fades out → Center mobile fades in
+      tl.to(".laptop", { opacity: 0, scale: 0.6, duration: 1.5 }, 0);
+      tl.to(".main-mobile", { opacity: 1, scale: 1, duration: 1.5 }, 0);
+
+      // Step 2: Side mobiles slide in
+      tl.to(".mobile-left", { opacity: 1, x: "-60", duration: 1 }, 1.5);
+      tl.to(".mobile-right", { opacity: 1, x: "60", duration: 1 }, 1.5);
+
+      // Step 3: Side mobiles fade out
+      tl.to([".mobile-left", ".mobile-right"], { opacity: 0, duration: 1 }, 3);
+
+      // Step 4: Center mobile moves left and hides
+      tl.to(".main-mobile", {
+        x: -Math.min(window.innerWidth / 4, 420),
+        opacity: 0,
+        duration: 1.2
+      }, 4);
+
+      // Step 5: Fixed mobile appears in the same position
+      tl.to(".fixed-mobile", {
+        opacity: 1,
+        duration: 0.8,
+        onStart: function() {
+          // Position the fixed mobile where the main mobile was
+          const mainMobile = document.querySelector('.main-mobile');
+          const rect = mainMobile.getBoundingClientRect();
+          
+          gsap.set(".fixed-mobile", {
+            top: rect.top + window.scrollY + "px",
+            left: rect.left + "px",
+            scale: 0.9
+          });
+        }
+      }, 4.5);
+
+      // Create a ScrollTrigger to handle the fixed mobile during content scroll
+      ScrollTrigger.create({
+        trigger: ".content-section",
+        start: "top 50%",
+        end: "bottom 40%",
+        onEnter: () => {
+          // Keep the fixed mobile visible during content scroll
+          gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5});
+        },
+        onLeaveBack: () => {
+          // Hide the fixed mobile when scrolling back up
+          gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5});
+        }
+      });
+
+      // Fade out fixed mobile before content ends
+      ScrollTrigger.create({
+        trigger: ".content-section",
+        start: "bottom 40%",
+        onEnter: () => gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5}),
+        onLeaveBack: () => gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5})
+      });
+
+      // Pin the fixed mobile during content scroll
+      ScrollTrigger.create({
+        trigger: ".content-section",
+        start: "top top",
+        end: "bottom 30%",
+        pin: ".fixed-mobile",
+        pinSpacing: false
+      });
+    }
+
+    // Handle resize events for responsive adjustments
+    window.addEventListener('resize', function() {
+      ScrollTrigger.refresh();
     });
   </script>
-</body>
-</html>
-
 </body>
 </html>
