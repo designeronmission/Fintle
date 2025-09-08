@@ -1,441 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Fintle</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        :root {
-            --primary: #6C63FF;
-            --primary-gradient: linear-gradient(135deg, #6C63FF 0%, #4A42D6 100%);
-            --secondary: #2D2B6B;
-            --accent: #FF6B6B;
-            --light: #F8F9FF;
-            --dark: #1A1A1A;
-            --gray: #4A4A4A;
-            --light-gray: #E0E0E0;
-        }
-        
-        body {
-            background-color: #f9f9ff;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 40px;
-        }
-        
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-left: 10px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 30px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            margin-bottom: 60px;
-            border-radius: 0 0 20px 20px;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        
-        /* Privacy Content */
-        .privacy-container {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .sidebar {
-            flex: 1;
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .sidebar h3 {
-            margin-bottom: 20px;
-            color: var(--secondary);
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--light-gray);
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
-        
-        .sidebar li {
-            margin-bottom: 12px;
-        }
-        
-        .sidebar a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: color 0.3s;
-            display: block;
-            padding: 8px 0;
-        }
-        
-        .sidebar a:hover, .sidebar a.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .privacy-content {
-            flex: 3;
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .privacy-section {
-            margin-bottom: 40px;
-            scroll-margin-top: 120px;
-        }
-        
-        .privacy-section h2 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .privacy-section p {
-            margin-bottom: 15px;
-            color: var(--gray);
-        }
-        
-        .privacy-section ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .privacy-section li {
-            margin-bottom: 8px;
-        }
-        
-        .highlight {
-            background-color: #f0f2ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        .data-table th, .data-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .data-table th {
-            background-color: #f8f9ff;
-            font-weight: 600;
-        }
-        
-        .data-table tr:hover {
-            background-color: #f8f9ff;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-column h3 {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-column a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: white;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background: var(--primary);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .privacy-container {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                position: relative;
-                top: 0;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                font-size: 1.5rem;
-                background: none;
-                border: none;
-                color: var(--dark);
-                cursor: pointer;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .privacy-content {
-                padding: 25px;
-            }
-            
-            .footer-column {
-                min-width: 100%;
-            }
-            
-            .data-table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 15px rgba(108, 99, 255, 0.4);
-            transition: transform 0.3s;
-            z-index: 99;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-        }
-        
-        .icon-box {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-        }
-        
-        .icon-box i {
-            background: var(--primary-gradient);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .update-highlight {
-            background-color: #fff4e6;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #ffa94d;
-        }
-    </style>
+    <!-- Meta Description -->
+    <meta name="description" content=" ">
+    <title>Home</title>
+
+    <!-- icofont-css-link -->
+    <link rel="stylesheet" href="css/icofont.min.css">
+    <!-- Owl-Carosal-Style-link -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Bootstrap-Style-link -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Coustome-Style-link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-Style-link -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <!-- webfont-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+
+
 </head>
+
 <body>
-    <!-- Header -->
+    <!-- Header Start -->
     <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="https://i.imgur.com/5Vq6T6c.png" alt="Fintle Logo">
-                <span class="logo-text">Fintle</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+        <!-- container start -->
+        <div class="container">
+            <!-- navigation bar -->
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo  -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo/fintle_logo.png" alt="image">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
+                        <div class="toggle-wrap">
+                            <span class="toggle-bar"></span>
+                        </div>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- secondery menu start -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <!-- secondery menu end -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="about.html">About us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link primary-gradient" href="blog.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="helpcenter.html">Help Center</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="contact.html">Contact</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn puprple_btn" href="contact.html">Get Started</a>
+                        </li>
+                    </ul>
+                </div>
+
             </nav>
-            <a href="#" class="btn">Get Started</a>
+            <!-- navigation end -->
         </div>
+        <!-- container end -->
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+
+    <!-- blog Hero -->
+    <section class="help-center-hero">
         <div class="container">
             <h1>Privacy Policy</h1>
             <p>Last updated: June 15, 2023</p>
+
+            <ul class="ul-new pb-4">
+                <li><a href="index.html">Home</a></li>
+                <li><span>»</span></li>
+                <li><a href="termsofuse.html">Privacy Policy</a></li>
+            </ul>
         </div>
     </section>
+
+
 
     <!-- Privacy Content -->
     <div class="container privacy-container">
@@ -759,105 +434,147 @@
         </div>
     </div>
 
-    <!-- Footer -->
+
+
+
+
+
+
+   <!-- Footer-Section start -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Fintle</h3>
-                    <p>Zero-Cost Accounting for Smarter Business Finance</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <div class="top_footer" id="contact">
+
+          <!-- container start -->
+          <div class="container">
+              <!-- row start -->
+              <div class="row">
+                  <!-- footer link 1 -->
+                  <div class="col-lg-5 col-md-6 col-12">
+                      <div class="abt_side">
+                        <div class="logo"> <img src="assets/images/logo/fintle_logo_white.png" alt="image" ></div>
+                        <p>Fintle is your all-in-one accounting tool to create bills, track sales, and manage purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
+                        <a href="tel:1235678901" class="footer_cta_text">Call : +91 123 4567890 </a> <br>
+                            <a href="mailto:example@email.com" class="footer_cta_text"> Email : fintle@email.com </a>
+                      </div>
+                  </div>
+
+                  <!-- footer link 2 -->
+                  <div class="col-lg-2 col-md-6 col-12">
+                      <div class="links">
+                        <h6>Quick Links</h6>
+                          <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <!-- footer link 3 -->
+                  <div class="col-lg-2 col-md-6 col-12">
+                    <div class="links">
+                      <h6>Suport</h6>
+                        <ul>
+                          <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="helpcenter.html">Support</a></li>
+                        <li><a href="features.html">How it works</a></li>
+                        <li><a href="termsofuse.html">Terms & conditions</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Product</h3>
-                    <ul>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Use Cases</a></li>
-                        <li><a href="#">Integrations</a></li>
+                  </div>
+
+                  <!-- footer link 4 -->
+                  <div class="col-lg-3 col-md-6 col-12">
+
+                        <h6>Subscribe us</h6>
+                        <div class="news_letter">
+                          <p>Subscribe our newsleter to receive latest updates regularly from us!</p>
+                          <form>
+                            <div class="form-group">
+                              <input type="email" class="form-control" placeholder="Enter your email">
+                              <button class="btn" aria-label="subscribe"><i class="icofont-paper-plane"></i></button>
+                            </div>
+                            <p class="note">By clicking send link you agree to receive message.</p>
+                          </form>
+                        </div>
+
+                  </div>
+              </div>
+              <!-- row end -->
+          </div>
+          <!-- container end -->
+
+          <!-- last footer -->
+          <div class="bottom_footer">
+            <!-- container start -->
+              <div class="container">
+                <!-- row start -->
+                <div class="row">
+                  <div class="col-md-4">
+                      <p>© 2025 Fintle. All rights reserved.</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <ul class="social_media">
+                      <li><a href="#" aria-label="facebook page" ><i class="icofont-facebook"></i></a></li>
+                      <li><a href="#" aria-label="instagram page"><i class="icofont-instagram"></i></a></li>
+                      <li><a href="#" aria-label="pinterest page"><i class="icofont-pinterest"></i></a></li>
                     </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Fintle. All rights reserved.</p>
-            </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="blank">Aparajayah</a></p>
+                  </div>
+              </div>
+              <!-- row end -->
+              </div>
+              <!-- container end -->
+          </div>
+
         </div>
     </footer>
+    <!-- Footer-Section end -->
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+
+    <!-- Page-wrapper-Start -->
+    <div class="page_wrapper">
+
+        <!-- go top button -->
+        <div class="go_top" id="Gotop">
+            <span><i class="icofont-arrow-up"></i></span>
+        </div>
+
+    </div>
+    <!-- Page-wrapper-End -->
+
+
+
+    <!-- Jquery-js-Link -->
+    <script src="js/jquery.js"></script>
+    <!-- owl-js-Link -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- bootstrap-js-Link -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- main-js-Link -->
+    <script src="js/main.js"></script>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active class in sidebar
-                    document.querySelectorAll('.sidebar a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
+        // Scroll Down Window 
+        $(document).ready(function () {
+            // Attach a click event handler to the button
+            $('#scrollButton').click(function () {
+                // Scroll down smoothly 200 pixels from the current position
+                $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
             });
         });
-        
-        // Back to top button functionality
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'flex';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
-        
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Highlight current section in sidebar when scrolling
-        const sections = document.querySelectorAll('.privacy-section');
+
+
+
+          // Highlight current section in sidebar when scrolling
+        const sections = document.querySelectorAll('.terms-section');
         const sidebarLinks = document.querySelectorAll('.sidebar a');
         
         window.addEventListener('scroll', () => {
@@ -880,5 +597,8 @@
             });
         });
     </script>
+
+
 </body>
+
 </html>
