@@ -1,166 +1,457 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Single Mobile: Parallax → Left Sticky</title>
-<style>
-  :root{
-    --bg:#0f1113;
-    --content-gap:42vw; /* space reserved on left for the fixed mobile */
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background:var(--bg);
-    color:#fff;
-    -webkit-font-smoothing:antialiased;
-  }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta Description -->
+  <meta name="description" content=" ">
+  <title>Home</title>
 
-  /* PARALLAX REGION (will be pinned while scrolling) */
-  .parallax {
-    height:100vh;              /* viewport tall */
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .parallax .hint {
-    position: absolute;
-    top:18px;
-    left:18px;
-    font-size:14px;
-    color:#9aa1a6;
-    opacity:.9;
-  }
+  <!-- icofont-css-link -->
+  <link rel="stylesheet" href="css/icofont.min.css">
+  <!-- Owl-Carosal-Style-link -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <!-- Bootstrap-Style-link -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Coustome-Style-link -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Responsive-Style-link -->
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/fav-icon.png" type="image/x-icon">
+  <!-- webfont-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
 
-  /* fixed overlay for device mockups (one copy of each device) */
-  .devices-fixed{
-    position:fixed;
-    inset:0;                  /* cover viewport */
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    pointer-events:none;      /* so underlying content can be clicked */
-    z-index:40;
-  }
+    <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
 
-  .device{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    will-change: transform, opacity, left;
-    opacity:0;
-  }
+    .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      background: #ccc;
+    }
 
-  /* sizes use vw so they scale nicely on desktop */
-  .device.laptop  { width: min(1200px, 70vw);  max-width:1440px;  }
-  .device.tablet  { width: min(820px, 42vw);   max-width:800px;   }
-  .device.mobile  { width: clamp(220px, 22vw, 400px); max-width:400px; }
+    .content-section {
+      height: 200vh; /* Large content */
+      background: #fff;
+      padding: 50px;
+    }
 
-  /* FEATURES / CONTENT section that scrolls to the right of the fixed mobile */
-  .features-section{
-    min-height:200vh;
-    display:block;
-    padding: 60px 40px;
-    /* Reserve left space so content doesn't sit under the fixed mobile */
-    padding-left: calc(var(--content-gap) + 2rem);
-    position:relative;
-    z-index:1;
-  }
+    .main-mobile {
+      position: relative;
+      width: 250px;
+      height: 500px;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+      border-radius: 20px;
+      z-index: 5;
+    }
 
-  .feature {
-    min-height:80vh;
-    border-bottom:1px solid rgba(255,255,255,0.05);
-    display:flex;
-    align-items:center;
-    font-size: clamp(20px, 2.2vw, 28px);
-    gap:12px;
-    padding:2rem 0;
-  }
+    .fixed-mobile {
+      position: fixed;
+      top: 50%;
+      left: 50px;
+      transform: translateY(-50%);
+      width: 250px;
+      height: 500px;
+      background: #222;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      z-index: 10;
+      opacity: 0; /* Hidden by default */
+    }
 
-  /* small responsive tweaks */
-  @media (max-width:900px){
-    :root{ --content-gap:58vw; } /* mobile needs more left room */
-    .device.laptop{ display:none; }
-    .device.tablet{ width:60vw; }
-  }
-</style>
+    .spacer {
+      height: 15vh; /* space before/after */
+    }
+
+    .showcase {
+      height: 110vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .devices {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .device {
+      position: absolute;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .mobile-left {
+      left: 16%;
+      opacity: 0;
+    }
+
+    .mobile-right {
+      right: 16%;
+      opacity: 0;
+    }
+
+    /* Content section */
+    .content-section {
+      position: relative;
+      min-height: 300vh; /* enough to scroll through 3 blocks */
+    }
+    
+    .content-side {
+      margin-left: 40%; /* make space for fixed mobile */
+      padding: 20px;
+    }
+    
+    .content-block {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px;
+    } 
+
+    .device.laptop { width: 1200px; }
+    .device.tablet { width: 800px; }
+    .device.mobile { width: 300px;}
+    
+    /* Fixed mobile styles */
+    .fixed-mobile {
+      position: fixed;
+      top: 60% !important;
+      left: clamp(19%, 5vw, 32%);
+      transform: translateY(-50%) scale(0.9);
+      z-index: 100;
+      opacity: 0;
+      width: 300px;
+      pointer-events: none;
+    }
+    
+    .content-scroll-end {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 1080px) and (max-width: 1499px) {
+      .fixed-mobile {
+        left: 15% !important;
+      }
+    }
+
+    @media (min-width: 1810px) and (max-width: 2400px) {
+      .fixed-mobile {
+        left: 20% !important;
+      }
+    }
+
+    @media (min-width: 2400px) and (max-width: 2700px) {
+      .fixed-mobile {
+        left: 27% !important;
+      }
+    }
+
+    @media (min-width: 1500px) and (max-width: 1800px) {
+      .fixed-mobile {
+        left: 18% !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Header Start -->
+  <header>
+    <!-- container start -->
+    <div class="container">
+      <!-- navigation bar -->
+      <nav class="navbar navbar-expand-lg">
+        <!-- logo  -->
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images/logo/fintle_logo.png" alt="image">
+        </a>
 
-  <!-- Parallax section (pinned while timeline runs) -->
-  <section class="parallax">
-    <div class="hint">Scroll to animate — Laptop → Tablet → Mobile → Mobile moves left & sticks</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
+            <div class="toggle-wrap">
+              <span class="toggle-bar"></span>
+            </div>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+
+            <!-- secondery menu start -->
+            <li class="nav-item has_dropdown">
+              <a class="nav-link primary-gradient" href="#">Home</a>
+            </li>
+            <!-- secondery menu end -->
+
+            <li class="nav-item">
+              <a class="nav-link" href="features.html">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="faq.html">FAQ</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " href="blog.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="helpcenter.html">Help Center</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="btn puprple_btn" href="contact.html">Get Started</a>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+      <!-- navigation end -->
+    </div>
+    <!-- container end -->
+  </header>
+
+  <!-- Banner-Section-Start -->
+  <section class="banner_section">
+    <!-- container start -->
+    <div class="container">
+
+      <!-- row start -->
+      <div class="row">
+
+        <div class="col-lg-10 col-md-12 mx-auto" data-aos="fade-right" data-aos-duration="1500">
+          <!-- banner text -->
+          <div class="banner_text">
+
+            <h1>Zero-Cost Accounting <span class="primary-gradient"> for Smarter Business Finance </span></h1>
+            <!-- p -->
+            <p>Automate invoicing, track expenses, manage inventory, and scale profitability—100% free. Built for
+              entrepreneurs, students, and accountants.
+            </p>
+          </div>
+
+          <!-- app buttons -->
+          <ul class="app_btn">
+            <li>
+              <a href="#">
+                <img class="blue_img" src="assets/images/appstore_white.png" alt="image">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="blue_img" src="assets/images/googleplay_white.png" alt="image">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- row end -->
+    </div>
+    <!-- container end -->
   </section>
+  <!-- Banner-Section-end -->
 
-  <!-- FIXED overlay with the three device mockups (ONE mobile image only here) -->
-  <div class="devices-fixed">
-    <!-- laptop -->
-    <img class="device laptop" src="https://via.placeholder.com/1440x900/222/eee?text=Laptop+Mockup" alt="Laptop mockup">
-    <!-- tablet -->
-    <img class="device tablet" src="https://via.placeholder.com/800x1200/2b2b2b/fff?text=Tablet+Mockup" alt="Tablet mockup">
-    <!-- mobile (single element - will remain the same element later when it moves left) -->
-    <img class="device mobile" src="https://via.placeholder.com/400x800/111/fff?text=Mobile+Mockup" alt="Mobile mockup">
+  <div class="container res-cont">
+    <!-- Device Parallax Showcase -->
+    <section class="showcase">
+      <div class="devices">
+        <img src="assets/images/mockups/dashboard-lap.png" class="device laptop" alt="Laptop">
+        <img src="assets/images/mockups/dashboard.png" class="device mobile main-mobile" alt="Mobile">
+        <img src="assets/images/mockups/left.png" class="device mobile mobile-left" alt="Mobile Left">
+        <img src="assets/images/mockups/right.png" class="device mobile mobile-right" alt="Mobile Right">
+      </div>
+    </section>
+
+    <!-- Fixed mobile that will appear when needed -->
+    <img src="assets/images/mockups/dashboard.png" class="fixed-mobile" alt="Mobile">
+
+    <!-- Scroll content that appears while mobile is fixed -->
+    <section class="content-section">
+      <div class="content-side">
+        <div class="content-block">
+          <h2>Instant Invoice Sharing via SMS & WhatsApp</h2>
+          <p>Send invoices directly to your clients in seconds. With Fintle, your billing reaches your customers instantly through SMS or WhatsApp, ensuring faster payments and better cash flow.</p>
+          <img src="assets/images/mockups/share.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+        <div class="content-block">
+          <h2>Comprehensive Sales, Purchases & Expense Tracking</h2>
+          <p>Keep your finances organized effortlessly. Track all your sales, purchases, and expenses in one place, with detailed reports to help you make smarter business decisions.</p>
+          <img src="assets/images/mockups/export.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+        <div class="content-block">
+          <h2>Effortless Quotations, Estimates & Proforma Invoices</h2>
+          <p>Create professional quotations, estimates, and proforma invoices in minutes. Impress your clients with accurate documents while streamlining your sales process.</p>
+          <img src="assets/images/mockups/invoice-small.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+        <div class="content-block">
+          <h2>Flawless Business Management</h2>
+          <p>Fintle goes beyond accounting. Automate recurring tasks, monitor your financial health, and manage all your transactions from a single, user-friendly platform.</p>
+          <img src="assets/images/mockups/management.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+      </div>
+    </section>
   </div>
 
-  <!-- Features content that scrolls on the right of the fixed mobile -->
-  <section class="features-section">
-    <div class="feature">📱 Feature 1 — Hero text about your app and key metric.</div>
-    <div class="feature">⚡ Feature 2 — Fast interactions and instant updates.</div>
-    <div class="feature">🔒 Feature 3 — Secure payments and encrypted data.</div>
-    <div class="feature">🌐 Feature 4 — Cross-device sync and offline mode.</div>
-    <div class="feature">📊 Feature 5 — Analytics and customizable dashboards.</div>
-  </section>
+  <div class="mobile-responsive">
+    <img src="assets/images/mockups/mobile-size.png" alt="mobile-mockup" class="mob-res-image">
+  </div>
 
-  <!-- GSAP + ScrollTrigger -->
+  <div class="background-white">
+    <!-- Rest of your content remains the same -->
+  </div>
+
+  <!-- Footer-Section start -->
+  <footer>
+    <!-- Footer content remains the same -->
+  </footer>
+  <!-- Footer-Section end -->
+
+  <!-- Page-wrapper-Start -->
+  <div class="page_wrapper">
+    <!-- go top button -->
+    <div class="go_top" id="Gotop">
+      <span><i class="icofont-arrow-up"></i></span>
+    </div>
+  </div>
+  <!-- Page-wrapper-End-->
+
+  <!-- Jquery-js-Link -->
+  <script src="js/jquery.js"></script>
+  <!-- owl-js-Link -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- bootstrap-js-Link -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- main-js-Link -->
+  <script src="js/main.js"></script>
+
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-gsap.registerPlugin(ScrollTrigger);
 
-// set initial states
-gsap.set(".laptop", {opacity:1, scale:1});
-gsap.set(".tablet", {opacity:0, scale:0.9});
-gsap.set(".mobile", {opacity:0, scale:0.85, x:0 });
+  <script>
+    document.querySelector('.fixed-mobile').removeAttribute('style');
 
-// Timeline that runs while the PARALLAX section is pinned
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".parallax",
-    start: "top top",
-    end: "+=2200",        // scroll distance for the animation
-    scrub: true,
-    pin: true,            // pin only during this timeline
-    anticipatePin: 1,
-    // Once timeline ends, the scroll continues normally
-    onLeave: () => {
-      // make mobile stick visually on left after animation
-      gsap.set(".mobile", {position:"fixed", top:"50%", left:"10%", transform:"translateY(-50%)"});
-    }
-  }
-});
+    // Scroll Down Window 
+    $(document).ready(function () {
+      // Attach a click event handler to the button
+      $('#scrollButton').click(function () {
+        // Scroll down smoothly 200 pixels from the current position
+        $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
+      });
+    });
 
-// Laptop fades out
-tl.to(".laptop", {opacity:0, scale:0.6, ease:"power1.out", duration:1});
+    gsap.registerPlugin(ScrollTrigger);
 
-// Tablet fades in
-tl.to(".tablet", {opacity:1, scale:1, ease:"power2.out", duration:1}, "-=0.6");
+    // Main animation timeline
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".showcase",
+        start: "top top",
+        end: "+=3000",
+        scrub: true,
+        pin: true,
+      }
+    });
 
-// Hold tablet briefly
-tl.addLabel("tabletHold", "+=0.2");
+    // Step 1: Laptop fades out → Center mobile fades in
+    tl.fromTo(".laptop", {opacity: 1, scale: 1}, {opacity: 0, scale: 0.6, duration: 1.5});
+    tl.fromTo(".main-mobile", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1.5});
 
-// Swap tablet with mobile
-tl.to(".tablet", {opacity:0, duration:0.15});
-tl.to(".mobile", {opacity:1, scale:1, duration:0.7}, "-=0.05");
+    // Step 2: Side mobiles slide in
+    tl.to(".mobile-left", {opacity: 1, x: "-60", duration: 1}, "+=0.5");
+    tl.to(".mobile-right", {opacity: 1, x: "60", duration: 1}, "<");
 
-// Move mobile to left (before scroll continues)
-tl.to(".mobile", { x: "-33vw", scale:0.95, ease:"power1.inOut", duration:1.1 });
+    // Step 3: Side mobiles fade out
+    tl.to([".mobile-left", ".mobile-right"], {opacity: 0, duration: 1}, "+=1");
 
-// Refresh ScrollTrigger on resize
-window.addEventListener("resize", () => ScrollTrigger.refresh());
-</script>
+    // Step 4: Center mobile moves up instead of left
+    tl.to(".main-mobile", {
+      y: -200, // Move up instead of left
+      scale: 0.9,
+      duration: 1
+    });
+
+    // Create a ScrollTrigger to show/hide the fixed mobile
+    ScrollTrigger.create({
+      trigger: ".content-section",
+      start: "top 50%",
+      end: "bottom 40%",
+      onEnter: () => {
+        // Hide the animated mobile and show the fixed one
+        gsap.to(".main-mobile", {opacity: 0, duration: 0.5});
+        gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5});
+        
+        // Position the fixed mobile where the main mobile was
+        const mainMobile = document.querySelector('.main-mobile');
+        const rect = mainMobile.getBoundingClientRect();
+        
+        gsap.set(".fixed-mobile", {
+          top: rect.top + window.scrollY,
+          left: rect.left,
+          scale: 0.9
+        });
+      },
+      onLeaveBack: () => {
+        // Show the animated mobile and hide the fixed one
+        gsap.to(".main-mobile", {opacity: 1, duration: 0.5});
+        gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5});
+      }
+    });
+
+    // Fade out fixed mobile before content ends
+    ScrollTrigger.create({
+      trigger: ".content-section",
+      start: "bottom 40%",
+      onEnter: () => gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5}),
+      onLeaveBack: () => gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5})
+    });
+
+    // Pin the fixed mobile
+    ScrollTrigger.create({
+      trigger: ".content-section",
+      start: "top top",
+      end: "bottom 30%",
+      pin: ".fixed-mobile",
+      pinSpacing: false
+    });
+  </script>
+</body>
+</html>
 
 </body>
 </html>

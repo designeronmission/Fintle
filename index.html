@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,12 +56,12 @@
     }
 
     .mobile-left {
-      left: 20%;
+      left: 16%;
       opacity: 0;
     }
 
     .mobile-right {
-      right: 20%;
+      right: 16%;
       opacity: 0;
     }
 
@@ -364,11 +365,6 @@
   <section class="row_am intro_text">
     <!-- container start -->
     <div class="container">
-      <!-- intro badge 
-        <div class="badge_main">
-          <img src="images/logo_circle.png"  alt="image" class="logo_circle rotate">
-          <img src="assets/images/logo/fav.png"  alt="image" class="logo_icon">
-        </div>-->
 
       <!-- intro text -->
       <div class="intro_text_tagline ">
@@ -972,8 +968,7 @@
 
 
   <script>
-
-    document.querySelector('.fixed-mobile').removeAttribute('style');
+   document.querySelector('.fixed-mobile').removeAttribute('style');
 
     // Scroll Down Window 
     $(document).ready(function () {
@@ -983,9 +978,9 @@
         $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
       });
     });
-  </script>
 
-  <script>
+     document.querySelector('.fixed-mobile').removeAttribute('style');
+
     gsap.registerPlugin(ScrollTrigger);
 
     // Main animation timeline
@@ -993,9 +988,9 @@
       scrollTrigger: {
         trigger: ".showcase",
         start: "top top",
-         end: "+=3000",
-    scrub: true,
-    pin: true,
+        end: "+=3000",
+        scrub: true,
+        pin: true,
       }
     });
 
@@ -1010,47 +1005,61 @@
     // Step 3: Side mobiles fade out
     tl.to([".mobile-left", ".mobile-right"], {opacity: 0, duration: 1}, "+=1");
 
-    // Step 4: Center mobile shifts left
+    // Step 4: Center mobile moves left and hides
     tl.to(".main-mobile", {
       x: -Math.min(window.innerWidth / 4, 420),
-      scale: 0.9,
+      opacity: 0,
       duration: 1
     });
 
- // Create a ScrollTrigger to show/hide the fixed mobile
+    // Step 5: Fixed mobile appears in the same position
+    tl.to(".fixed-mobile", {
+      opacity: 1,
+      duration: 0.5,
+      onStart: function() {
+        // Position the fixed mobile where the main mobile was
+        const mainMobile = document.querySelector('.main-mobile');
+        const rect = mainMobile.getBoundingClientRect();
+        
+        gsap.set(".fixed-mobile", {
+          top: rect.top + window.scrollY + "px",
+          left: rect.left + "px",
+          scale: 0.9
+        });
+      }
+    });
+
+    // Create a ScrollTrigger to handle the fixed mobile during content scroll
     ScrollTrigger.create({
       trigger: ".content-section",
       start: "top 50%",
       end: "bottom 40%",
       onEnter: () => {
-        // Hide the animated mobile and show the fixed one
-        gsap.to(".main-mobile", {opacity: 0, duration: 0.5});
+        // Keep the fixed mobile visible during content scroll
         gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5});
       },
       onLeaveBack: () => {
-        // Show the animated mobile and hide the fixed one
-        gsap.to(".main-mobile", {opacity: 1, duration: 0.5});
+        // Hide the fixed mobile when scrolling back up
         gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5});
       }
     });
 
     // Fade out fixed mobile before content ends
-ScrollTrigger.create({
-  trigger: ".content-section",
-  start: "bottom 40%", // 🔹 near the end of content
-  onEnter: () => gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5}),
-  onLeaveBack: () => gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5})
-});
+    ScrollTrigger.create({
+      trigger: ".content-section",
+      start: "bottom 40%",
+      onEnter: () => gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5}),
+      onLeaveBack: () => gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5})
+    });
 
-
-// Pin the fixed mobile
-ScrollTrigger.create({
-  trigger: ".content-section",
-  start: "top top",
-  end: "bottom 30%", // 🔹 stop pinning earlier
-  pin: ".fixed-mobile",
-  pinSpacing: false
-});
+    // Pin the fixed mobile during content scroll
+    ScrollTrigger.create({
+      trigger: ".content-section",
+      start: "top top",
+      end: "bottom 30%",
+      pin: ".fixed-mobile",
+      pinSpacing: false
+    });
 
   </script>
 

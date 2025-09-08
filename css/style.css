@@ -913,7 +913,7 @@ header.fixed .navbar {
 /* hero slider wraper */
 .banner_section {
     position: relative;
-    background-image: url(../assets/images/pattern-light-1.png);
+/*     background-image: url(../assets/images/pattern-light-1.png); */
     background-repeat: repeat;
     padding-top: 180px;
     padding-bottom: 100px;
@@ -964,7 +964,7 @@ header.fixed .navbar {
     height: 530px;
     background-position: center;
     position: absolute;
-    bottom: 0;
+    bottom: inherit;
     z-index: 0;
 }
 
