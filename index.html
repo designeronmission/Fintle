@@ -39,40 +39,90 @@
       overflow: hidden;
     }
 
-.devices {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.device {
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.8);
-}
+    .devices {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .device {
+      position: absolute;
+      opacity: 0;
+      transform: scale(0.8);
+    }
 
+    .mobile-left {
+      left: 20%;
+      opacity: 0;
+    }
 
+    .mobile-right {
+      right: 20%;
+      opacity: 0;
+    }
 
-/* Content section */
-.content-section {
-  display: flex;
-  flex-direction: column;
-  min-height: 300vh; /* enough to scroll through 3 blocks */
-  padding-left:40%; /* make space for fixed mobile */
-}
-.content-block {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 50px;
-} 
+    /* Content section */
+    .content-section {
+      position: relative;
+      min-height: 300vh; /* enough to scroll through 3 blocks */
+    }
+    
+    .content-side {
+      margin-left: 40%; /* make space for fixed mobile */
+      padding: 20px;
+    }
+    
+    .content-block {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px;
+    } 
 
     .device.laptop { width: 1200px; }
     .device.tablet { width: 800px; }
     .device.mobile { width: 300px;}
+    
+    /* Fixed mobile styles */
+    .fixed-mobile {
+      position: fixed;
+     top: 60% !important;
+     left: clamp(19%, 5vw, 32%);
+      transform: translateY(-50%) scale(0.9);
+      z-index: 100;
+      opacity: 0;
+      width: 300px;
+      pointer-events: none;
+    }
+    
+    .content-scroll-end {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+@media (min-width: 1080px) and (max-width: 1499px) {
+  .fixed-mobile {
+    left: 19% !important;
+  }
+}
+
+
+@media (min-width: 1500px) and (max-width: 3000px) {
+  .fixed-mobile {
+    left: 32% !important;
+  }
+}
+
+
+
+
   </style>
 </head>
 
@@ -189,46 +239,45 @@
 
 
   <div class="container res-cont">
-  <!-- Device Parallax Showcase -->
-  <section class="showcase">
-    <div class="devices">
-      <img src="assets/images/mockups/dashboard-lap.png" class="device laptop" alt="Laptop">
-      <img src="assets/images/mockups/dashboard.png" class="device mobile" alt="Mobile">
-    </div>
-  </section>
+    <!-- Device Parallax Showcase -->
+    <section class="showcase">
+      <div class="devices">
+        <img src="assets/images/mockups/dashboard-lap.png" class="device laptop" alt="Laptop">
+        <img src="assets/images/mockups/dashboard.png" class="device mobile main-mobile" alt="Mobile">
+        <img src="assets/images/mockups/left.png" class="device mobile mobile-left" alt="Mobile Left">
+        <img src="assets/images/mockups/right.png" class="device mobile mobile-right" alt="Mobile Right">
+      </div>
+    </section>
 
-<!-- Scroll content that appears while mobile is fixed -->
-<section class="content-section">
-  <div class="content-side">
-    <div class="content-block">
-      <h2>Instant Invoice Sharing via SMS & WhatsApp</h2>
-      <p>Send invoices directly to your clients in seconds. With Fintle, your billing reaches your customers instantly through SMS or WhatsApp, ensuring faster payments and better cash flow.</p>
-      <img src="assets/images/mockups/share.png" alt="Send invoices" class="thumb-scroll">
-    </div>
-    <div class="content-block">
-      <h2>Comprehensive Sales, Purchases & Expense Tracking</h2>
-      <p>Keep your finances organized effortlessly. Track all your sales, purchases, and expenses in one place, with detailed reports to help you make smarter business decisions.</p>
-        <img src="assets/images/mockups/export.png" alt="Send invoices" class="thumb-scroll">
-    </div>
-    <div class="content-block">
-      <h2>Effortless Quotations, Estimates & Proforma Invoices</h2>
-      <p>Create professional quotations, estimates, and proforma invoices in minutes. Impress your clients with accurate documents while streamlining your sales process.</p>
-      <img src="assets/images/mockups/invoice-small.png" alt="Send invoices" class="thumb-scroll">
-    </div>
+    <!-- Fixed mobile that will appear when needed -->
+    <img src="assets/images/mockups/dashboard.png" class="fixed-mobile" alt="Mobile">
 
-     <div class="content-block">
-      <h2>Flawless Business Management</h2>
-      <p>Fintle goes beyond accounting. Automate recurring tasks, monitor your financial health, and manage all your transactions from a single, user-friendly platform.</p>
-       <img src="assets/images/mockups/management.png" alt="Send invoices" class="thumb-scroll">
-    </div>
-
+    <!-- Scroll content that appears while mobile is fixed -->
+    <section class="content-section">
+      <div class="content-side">
+        <div class="content-block">
+          <h2>Instant Invoice Sharing via SMS & WhatsApp</h2>
+          <p>Send invoices directly to your clients in seconds. With Fintle, your billing reaches your customers instantly through SMS or WhatsApp, ensuring faster payments and better cash flow.</p>
+          <img src="assets/images/mockups/share.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+        <div class="content-block">
+          <h2>Comprehensive Sales, Purchases & Expense Tracking</h2>
+          <p>Keep your finances organized effortlessly. Track all your sales, purchases, and expenses in one place, with detailed reports to help you make smarter business decisions.</p>
+          <img src="assets/images/mockups/export.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+        <div class="content-block">
+          <h2>Effortless Quotations, Estimates & Proforma Invoices</h2>
+          <p>Create professional quotations, estimates, and proforma invoices in minutes. Impress your clients with accurate documents while streamlining your sales process.</p>
+          <img src="assets/images/mockups/invoice-small.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+        <div class="content-block">
+          <h2>Flawless Business Management</h2>
+          <p>Fintle goes beyond accounting. Automate recurring tasks, monitor your financial health, and manage all your transactions from a single, user-friendly platform.</p>
+          <img src="assets/images/mockups/management.png" alt="Send invoices" class="thumb-scroll">
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-
-  </div>
-
-  <!-- Spacer -->
-  <div class="spacer"></div>
 
 
   <div class="mobile-responsive">
@@ -892,7 +941,8 @@
 
 
   </div>
-  <!-- Page-wrapper-End -->
+
+  <!-- Page-wrapper-End-->
 
   <!-- Jquery-js-Link -->
   <script src="js/jquery.js"></script>
@@ -911,6 +961,9 @@
 
 
   <script>
+
+    document.querySelector('.fixed-mobile').removeAttribute('style');
+
     // Scroll Down Window 
     $(document).ready(function () {
       // Attach a click event handler to the button
@@ -921,37 +974,75 @@
     });
   </script>
 
-
-
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
+    // Main animation timeline
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".showcase",
         start: "top top",
-        end: "+=4000", 
-        scrub: true,
-        pin: true,
+         end: "+=3000",
+    scrub: true,
+    pin: true,
       }
     });
 
- // Step 1: Laptop → Tablet
-  tl.fromTo(".laptop", {opacity: 1, scale: 1}, {opacity: 0, scale: 0.6, duration: 1.5});
-  tl.fromTo(".mobile", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1.5});
+    // Step 1: Laptop fades out → Center mobile fades in
+    tl.fromTo(".laptop", {opacity: 1, scale: 1}, {opacity: 0, scale: 0.6, duration: 1.5});
+    tl.fromTo(".main-mobile", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 1.5});
 
-  // Step 3: Mobile slides left and becomes sticky version
-  tl.to(".mobile", {
-    x: -window.innerWidth / 5,
-    scale: 0.9,
-    duration: 1,
-    onComplete: () => {
-      document.querySelector(".mobile-sticky").style.opacity = "1";
-      document.querySelector(".mobile").style.opacity = "0"; // handover
-    }
-  });
+    // Step 2: Side mobiles slide in
+    tl.to(".mobile-left", {opacity: 1, x: "-60", duration: 1}, "+=0.5");
+    tl.to(".mobile-right", {opacity: 1, x: "60", duration: 1}, "<");
+
+    // Step 3: Side mobiles fade out
+    tl.to([".mobile-left", ".mobile-right"], {opacity: 0, duration: 1}, "+=1");
+
+    // Step 4: Center mobile shifts left
+    tl.to(".main-mobile", {
+      x: -Math.min(window.innerWidth / 4, 300),
+      scale: 0.9,
+      duration: 1
+    });
+
+ // Create a ScrollTrigger to show/hide the fixed mobile
+    ScrollTrigger.create({
+      trigger: ".content-section",
+      start: "top 50%",
+      end: "bottom 40%",
+      onEnter: () => {
+        // Hide the animated mobile and show the fixed one
+        gsap.to(".main-mobile", {opacity: 0, duration: 0.5});
+        gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5});
+      },
+      onLeaveBack: () => {
+        // Show the animated mobile and hide the fixed one
+        gsap.to(".main-mobile", {opacity: 1, duration: 0.5});
+        gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5});
+      }
+    });
+
+    // Fade out fixed mobile before content ends
+ScrollTrigger.create({
+  trigger: ".content-section",
+  start: "bottom 40%", // 🔹 near the end of content
+  onEnter: () => gsap.to(".fixed-mobile", {opacity: 0, duration: 0.5}),
+  onLeaveBack: () => gsap.to(".fixed-mobile", {opacity: 1, duration: 0.5})
+});
+
+
+// Pin the fixed mobile
+ScrollTrigger.create({
+  trigger: ".content-section",
+  start: "top top",
+  end: "bottom 30%", // 🔹 stop pinning earlier
+  pin: ".fixed-mobile",
+  pinSpacing: false
+});
 
   </script>
+
 </body>
 
 
