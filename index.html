@@ -669,7 +669,7 @@
               <!-- task images -->
               <div class="task_img">
                 <div class="frame_img">
-                  <img src="assets/images/mockups/prints.png" alt="image">
+                  <img src="assets/images/mockups/print-1.png" alt="image">
                 </div>
                 <!-- <div class="screen_img">
                 <img class="moving_animation" src="images/feature1b.png" alt="image">
@@ -1051,104 +1051,118 @@
 
 
   <script>
-    document.querySelector('.fixed-mobile').removeAttribute('style');
+   document.querySelector('.fixed-mobile').removeAttribute('style');
 
-    // Scroll Down Window 
-    $(document).ready(function () {
-      // Attach a click event handler to the button
-      $('#scrollButton').click(function () {
-        // Scroll down smoothly 200 pixels from the current position
-        $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
-      });
-    });
+// Scroll Down Window 
+$(document).ready(function () {
+  // Attach a click event handler to the button
+  $('#scrollButton').click(function () {
+    // Scroll down smoothly 200 pixels from the current position
+    $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
+  });
+});
 
-    document.querySelector('.fixed-mobile').removeAttribute('style');
+document.querySelector('.fixed-mobile').removeAttribute('style');
 
-    gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
-    // Main animation timeline - REDUCED DURATION
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".showcase",
-        start: "top top",
-        end: "+=1500", // Reduced from 3000 to 1500
-        scrub: true,
-        pin: true,
+// Main animation timeline - FASTER
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".showcase",
+    start: "top top",
+    end: "+=1200", // Reduced from 1500 to 1200 for faster animation
+    scrub: true,
+    pin: true,
+  }
+});
+
+// Step 1: Laptop fades out → Center mobile fades in (FASTER)
+tl.fromTo(".laptop", { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.6, duration: 0.6 });
+tl.fromTo(".main-mobile", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6 });
+
+// Step 2: Bring in left and right mobiles
+tl.fromTo(".mobile-left", 
+  { opacity: 0, x: -200, scale: 0.8 }, 
+  { opacity: 1, x: 0, scale: 1, duration: 0.6 }, "-=0.3"
+);
+
+tl.fromTo(".mobile-right", 
+  { opacity: 0, x: 200, scale: 0.8 }, 
+  { opacity: 1, x: 0, scale: 1, duration: 0.6 }, "-=0.6"
+);
+
+  // Step 3: Fixed Mobile (fade/scale)
+  gsap.from(".fixed-mobile", {
+    scale: 0.8,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".fixed-mobile",
+      start: "top 85%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+
+
+// Make content section appear immediately after fixed mobile
+tl.to(".content-section", {
+  opacity: 1,
+  duration: 0.2 // Reduced duration
+}, "<"); // Start this animation at the same time as the previous one
+
+// Create a ScrollTrigger to handle the fixed mobile during content scroll
+ScrollTrigger.create({
+  trigger: ".content-section",
+  start: "top 40%",
+  end: "bottom 10%",
+  onEnter: () => {
+    // Keep the fixed mobile visible during content scroll
+    gsap.to(".fixed-mobile", { opacity: 1, duration: 0.1 });
+  },
+  onLeaveBack: () => {
+    // Hide the fixed mobile when scrolling back up
+    gsap.to(".fixed-mobile", { opacity: 0, duration: 0.1 });
+  }
+});
+
+// Fade out fixed mobile before content ends
+ScrollTrigger.create({
+  trigger: ".content-section",
+  start: "bottom 20%",
+  onEnter: () => gsap.to(".fixed-mobile", { opacity: 0, duration: 0.2 }),
+  onLeaveBack: () => gsap.to(".fixed-mobile", { opacity: 1, duration: 0.2 })
+});
+
+// Pin the fixed mobile during content scroll
+ScrollTrigger.create({
+  trigger: ".content-section",
+  start: "top 40%",
+  end: "bottom 10%",
+  pin: ".fixed-mobile",
+  pinSpacing: false
+});
+
+// Make content section visible initially with opacity 0
+gsap.set(".content-section", {opacity: 0});
+
+// Animate content blocks as they scroll into view
+document.addEventListener('DOMContentLoaded', function() {
+  const contentBlocks = document.querySelectorAll('.content-block');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
-
-    // Step 1: Laptop fades out → Center mobile fades in (FASTER)
-    tl.fromTo(".laptop", { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.6, duration: 0.8 });
-    tl.fromTo(".main-mobile", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 });
-
-    // Step 2: Side mobiles slide in (FASTER)
-    tl.to(".mobile-left", { opacity: 1, x: "-60", duration: 0.6 }, "+=0.3");
-    tl.to(".mobile-right", { opacity: 1, x: "60", duration: 0.6 }, "<");
-
-    // Step 3: Side mobiles fade out (FASTER)
-    tl.to([".mobile-left", ".mobile-right"], { opacity: 0, duration: 0.6 }, "+=0.5");
-
-    // Step 4: Center mobile moves left and hides (FASTER)
-    tl.to(".main-mobile", {
-      x: -Math.min(window.innerWidth / 4, 420),
-      opacity: 0,
-      duration: 0.8
-    });
-
-    // Step 5: Fixed mobile appears in the same position (FASTER)
-    tl.to(".fixed-mobile", {
-      opacity: 1,
-      duration: 0.3,
-      onStart: function () {
-        // Position the fixed mobile where the main mobile was
-        const mainMobile = document.querySelector('.main-mobile');
-        const rect = mainMobile.getBoundingClientRect();
-
-        gsap.set(".fixed-mobile", {
-          top: rect.top + window.scrollY + "px",
-          left: rect.left + "px",
-          scale: 0.9
-        });
-      }
-    });
-
-   // Make content section appear immediately after fixed mobile
-    tl.to(".content-section", {
-      opacity: 1,
-      duration: 0.3 // Reduced duration
-    }, "<"); // Start this animation at the same time as the previous one
-
-    // Create a ScrollTrigger to handle the fixed mobile during content scroll
-    ScrollTrigger.create({
-      trigger: ".content-section",
-      start: "top 40%", // Changed from 20% to make it appear sooner
-      end: "bottom 10%",
-      onEnter: () => {
-        // Keep the fixed mobile visible during content scroll
-        gsap.to(".fixed-mobile", { opacity: 1, duration: 0.2 });
-      },
-      onLeaveBack: () => {
-        // Hide the fixed mobile when scrolling back up
-        gsap.to(".fixed-mobile", { opacity: 0, duration: 0.2 });
-      }
-    });
-
-    // Fade out fixed mobile before content ends
-    ScrollTrigger.create({
-      trigger: ".content-section",
-      start: "bottom 20%",
-      onEnter: () => gsap.to(".fixed-mobile", { opacity: 0, duration: 0.2 }),
-      onLeaveBack: () => gsap.to(".fixed-mobile", { opacity: 1, duration: 0.2 })
-    });
-
-    // Pin the fixed mobile during content scroll
-    ScrollTrigger.create({
-      trigger: ".content-section",
-      start: "top 40%", // Changed from 20% to make it appear sooner
-      end: "bottom 10%",
-      pin: ".fixed-mobile",
-      pinSpacing: false
-    });
+  }, { threshold: 0.2 });
+  
+  contentBlocks.forEach(block => {
+    observer.observe(block);
+  });
+});
 
     // Make content section visible initially with opacity 0
     gsap.set(".content-section", {opacity: 0});
