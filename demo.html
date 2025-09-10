@@ -3,880 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Fintle</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Fintle - Invoicing & Billing Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
-        }
-        
         :root {
-            --primary: #6C63FF;
-            --primary-gradient: linear-gradient(135deg, #6C63FF 0%, #4A42D6 100%);
-            --secondary: #2D2B6B;
-            --accent: #FF6B6B;
-            --light: #F8F9FF;
-            --dark: #1A1A1A;
-            --gray: #4A4A4A;
-            --light-gray: #E0E0E0;
+            --fintle-primary: #162862;
+            --fintle-secondary: rgb(37, 9, 102);
+            --fintle-light: #f8f9fa;
+            --fintle-dark: #212529;
         }
         
         body {
-            background-color: #f9f9ff;
-            color: var(--dark);
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            color: #333;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        .sidebars {
+            background: linear-gradient(to bottom, #162862, rgb(37, 9, 102));
+            color: white;
+            height: 100vh;
             position: sticky;
             top: 0;
-            z-index: 100;
+            overflow-y: auto;
         }
         
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 40px;
-        }
-        
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-left: 10px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 30px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            margin-bottom: 60px;
-            border-radius: 0 0 20px 20px;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        
-        /* Privacy Content */
-        .privacy-container {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .sidebar {
-            flex: 1;
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .sidebar h3 {
-            margin-bottom: 20px;
-            color: var(--secondary);
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--light-gray);
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
-        
-        .sidebar li {
-            margin-bottom: 12px;
-        }
-        
-        .sidebar a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: color 0.3s;
-            display: block;
-            padding: 8px 0;
-        }
-        
-        .sidebar a:hover, .sidebar a.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .privacy-content {
-            flex: 3;
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .privacy-section {
-            margin-bottom: 40px;
-            scroll-margin-top: 120px;
-        }
-        
-        .privacy-section h2 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .privacy-section p {
-            margin-bottom: 15px;
-            color: var(--gray);
-        }
-        
-        .privacy-section ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .privacy-section li {
-            margin-bottom: 8px;
-        }
-        
-        .highlight {
-            background-color: #f0f2ff;
+        .sidebars-header {
             padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid var(--primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .sidebars .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            border-left: 3px solid transparent;
+            padding: 12px 20px;
+            transition: all 0.3s;
         }
         
-        .data-table th, .data-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .data-table th {
-            background-color: #f8f9ff;
-            font-weight: 600;
-        }
-        
-        .data-table tr:hover {
-            background-color: #f8f9ff;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--secondary);
+        .sidebars .nav-link:hover, 
+        .sidebars .nav-link.active {
             color: white;
-            padding: 60px 0 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid white;
         }
         
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
+        .sidebars .nav-link i {
+            margin-right: 10px;
         }
         
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-column h3 {
+        .content-section {
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             margin-bottom: 20px;
-            font-size: 1.3rem;
         }
         
-        .footer-column ul {
-            list-style: none;
+        .content-section h2 {
+            color: #162862;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f8f9fa;
         }
         
-        .footer-column li {
-            margin-bottom: 12px;
+        .step-card {
+            border-left: 4px solid #162862;
+            padding-left: 20px;
+            margin-bottom: 25px;
+            transition: all 0.3s;
         }
         
-        .footer-column a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
+        .step-card:hover {
+            border-left: 4px solid rgb(37, 9, 102);
+            background-color: #f8f9fa;
         }
         
-        .footer-column a:hover {
-            color: white;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background: var(--primary);
-        }
-        
-        .copyright {
+        .step-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
+            background-color: #162862;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
         }
         
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .privacy-container {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                position: relative;
-                top: 0;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                font-size: 1.5rem;
-                background: none;
-                border: none;
-                color: var(--dark);
-                cursor: pointer;
-            }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
         }
         
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .privacy-content {
-                padding: 25px;
-            }
-            
-            .footer-column {
-                min-width: 100%;
-            }
-            
-            .data-table {
-                display: block;
-                overflow-x: auto;
-            }
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #162862;
+            margin-right: 10px;
+            font-weight: bold;
         }
         
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 1000;
             width: 50px;
             height: 50px;
-            background: var(--primary-gradient);
-            color: white;
             border-radius: 50%;
-            display: flex;
+            background-color: #162862;
+            color: white;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 15px rgba(108, 99, 255, 0.4);
-            transition: transform 0.3s;
-            z-index: 99;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
-        .back-to-top:hover {
-            transform: translateY(-5px);
-        }
-        
-        .icon-box {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-        }
-        
-        .icon-box i {
-            background: var(--primary-gradient);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .update-highlight {
-            background-color: #fff4e6;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #ffa94d;
+        @media (max-width: 768px) {
+            .sidebars {
+                height: auto;
+                position: relative;
+            }
+            
+            .content {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="https://i.imgur.com/5Vq6T6c.png" alt="Fintle Logo">
-                <span class="logo-text">Fintle</span>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- sidebars with navigation tabs -->
+            <div class="col-lg-3 col-md-4 sidebars p-0">
+                <div class="sidebars-header">
+                    <h3 class="m-0"><i class="bi bi-wallet2"></i> Fintle Docs</h3>
+                    <p class="mb-0 mt-2 text-white-50">Invoicing & Billing</p>
+                </div>
+                <div class="nav flex-column py-3" id="v-pills-tab" role="tablist">
+                    <a class="nav-link active" id="v-pills-create-tab" data-bs-toggle="pill" href="#v-pills-create" role="tab">
+                        <i class="bi bi-file-earmark-plus"></i> Creating Invoices
+                    </a>
+                    <a class="nav-link" id="v-pills-recurring-tab" data-bs-toggle="pill" href="#v-pills-recurring" role="tab">
+                        <i class="bi bi-arrow-repeat"></i> Recurring Invoices
+                    </a>
+                    <a class="nav-link" id="v-pills-templates-tab" data-bs-toggle="pill" href="#v-pills-templates" role="tab">
+                        <i class="bi bi-palette"></i> Customizing Templates
+                    </a>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#" class="btn">Get Started</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Privacy Policy</h1>
-            <p>Last updated: June 15, 2023</p>
-        </div>
-    </section>
-
-    <!-- Privacy Content -->
-    <div class="container privacy-container">
-        <!-- Sidebar Navigation -->
-        <div class="sidebar">
-            <h3>Contents</h3>
-            <ul>
-                <li><a href="#introduction" class="active">1. Introduction</a></li>
-                <li><a href="#data-collection">2. Data We Collect</a></li>
-                <li><a href="#data-use">3. How We Use Data</a></li>
-                <li><a href="#data-sharing">4. Data Sharing</a></li>
-                <li><a href="#data-security">5. Data Security</a></li>
-                <li><a href="#data-retention">6. Data Retention</a></li>
-                <li><a href="#user-rights">7. Your Rights</a></li>
-                <li><a href="#cookies">8. Cookies & Tracking</a></li>
-                <li><a href="#children-privacy">9. Children's Privacy</a></li>
-                <li><a href="#changes">10. Policy Changes</a></li>
-                <li><a href="#contact">11. Contact Us</a></li>
-            </ul>
-        </div>
-
-        <!-- Main Content -->
-        <div class="privacy-content">
-            <section id="introduction" class="privacy-section">
-                <h2>1. Introduction</h2>
-                <p>Fintle ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our financial management platform and related services.</p>
-                <p>Please read this Privacy Policy carefully. By accessing or using our Services, you agree to the collection and use of information in accordance with this policy.</p>
-                
-                <div class="update-highlight">
-                    <p><strong>Recent Update:</strong> We've updated our Privacy Policy to provide more transparency about data handling practices and to comply with new privacy regulations.</p>
-                </div>
-            </section>
-
-            <section id="data-collection" class="privacy-section">
-                <h2>2. Data We Collect</h2>
-                <p>We collect several types of information from and about users of our Services:</p>
-                
-                <h3>Personal Information</h3>
-                <p>When you register for an account, we may collect:</p>
-                <ul>
-                    <li>Name and contact information (email address, phone number)</li>
-                    <li>Business information (company name, address, tax ID)</li>
-                    <li>Payment information (credit card details, billing address)</li>
-                    <li>User credentials (username, password)</li>
-                </ul>
-                
-                <h3>Financial Data</h3>
-                <p>To provide our services, we may process:</p>
-                <ul>
-                    <li>Invoice and billing information</li>
-                    <li>Expense records and receipts</li>
-                    <li>Bank account and transaction details</li>
-                    <li>Tax-related information</li>
-                    <li>Inventory and sales data</li>
-                </ul>
-                
-                <h3>Technical and Usage Data</h3>
-                <p>We automatically collect certain information when you use our Services:</p>
-                <ul>
-                    <li>Device information (IP address, browser type, operating system)</li>
-                    <li>Usage data (pages visited, features used, time spent)</li>
-                    <li>Cookies and similar tracking technologies</li>
-                </ul>
-            </section>
-
-            <section id="data-use" class="privacy-section">
-                <h2>3. How We Use Data</h2>
-                <p>We use the information we collect for various purposes, including:</p>
-                
-                <div class="icon-box">
-                    <i class="fas fa-cogs"></i>
-                    <div>
-                        <h3>Service Provision</h3>
-                        <p>To provide, maintain, and improve our Services, including processing transactions and generating financial reports.</p>
+            
+            <!-- Main content area -->
+            <div class="col-lg-9 col-md-8 content py-4">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <!-- Creating Invoices Section -->
+                    <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel">
+                        <div class="content-section">
+                            <h2>Creating and Sending Invoices</h2>
+                            <p class="lead">Creating invoices in Fintle is quick and simple, allowing you to get paid faster and keep your finances organized.</p>
+                            
+                            <h4 class="mt-5 mb-3">Step-by-Step Guide</h4>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">1</span>Log in to your Fintle account</h5>
+                                <p>Navigate to Invoicing from the main menu.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">2</span>Create New Invoice</h5>
+                                <p>Click on Create New Invoice to start the process.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">3</span>Add Client Information</h5>
+                                <p>Choose an existing client from your list or add a new one by entering their name, email, and business details.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">4</span>Fill Out Invoice Details</h5>
+                                <ul>
+                                    <li>Invoice Number (automatically generated, but you can edit if needed)</li>
+                                    <li>Issue Date and Due Date</li>
+                                    <li>Payment Terms (Net 7, Net 30, etc.)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">5</span>Add Items or Services</h5>
+                                <p>Enter descriptions, quantity, unit price, and applicable taxes.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">6</span>Review the Total</h5>
+                                <p>Fintle automatically calculates the subtotal, taxes, and final amount.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">7</span>Add Notes or Terms</h5>
+                                <p>Optional section for payment instructions, thank-you notes, or legal terms.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">8</span>Save & Preview</h5>
+                                <p>Review your invoice before sending.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">9</span>Send Invoice</h5>
+                                <p>Click Send Invoice to deliver it directly to your client's email or share the link.</p>
+                            </div>
+                            
+                            <h4 class="mt-5 mb-3">Key Features</h4>
+                            <ul class="feature-list">
+                                <li>Send invoices instantly via email.</li>
+                                <li>Real-time notifications when clients view or pay invoices.</li>
+                                <li>Multiple payment options supported (bank transfer, credit card, etc.).</li>
+                                <li>Track invoice status: Draft, Sent, Viewed, Paid, or Overdue.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Recurring Invoices Section -->
+                    <div class="tab-pane fade" id="v-pills-recurring" role="tabpanel">
+                        <div class="content-section">
+                            <h2>Setting Up Recurring Invoices</h2>
+                            <p class="lead">If you work with subscription clients or provide regular services, Recurring Invoices help automate your billing so you never miss a payment.</p>
+                            
+                            <h4 class="mt-5 mb-3">How to Set Up a Recurring Invoice</h4>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">1</span>Navigate to Recurring Invoices</h5>
+                                <p>Go to Invoicing > Recurring Invoices.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">2</span>Create New Recurring Invoice</h5>
+                                <p>Click New Recurring Invoice to start the setup process.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">3</span>Choose Client</h5>
+                                <p>Select the client you want to bill automatically.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">4</span>Set Frequency</h5>
+                                <p>Options include weekly, monthly, quarterly, or custom. Choose the start date and the number of occurrences (or make it indefinite).</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">5</span>Add Invoice Details</h5>
+                                <p>Specify services, products, tax rates, and payment terms.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">6</span>Automation Settings</h5>
+                                <ul>
+                                    <li>Enable automatic sending (invoice sent to client without manual action)</li>
+                                    <li>Enable automatic payment collection (if the client has a saved payment method)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">7</span>Review & Activate</h5>
+                                <p>Once confirmed, invoices will be generated and sent automatically.</p>
+                            </div>
+                            
+                            <h4 class="mt-5 mb-3">Benefits</h4>
+                            <ul class="feature-list">
+                                <li>Save time by eliminating repetitive manual invoicing.</li>
+                                <li>Ensure consistent cash flow with on-time billing.</li>
+                                <li>Reduce missed or delayed payments.</li>
+                                <li>Fully customizable to match each client's billing cycle.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Customizing Templates Section -->
+                    <div class="tab-pane fade" id="v-pills-templates" role="tabpanel">
+                        <div class="content-section">
+                            <h2>Customizing Invoice Templates</h2>
+                            <p class="lead">Your invoices represent your business, and with Fintle's Invoice Template Customization, you can make them look professional and on-brand.</p>
+                            
+                            <h4 class="mt-5 mb-3">How to Customize Your Template</h4>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">1</span>Access Template Settings</h5>
+                                <p>Go to Settings > Invoice Templates.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">2</span>Choose a Template</h5>
+                                <p>Select a default template or create a new one.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">3</span>Personalize Layout & Style</h5>
+                                <ul>
+                                    <li>Add your company logo and brand colors</li>
+                                    <li>Select fonts, styles, and header/footer layout</li>
+                                    <li>Adjust spacing and positioning of key elements</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">4</span>Configure Invoice Fields</h5>
+                                <ul>
+                                    <li>Show/hide client details, tax ID, or purchase order number</li>
+                                    <li>Add custom fields such as project reference or discount codes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">5</span>Set Default Messages</h5>
+                                <p>Add payment instructions, bank account details, or thank-you notes.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <h5><span class="step-number">6</span>Save Your Template</h5>
+                                <p>Set it as default for all invoices, or apply it only to selected clients.</p>
+                            </div>
+                            
+                            <h4 class="mt-5 mb-3">Customization Options</h4>
+                            <ul class="feature-list">
+                                <li>Brand Identity: Add your logo, tagline, and color scheme.</li>
+                                <li>Flexible Layouts: Choose from multiple styles (classic, modern, compact).</li>
+                                <li>Legal & Compliance: Include tax registration numbers, digital signatures, or required disclaimers.</li>
+                                <li>Multi-Language & Multi-Currency support for global clients.</li>
+                            </ul>
+                            
+                            <h4 class="mt-5 mb-3">Why Customize?</h4>
+                            <ul class="feature-list">
+                                <li>Strengthen your brand identity with every invoice.</li>
+                                <li>Improve client trust with professional presentation.</li>
+                                <li>Ensure compliance with industry and tax regulations.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-user-shield"></i>
-                    <div>
-                        <h3>Account Management</h3>
-                        <p>To create and manage your account, authenticate users, and provide customer support.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-chart-line"></i>
-                    <div>
-                        <h3>Service Optimization</h3>
-                        <p>To analyze usage trends, monitor performance, and develop new features and functionality.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Communication</h3>
-                        <p>To send important notices, such as communications about purchases and changes to our terms, conditions, and policies.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <h3>Security & Fraud Prevention</h3>
-                        <p>To protect our Services and users from fraud, abuse, or security risks.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="data-sharing" class="privacy-section">
-                <h2>4. Data Sharing</h2>
-                <p>We may share your information with third parties in the following situations:</p>
-                
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Recipient</th>
-                            <th>Purpose</th>
-                            <th>Data Shared</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Service Providers</td>
-                            <td>Payment processing, hosting, analytics, customer support</td>
-                            <td>Necessary information to perform services</td>
-                        </tr>
-                        <tr>
-                            <td>Professional Advisors</td>
-                            <td>Accounting, legal, consulting services</td>
-                            <td>Business information and financial data</td>
-                        </tr>
-                        <tr>
-                            <td>Business Transfers</td>
-                            <td>Mergers, acquisitions, or asset sales</td>
-                            <td>User information as business asset</td>
-                        </tr>
-                        <tr>
-                            <td>Legal Requirements</td>
-                            <td>Compliance with laws, regulations, legal process</td>
-                            <td>Information required by law</td>
-                        </tr>
-                        <tr>
-                            <td>With Your Consent</td>
-                            <td>Other purposes with your explicit consent</td>
-                            <td>Information you authorize us to share</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="highlight">
-                    <p><strong>We do not sell your personal information</strong> to third parties for their marketing purposes without your explicit consent.</p>
-                </div>
-            </section>
-
-            <section id="data-security" class="privacy-section">
-                <h2>5. Data Security</h2>
-                <p>We implement appropriate technical and organizational measures to protect your personal information:</p>
-                
-                <div class="icon-box">
-                    <i class="fas fa-lock"></i>
-                    <div>
-                        <h3>Encryption</h3>
-                        <p>All data is encrypted in transit using TLS 1.2+ and at rest using AES-256 encryption.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-user-lock"></i>
-                    <div>
-                        <h3>Access Controls</h3>
-                        <p>Strict access controls limit who can access user data within our organization.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <h3>Security Monitoring</h3>
-                        <p>Continuous security monitoring and regular penetration testing.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-backup"></i>
-                    <div>
-                        <h3>Data Backup</h3>
-                        <p>Regular backups and disaster recovery procedures to prevent data loss.</p>
-                    </div>
-                </div>
-                
-                <p>While we implement safeguards, no security system is impenetrable, and we cannot guarantee the security of our systems 100%.</p>
-            </section>
-
-            <section id="data-retention" class="privacy-section">
-                <h2>6. Data Retention</h2>
-                <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy:</p>
-                
-                <ul>
-                    <li><strong>Account data:</strong> Retained for as long as your account is active plus 3 years</li>
-                    <li><strong>Financial records:</strong> Retained for 7 years to comply with tax and accounting regulations</li>
-                    <li><strong>Marketing data:</strong> Retained for 3 years after last interaction</li>
-                    <li><strong>Support queries:</strong> Retained for 5 years from resolution</li>
-                </ul>
-                
-                <p>After the retention period ends, we will securely delete or anonymize your information.</p>
-            </section>
-
-            <section id="user-rights" class="privacy-section">
-                <h2>7. Your Rights</h2>
-                <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-                
-                <div class="icon-box">
-                    <i class="fas fa-eye"></i>
-                    <div>
-                        <h3>Right to Access</h3>
-                        <p>You can request copies of your personal information held by us.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-edit"></i>
-                    <div>
-                        <h3>Right to Rectification</h3>
-                        <p>You can request correction of inaccurate or incomplete information.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-trash-alt"></i>
-                    <div>
-                        <h3>Right to Erasure</h3>
-                        <p>You can request deletion of your personal information under certain circumstances.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-pause-circle"></i>
-                    <div>
-                        <h3>Right to Restrict Processing</h3>
-                        <p>You can request limitation of how we use your personal information.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-download"></i>
-                    <div>
-                        <h3>Right to Data Portability</h3>
-                        <p>You can request transfer of your data to another service provider.</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-times-circle"></i>
-                    <div>
-                        <h3>Right to Object</h3>
-                        <p>You can object to certain processing activities, such as direct marketing.</p>
-                    </div>
-                </div>
-                
-                <p>To exercise any of these rights, please contact us using the details provided in the "Contact Us" section.</p>
-            </section>
-
-            <section id="cookies" class="privacy-section">
-                <h2>8. Cookies & Tracking</h2>
-                <p>We use cookies and similar tracking technologies to track activity on our Services and store certain information.</p>
-                
-                <h3>Types of Cookies We Use</h3>
-                <ul>
-                    <li><strong>Essential Cookies:</strong> Necessary for the operation of our Services</li>
-                    <li><strong>Functionality Cookies:</strong> Recognize you when you return and enable personalized features</li>
-                    <li><strong>Analytics Cookies:</strong> Track traffic and usage patterns to improve our Services</li>
-                    <li><strong>Advertising Cookies:</strong> Deliver relevant advertisements and track campaign performance</li>
-                </ul>
-                
-                <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Services.</p>
-            </section>
-
-            <section id="children-privacy" class="privacy-section">
-                <h2>9. Children's Privacy</h2>
-                <p>Our Services are not intended for children under the age of 16. We do not knowingly collect personal information from children under 16.</p>
-                <p>If you are a parent or guardian and believe that your child has provided us with personal information, please contact us, and we will take steps to delete such information from our systems.</p>
-            </section>
-
-            <section id="changes" class="privacy-section">
-                <h2>10. Policy Changes</h2>
-                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
-                <p>We will also provide more prominent notice (such as email notification of policy changes) for significant changes.</p>
-                <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-            </section>
-
-            <section id="contact" class="privacy-section">
-                <h2>11. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy, please contact us:</p>
-                
-                <div class="icon-box">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <p>privacy@fintle.com</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Address</h3>
-                        <p>123 Financial District, San Francisco, CA 94105</p>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h3>Response Time</h3>
-                        <p>We strive to respond to all legitimate requests within 30 days.</p>
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Fintle</h3>
-                    <p>Zero-Cost Accounting for Smarter Business Finance</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Product</h3>
-                    <ul>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Use Cases</a></li>
-                        <li><a href="#">Integrations</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                         <li><a href="privacypolicy.html">Privacy policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Fintle. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
+    <a href="#" class="back-to-top d-flex" id="backToTop">
+        <i class="bi bi-arrow-up"></i>
     </a>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active class in sidebar
-                    document.querySelectorAll('.sidebar a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle URL hash to navigate to specific sections
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                const tabTrigger = document.querySelector(`[href="#${hash}"]`);
+                if (tabTrigger) {
+                    const tab = new bootstrap.Tab(tabTrigger);
+                    tab.show();
                 }
-            });
-        });
-        
-        // Back to top button functionality
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'flex';
-            } else {
-                backToTopButton.style.display = 'none';
             }
-        });
-        
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Highlight current section in sidebar when scrolling
-        const sections = document.querySelectorAll('.privacy-section');
-        const sidebarLinks = document.querySelectorAll('.sidebar a');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
                 }
             });
             
-            sidebarLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Update URL hash when tab is changed
+            const tabEls = document.querySelectorAll('a[data-bs-toggle="pill"]');
+            tabEls.forEach(tabEl => {
+                tabEl.addEventListener('shown.bs.tab', (e) => {
+                    const target = e.target.getAttribute('href');
+                    window.location.hash = target;
+                });
             });
         });
     </script>

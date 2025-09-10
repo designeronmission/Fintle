@@ -6907,8 +6907,24 @@ footer .bottom_footer .developer_text a {
         margin-bottom: 100px;
     }
 
+
+
 }
 
+
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+    .terms-content{
+        padding: 0 !important;
+    }
+
+
+    .terms-section ul{
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+
+}
 
 
 
@@ -7016,13 +7032,13 @@ footer .bottom_footer .developer_text a {
      /* Responsive Terms of Use Styles */
         .terms-container {
             display: flex;
-            margin: 60px auto;
+            margin: 50px auto;
             gap: 40px;
-            max-width: 1200px;
+            max-width: 1326px;
         }
         
         .sidebar {
-            flex: 0 0 280px;
+            flex: 0 0 330px;
             position: sticky;
             top: 100px;
             align-self: flex-start;
@@ -7207,7 +7223,7 @@ footer .bottom_footer .developer_text a {
         
         @media (max-width: 768px) {
             .help-center-hero {
-                padding: 60px 0 30px;
+                padding: 160px 0 30px;
             }
             
             .help-center-hero h1 {
@@ -7257,13 +7273,13 @@ footer .bottom_footer .developer_text a {
           /* Privacy Policy Specific Styles */
         .privacy-container {
             display: flex;
-            margin: 60px auto;
+            margin: 50px auto;
             gap: 40px;
-            max-width: 1200px;
+            max-width: 1326px;
         }
         
         .privacy-sidebar {
-            flex: 0 0 280px;
+            flex: 0 0 330px;
             position: sticky;
             top: 100px;
             align-self: flex-start;
@@ -7491,4 +7507,120 @@ footer .bottom_footer .developer_text a {
                 padding: 8px 10px;
                 font-size: 0.9rem;
             }
+        }
+
+
+
+
+
+
+
+        /* support */
+
+
+                .sidebars {
+            background: linear-gradient(to bottom, #162862, rgb(37, 9, 102));
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+        }
+        
+        .sidebars-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebars .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            border-left: 3px solid transparent;
+            padding: 12px 20px;
+            transition: all 0.3s;
+        }
+        
+        .sidebars .nav-link:hover, 
+        .sidebars .nav-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid white;
+        }
+        
+        .sidebars .nav-link i {
+            margin-right: 10px;
+        }
+        
+        .content-section {
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        
+        .content-section h2 {
+            color: #162862;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f8f9fa;
+        }
+        
+        .step-card {
+            border-left: 4px solid #162862;
+            padding-left: 20px;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+        
+        .step-card:hover {
+            border-left: 4px solid rgb(37, 9, 102);
+            background-color: #f8f9fa;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            background-color: #162862;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #162862;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .sidebars {
+                height: auto;
+                position: relative;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+        }
+
+
+
+        .support-head{
+               font-size: 16px;
+    font-weight: 700;
         }
