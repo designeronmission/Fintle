@@ -4923,7 +4923,7 @@ footer .bottom_footer .developer_text a {
     padding-bottom: 45px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
     position: relative;
 }
 
