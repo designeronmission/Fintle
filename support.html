@@ -75,7 +75,7 @@
                             <a class="nav-link" href="blog.html">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="helpcenter.html">Help Center</a>
+                            <a class="nav-link primary-gradient" href="helpcenter.html">Help Center</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="contact.html">Contact</a>
@@ -97,13 +97,13 @@
     <!-- blog Hero -->
     <section class="help-center-hero">
         <div class="container">
-            <h1>Fintle Documents</h1>
+            <h1>Fintle Documentation</h1>
             <p>Last updated: June 15, 2025</p>
 
             <ul class="ul-new pb-4">
                 <li><a href="index.html">Home</a></li>
                 <li><span>»</span></li>
-                <li><a href="termsofuse.html">Terms of Use</a></li>
+                <li><a href="termsofuse.html">Documentation</a></li>
             </ul>
         </div>
     </section>
@@ -116,9 +116,12 @@
             <div class="sidebar-content" id="sidebarContent">
                 <h4>Invoicing & Billing</h4>
                 <ul>
-                    <li><a href="#create" class="active">1. Creating Invoices</a></li>
-                    <li><a href="#recurring">2. Recurring Invoices</a></li>
-                    <li><a href="#customizing">3. Customizing Invoice</a></li>
+                    <li><a href="#create" class="active">Creating Invoices</a></li>
+                    <li><a href="#recurring">Recurring Invoices</a></li>
+                    <li><a href="#customizing">Customizing Invoice</a></li>
+                     <li><a href="#tax-rates">Setting Up Tax Rates</a></li>
+                <li><a href="#tax-reports">Generating Tax Reports</a></li>
+                <li><a href="#gst-vat">GST/VAT Compliance</a></li>
                 </ul>
             </div>
         </div>
@@ -126,203 +129,315 @@
         <!-- Main Content -->
         <div class="terms-content">
             <section id="create" class="terms-section">
-                <div class="content-section">
-                            <h2>Creating and Sending Invoices</h2>
-                            <p class="lead">Creating invoices in Fintle is quick and simple, allowing you to get paid faster and keep your finances organized.</p>
-                            
-                            <h4 class="mt-5 mb-3">Step-by-Step Guide</h4>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">1</span>Log in to your Fintle account</p>
-                                <p>Navigate to Invoicing from the main menu.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">2</span>Create New Invoice</p>
-                                <p>Click on Create New Invoice to start the process.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">3</span>Add Client Information</p>
-                                <p>Choose an existing client from your list or add a new one by entering their name, email, and business details.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">4</span>Fill Out Invoice Details</p>
-                                <ul>
-                                    <li>Invoice Number (automatically generated, but you can edit if needed)</li>
-                                    <li>Issue Date and Due Date</li>
-                                    <li>Payment Terms (Net 7, Net 30, etc.)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">5</span>Add Items or Services</p>
-                                <p>Enter descriptions, quantity, unit price, and applicable taxes.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">6</span>Review the Total</p>
-                                <p>Fintle automatically calculates the subtotal, taxes, and final amount.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">7</span>Add Notes or Terms</p>
-                                <p>Optional section for payment instructions, thank-you notes, or legal terms.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">8</span>Save & Preview</p>
-                                <p>Review your invoice before sending.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">9</span>Send Invoice</p>
-                                <p>Click Send Invoice to deliver it directly to your client's email or share the link.</p>
-                            </div>
-                            
-                            <h4 class="mt-5 mb-3">Key Features</h4>
-                            <ul class="feature-list">
-                                <li>Send invoices instantly via email.</li>
-                                <li>Real-time notifications when clients view or pay invoices.</li>
-                                <li>Multiple payment options supported (bank transfer, credit card, etc.).</li>
-                                <li>Track invoice status: Draft, Sent, Viewed, Paid, or Overdue.</li>
-                            </ul></div>
+                  <div class="content-section">
+                    <h2 class="head-two ">Creating and Sending Invoices</h2>
+                    <p class="lead">Creating invoices in Fintle is quick and simple, allowing you to get paid faster and keep your finances organized.</p>
+                    
+                   <h3 class="head-three">Step-by-Step Guide</h3>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">1</span>Log in to your Fintle account</p>
+                       <p>Access your dashboard using your credentials. If you don't have an account yet, you can sign up for free.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">2</span>Navigate to the Invoices section</p>
+                       <p>Click on the "Invoices" tab in the main navigation menu, then select "Create New Invoice".</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">3</span>Fill in client details</p>
+                       <p>Select an existing client from your database or add a new client by entering their name, address, and contact information.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">4</span>Add invoice items</p>
+                       <p>List all products or services with descriptions, quantities, rates, and applicable taxes. You can add multiple line items as needed.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">5</span>Set payment terms</p>
+                       <p>Specify payment due date, accepted payment methods, and any early payment discounts or late payment fees.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">6</span>Review and send</p>
+                       <p>Preview your invoice to ensure all information is correct, then send it directly to your client via email or download it as a PDF.</p>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <strong>Pro Tip:</strong> Save time by using invoice templates for recurring services or common projects.
+                    </div>
+                </div>
             </section>
 
             <section id="recurring" class="terms-section">
-                <div class="content-section">
-                            <h2>Creating and Sending Invoices</h2>
-                            <p class="lead">Creating invoices in Fintle is quick and simple, allowing you to get paid faster and keep your finances organized.</p>
-                            
-                            <h4 class="mt-5 mb-3">Step-by-Step Guide</h4>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">1</span>Log in to your Fintle account</p>
-                                <p>Navigate to Invoicing from the main menu.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">2</span>Create New Invoice</p>
-                                <p>Click on Create New Invoice to start the process.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">3</span>Add Client Information</p>
-                                <p>Choose an existing client from your list or add a new one by entering their name, email, and business details.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">4</span>Fill Out Invoice Details</p>
-                                <ul>
-                                    <li>Invoice Number (automatically generated, but you can edit if needed)</li>
-                                    <li>Issue Date and Due Date</li>
-                                    <li>Payment Terms (Net 7, Net 30, etc.)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">5</span>Add Items or Services</p>
-                                <p>Enter descriptions, quantity, unit price, and applicable taxes.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">6</span>Review the Total</p>
-                                <p>Fintle automatically calculates the subtotal, taxes, and final amount.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">7</span>Add Notes or Terms</p>
-                                <p>Optional section for payment instructions, thank-you notes, or legal terms.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">8</span>Save & Preview</p>
-                                <p>Review your invoice before sending.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">9</span>Send Invoice</p>
-                                <p>Click Send Invoice to deliver it directly to your client's email or share the link.</p>
-                            </div>
-                            
-                            <h4 class="mt-5 mb-3">Key Features</h4>
-                            <ul class="feature-list">
-                                <li>Send invoices instantly via email.</li>
-                                <li>Real-time notifications when clients view or pay invoices.</li>
-                                <li>Multiple payment options supported (bank transfer, credit card, etc.).</li>
-                                <li>Track invoice status: Draft, Sent, Viewed, Paid, or Overdue.</li>
-                            </ul>
-                        </div>
+             <div class="content-section">
+                    <h2 class="head-two ">Setting Up Recurring Invoices</h2>
+                    <p class="lead">Automate your billing process with Fintle's recurring invoices feature, perfect for subscription-based services or retainers.</p>
+                    
+                   <h3 class="head-three">How to Create Recurring Invoices</h3>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">1</span>Create a new invoice</p>
+                       <p>Follow the standard invoice creation process as outlined above.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">2</span>Enable recurrence</p>
+                       <p>Toggle the "Recurring" option and set your preferred frequency (daily, weekly, monthly, quarterly, or annually).</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">3</span>Set start and end dates</p>
+                       <p>Specify when the recurring invoices should begin and if they should automatically stop after a certain number of occurrences or on a specific date.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">4</span>Save as template</p>
+                       <p>Save your settings as a template for future use or to create similar recurring invoices quickly.</p>
+                    </div>
+                    
+                    <div class="alert alert-success">
+                        <strong>Benefit:</strong> Recurring invoices are automatically generated and sent according to your schedule, saving you time and ensuring consistent cash flow.
+                    </div>
+                    
+                   <h3 class="head-three">Managing Recurring Invoices</h3>
+                    <ul class="feature-list">
+                        <li>View all active recurring invoices from the "Recurring" tab in the Invoices section</li>
+                        <li>Pause, edit, or cancel recurring invoices at any time</li>
+                        <li>Review history of sent invoices from each recurring series</li>
+                        <li>Receive notifications before invoices are automatically sent</li>
+                    </ul>
+                </div>
             </section>
 
 
             <section id="customizing" class="terms-section">
-                <div class="content-section">
-                            <h2>Creating and Sending Invoices</h2>
-                            <p class="lead">Creating invoices in Fintle is quick and simple, allowing you to get paid faster and keep your finances organized.</p>
-                            
-                            <h4 class="mt-5 mb-3">Step-by-Step Guide</h4>
-                            
-                            <div class="step-card">
-                                <p class="support-head"><span class="step-number">1</span>Log in to your Fintle account</p>
-                                <p>Navigate to Invoicing from the main menu.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">2</span>Create New Invoice</p>
-                                <p>Click on Create New Invoice to start the process.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">3</span>Add Client Information</p>
-                                <p>Choose an existing client from your list or add a new one by entering their name, email, and business details.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">4</span>Fill Out Invoice Details</p>
-                                <ul>
-                                    <li>Invoice Number (automatically generated, but you can edit if needed)</li>
-                                    <li>Issue Date and Due Date</li>
-                                    <li>Payment Terms (Net 7, Net 30, etc.)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">5</span>Add Items or Services</p>
-                                <p>Enter descriptions, quantity, unit price, and applicable taxes.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">6</span>Review the Total</p>
-                                <p>Fintle automatically calculates the subtotal, taxes, and final amount.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">7</span>Add Notes or Terms</p>
-                                <p>Optional section for payment instructions, thank-you notes, or legal terms.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">8</span>Save & Preview</p>
-                                <p>Review your invoice before sending.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                               <p class="support-head"><span class="step-number">9</span>Send Invoice</p>
-                                <p>Click Send Invoice to deliver it directly to your client's email or share the link.</p>
-                            </div>
-                            
-                            <h4 class="mt-5 mb-3">Key Features</h4>
-                            <ul class="feature-list">
-                                <li>Send invoices instantly via email.</li>
-                                <li>Real-time notifications when clients view or pay invoices.</li>
-                                <li>Multiple payment options supported (bank transfer, credit card, etc.).</li>
-                                <li>Track invoice status: Draft, Sent, Viewed, Paid, or Overdue.</li>
-                            </ul>
+                      <div class="content-section">
+                    <h2 class="head-two ">Customizing Your Invoices</h2>
+                    <p class="lead">Make your invoices reflect your brand with Fintle's customization options.</p>
+                    
+                   <h3 class="head-three">Branding Options</h3>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-image"></i>
                         </div>
+                        <div class="compliance-content">
+                            <h5>Logo Upload</h5>
+                            <p>Add your company logo to appear on all invoices for a professional look.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-paint"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>Color Scheme</h5>
+                            <p>Match your brand colors by customizing the header, accent colors, and buttons.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-ui-edit"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>Custom Fields</h5>
+                            <p>Add custom fields to capture specific information relevant to your business.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-paper"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>Invoice Templates</h5>
+                            <p>Choose from multiple pre-designed templates or create your own from scratch.</p>
+                        </div>
+                    </div>
+                    
+                   <h3 class="head-three">Content Customization</h3>
+                    <ul class="feature-list">
+                        <li>Customize invoice numbering format (prefix, suffix, starting number)</li>
+                        <li>Add payment terms and conditions specific to your business</li>
+                        <li>Include personalized thank you messages or promotional offers</li>
+                        <li>Modify item descriptions and columns to match your services</li>
+                    </ul>
+                </div>
             </section>
 
+               <section id="tax-rates" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two ">Setting Up Tax Rates</h2>
+                    <p class="lead">Configure tax settings to ensure accurate calculations and compliance with local regulations.</p>
+                    
+                   <h3 class="head-three">Adding Tax Rates</h3>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">1</span>Access Tax Settings</p>
+                       <p>Navigate to Settings > Taxes from your main dashboard.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">2</span>Create New Tax Rate</p>
+                       <p>Click "Add Tax Rate" and enter the tax name (e.g., VAT, GST, Sales Tax) and percentage.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">3</span>Configure Tax Settings</p>
+                       <p>Specify whether the tax is inclusive or exclusive, and if it applies to all items or specific ones.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">4</span>Set Default Tax Rates</p>
+                       <p>Designate default tax rates for different types of products or services.</p>
+                    </div>
+                    
+                   <h3 class="head-three">Tax Types Supported</h3>
+                    <p>Fintle supports various tax structures to accommodate businesses worldwide:</p>
+                    
+                    <span class="tax-badge badge-gst">GST</span>
+                    <span class="tax-badge badge-vat">VAT</span>
+                    <span class="tax-badge">Sales Tax</span>
+                    <span class="tax-badge">Import Duty</span>
+                    <span class="tax-badge">Excise Tax</span>
+                    
+                    <div class="alert alert-warning">
+                        <strong>Important:</strong> Consult with a tax professional to ensure you're applying the correct tax rates for your location and business type.
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="tax-reports" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two ">Generating Tax Reports</h2>
+                    <p class="lead">Fintle provides comprehensive tax reporting features to simplify your compliance process.</p>
+                    
+                   <h3 class="head-three">Available Tax Reports</h3>
+                    
+                    <div class="report-type">
+                        <h5>Sales Tax Summary</h5>
+                        <p>Overview of collected sales tax by period, jurisdiction, and tax rate.</p>
+                    </div>
+                    
+                    <div class="report-type">
+                        <h5>VAT/GST Report</h5>
+                        <p>Detailed breakdown of VAT/GST collected on sales and paid on purchases.</p>
+                    </div>
+                    
+                    <div class="report-type">
+                        <h5>Taxable vs. Non-Taxable Sales</h5>
+                        <p>Segmentation of your revenue by taxable status for accurate reporting.</p>
+                    </div>
+                    
+                    <div class="report-type">
+                        <h5>Export Report</h5>
+                        <p>Summary of international sales for VAT/GST purposes.</p>
+                    </div>
+                    
+                   <h3 class="head-three">How to Generate Reports</h3>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">1</span>Go to Reports Section</p>
+                       <p>Navigate to Reports > Tax Reports from your main menu.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">2</span>Select Report Type</p>
+                       <p>Choose the specific tax report you need from the available options.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">3</span>Set Date Range</p>
+                       <p>Specify the period for which you need the tax information.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">4</span>Generate and Export</p>
+                       <p>Generate the report and export it as PDF, Excel, or CSV for your records or to share with your accountant.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="gst-vat" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two ">GST/VAT Compliance</h2>
+                    <p class="lead">Stay compliant with GST and VAT regulations using Fintle's dedicated features.</p>
+                    
+                   <h3 class="head-three">GST Features</h3>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-id"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>GSTIN Tracking</h5>
+                            <p>Store and display GST identification numbers for your business and clients.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-calculator"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>HSN/SAC Codes</h5>
+                            <p>Add HSN (Harmonized System of Nomenclature) or SAC (Services Accounting Code) to invoice items.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-file-spreadsheet"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>GSTR Report Preparation</h5>
+                            <p>Generate reports formatted specifically for GSTR filing requirements.</p>
+                        </div>
+                    </div>
+                    
+                   <h3 class="head-three">VAT Features</h3>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-globe"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>EU VAT Compliance</h5>
+                            <p>Handle EU VAT rules including reverse charge mechanism for B2B transactions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-law-document"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>VAT MOSS</h5>
+                            <p>Support for VAT MOSS (Mini One Stop Shop) for digital services across EU.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-check-circled"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5>VAT Number Validation</h5>
+                            <p>Verify EU VAT numbers directly within Fintle to ensure accuracy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <strong>Note:</strong> Tax laws and regulations change frequently. While Fintle provides tools to help with compliance, we recommend consulting with a tax professional for specific advice related to your business.
+                    </div>
+                </div>
+            </section>
 
 
 

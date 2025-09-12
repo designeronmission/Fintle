@@ -1,397 +1,1054 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fintle - Invoicing & Billing Documentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Meta Description -->
+    <meta name="description" content="Fintle Terms of Use - Learn about our policies and guidelines for using our accounting platform">
+    <title>Terms of Use - Fintle</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- icofont-css-link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/icofont/icofont@1.0.1-beta.1/icofont.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Enhanced Professional Styles */
         :root {
-            --fintle-primary: #162862;
-            --fintle-secondary: rgb(37, 9, 102);
-            --fintle-light: #f8f9fa;
-            --fintle-dark: #212529;
+            --primary-font: 'Plus Jakarta Sans', sans-serif;
+            --primary-color: #4a3cff;
+            --secondary-color: #6c757d;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            --border-color: #e9ecef;
+            --accent-color: #7c4dff;
+            --success-color: #28a745;
+            --info-color: #17a2b8;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9fafb;
+            font-family: var(--primary-font);
             color: #333;
+            line-height: 1.6;
+            background-color: #f9fafc;
         }
         
-        .sidebars {
-            background: linear-gradient(to bottom, #162862, rgb(37, 9, 102));
-            color: white;
-            height: 100vh;
+        /* Heading Classes */
+        .head-one {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 1.5rem;
+        }
+        
+        .head-two {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #212529;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .head-three {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #212529;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .head-four {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #212529;
+            margin-top: 1.75rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .head-five {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #212529;
+            margin-top: 1.5rem;
+            margin-bottom: 0.7rem;
+        }
+        
+        .head-six {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #212529;
+            margin-top: 1.25rem;
+            margin-bottom: 0.6rem;
+        }
+        
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #495057;
+        }
+        
+        p.lead {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #6c757d;
+            line-height: 1.7;
+        }
+        
+        /* Help Center Hero */
+        .help-center-hero {
+            background: linear-gradient(135deg, #f5f7ff 0%, #eef2ff 100%);
+            padding: 4rem 0 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .help-center-hero .head-one {
+            font-size: 2.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .help-center-hero p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ul-new {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ul-new li {
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .ul-new li a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+        
+        .ul-new li a:hover {
+            color: var(--primary);
+        }
+        
+        .ul-new li span {
+            color: #6c757d;
+            margin: 0 0.5rem;
+        }
+        
+        /* Terms Container */
+        .terms-container {
+            display: flex;
+            margin-bottom: 4rem;
+            gap: 2.5rem;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            flex: 0 0 280px;
             position: sticky;
-            top: 0;
-            overflow-y: auto;
+            top: 2rem;
+            align-self: flex-start;
+            height: 100%;
         }
         
-        .sidebars-header {
-            padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .sidebars .nav-link {
-            color: rgba(255, 255, 255, 0.85);
-            border-left: 3px solid transparent;
-            padding: 12px 20px;
-            transition: all 0.3s;
-        }
-        
-        .sidebars .nav-link:hover, 
-        .sidebars .nav-link.active {
+        .sidebar-toggle {
+            display: none;
+            background: var(--primary);
             color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-left: 3px solid white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            width: 100%;
+            margin-bottom: 1rem;
+            text-align: left;
         }
         
-        .sidebars .nav-link i {
-            margin-right: 10px;
+        .sidebar-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .sidebar-content .head-four {
+            font-size: 1.1rem;
+            margin-top: 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sidebar-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-content ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-content ul li a {
+            display: block;
+            padding: 0.6rem 0.75rem;
+            text-decoration: none;
+            color: #6c757d;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-content ul li a:hover,
+        .sidebar-content ul li a.active {
+            background-color: #f0f3ff;
+            color: var(--primary);
+        }
+        
+        /* Terms Content */
+        .terms-content {
+            flex: 1;
+        }
+        
+        .terms-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .terms-section:last-child {
+            border-bottom: none;
         }
         
         .content-section {
-            padding: 30px;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
         }
         
-        .content-section h2 {
-            color: #162862;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f8f9fa;
-        }
-        
+        /* Step Cards */
         .step-card {
-            border-left: 4px solid #162862;
-            padding-left: 20px;
-            margin-bottom: 25px;
-            transition: all 0.3s;
+            background: #fafbff;
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 4px 4px 0;
         }
         
-        .step-card:hover {
-            border-left: 4px solid rgb(37, 9, 102);
-            background-color: #f8f9fa;
+        .support-head {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #212529;
+            display: flex;
+            align-items: flex-start;
         }
         
         .step-number {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            line-height: 32px;
-            text-align: center;
-            background-color: #162862;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
             color: white;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
         }
         
+        /* Feature Lists */
         .feature-list {
             list-style-type: none;
-            padding: 0;
+            padding-left: 0;
         }
         
         .feature-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
         }
         
         .feature-list li:before {
-            content: "✓";
-            color: #162862;
-            margin-right: 10px;
+            content: "•";
+            color: var(--primary);
             font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-size: 1.2rem;
         }
         
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            z-index: 1000;
-            width: 50px;
+        /* Compliance Cards */
+        .compliance-card {
+            display: flex;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .compliance-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .compliance-icon {
+            flex: 0 0 50px;
             height: 50px;
-            border-radius: 50%;
-            background-color: #162862;
-            color: white;
+            background: #f0f3ff;
+            border-radius: 8px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .compliance-content .head-five {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .compliance-content p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+        
+        /* Tax Badges */
+        .tax-badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background: #f0f3ff;
+            color: var(--primary);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-vat {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .badge-gst {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        /* Report Types */
+        .report-type {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .report-type:last-child {
+            border-bottom: none;
+        }
+        
+        .report-type .head-five {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Alerts */
+        .alert {
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+            font-size: 0.95rem;
+        }
+        
+        .alert-info {
+            background-color: #e8f4fd;
+            border-color: #17a2b8;
+            color: #0c5460;
+        }
+        
+        .alert-success {
+            background-color: #f0fff4;
+            border-color: #28a745;
+            color: #155724;
+        }
+        
+        .alert-warning {
+            background-color: #fffbf0;
+            border-color: #ffc107;
+            color: #856404;
+        }
+        
+        /* Navigation Styles */
+        .navbar {
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: #495057 !important;
+            margin: 0 0.5rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+        
+        .puprple_btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .puprple_btn:hover {
+            background-color: #3a2ccc;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer Styles */
+        .footer_sec {
+            background-color: #1a202c;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer_widget {
+            margin-bottom: 2rem;
+        }
+        
+        .footer_logo img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer_widget h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .footer_widget ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer_widget ul li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer_widget ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer_widget ul li a:hover {
+            color: white;
+        }
+        
+        .footer_social ul {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .footer_social ul li {
+            margin-right: 1rem;
+        }
+        
+        .footer_social ul li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .footer_social ul li a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer_subscribe {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .footer_subscribe input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .footer_subscribe button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 1.25rem;
+            border-radius: 0 4px 4px 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .copyright_sec {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #2d3748;
+            color: #a0aec0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .terms-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .sidebar {
+                flex: 0 0 100%;
+                position: relative;
+                top: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .sidebar-toggle {
+                display: block;
+            }
+            
+            .sidebar-content {
+                display: none;
+            }
+            
+            .sidebar-content.active {
+                display: block;
+            }
         }
         
         @media (max-width: 768px) {
-            .sidebars {
-                height: auto;
-                position: relative;
+            .help-center-hero {
+                padding: 2.5rem 0 2rem;
             }
             
-            .content {
-                padding: 15px;
+            .help-center-hero .head-one {
+                font-size: 2.25rem;
+            }
+            
+            .head-two {
+                font-size: 1.75rem;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .compliance-card {
+                flex-direction: column;
+            }
+            
+            .compliance-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .footer_subscribe {
+                flex-direction: column;
+            }
+            
+            .footer_subscribe input {
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+            }
+            
+            .footer_subscribe button {
+                border-radius: 4px;
+                padding: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .help-center-hero .head-one {
+                font-size: 2rem;
+            }
+            
+            .head-two {
+                font-size: 1.5rem;
+            }
+            
+            .content-section {
+                padding: 1.25rem;
+            }
+            
+            .step-card {
+                padding: 1rem;
+            }
+            
+            .navbar-collapse {
+                background: white;
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- sidebars with navigation tabs -->
-            <div class="col-lg-3 col-md-4 sidebars p-0">
-                <div class="sidebars-header">
-                    <h3 class="m-0"><i class="bi bi-wallet2"></i> Fintle Docs</h3>
-                    <p class="mb-0 mt-2 text-white-50">Invoicing & Billing</p>
+    <!-- Header Start -->
+    <header>
+        <!-- container start -->
+        <div class="container">
+            <!-- navigation bar -->
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo  -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="https://via.placeholder.com/150x40/4a3cff/ffffff?text=FINTLE" alt="Fintle Logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+
+                        <!-- secondery menu start -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <!-- secondery menu end -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="about.html">About us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="helpcenter.html">Help Center</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="contact.html">Contact</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn puprple_btn" href="contact.html">Get Started</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="nav flex-column py-3" id="v-pills-tab" role="tablist">
-                    <a class="nav-link active" id="v-pills-create-tab" data-bs-toggle="pill" href="#v-pills-create" role="tab">
-                        <i class="bi bi-file-earmark-plus"></i> Creating Invoices
-                    </a>
-                    <a class="nav-link" id="v-pills-recurring-tab" data-bs-toggle="pill" href="#v-pills-recurring" role="tab">
-                        <i class="bi bi-arrow-repeat"></i> Recurring Invoices
-                    </a>
-                    <a class="nav-link" id="v-pills-templates-tab" data-bs-toggle="pill" href="#v-pills-templates" role="tab">
-                        <i class="bi bi-palette"></i> Customizing Templates
-                    </a>
-                </div>
+
+            </nav>
+            <!-- navigation end -->
+        </div>
+        <!-- container end -->
+    </header>
+
+
+    <!-- blog Hero -->
+    <section class="help-center-hero">
+        <div class="container">
+            <h1 class="head-one">Fintle Terms of Use</h1>
+            <p>Last updated: June 15, 2025</p>
+
+            <ul class="ul-new pb-4">
+                <li><a href="index.html">Home</a></li>
+                <li><span>»</span></li>
+                <li><a href="termsofuse.html">Terms of Use</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <div class="container terms-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle">Fintle Documentation Menu</button>
+            <div class="sidebar-content" id="sidebarContent">
+                <h4 class="head-four">Terms of Use</h4>
+                <ul>
+                    <li><a href="#acceptance" class="active">Acceptance of Terms</a></li>
+                    <li><a href="#account">Account Registration</a></li>
+                    <li><a href="#services">Services Description</a></li>
+                    <li><a href="#user-conduct">User Conduct</a></li>
+                    <li><a href="#intellectual-property">Intellectual Property</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#termination">Termination</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                    <li><a href="#limitation">Limitation of Liability</a></li>
+                    <li><a href="#governing-law">Governing Law</a></li>
+                </ul>
             </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="terms-content">
+            <section id="acceptance" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">1. Acceptance of Terms</h2>
+                    <p class="lead">By accessing or using Fintle's services, you agree to be bound by these Terms of Use and all applicable laws and regulations.</p>
+                    
+                    <h3 class="head-three">1.1 Agreement to Terms</h3>
+                    <p>These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and Fintle ("we," "us" or "our"), concerning your access to and use of the Fintle website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”).</p>
+                    
+                    <div class="alert alert-info">
+                        <strong>Important:</strong> You acknowledge that you have read and understood these Terms of Use, and agree to be bound by them. If you do not agree with these Terms of Use, then you are expressly prohibited from using the Site and you must discontinue use immediately.
+                    </div>
+                    
+                    <h3 class="head-three">1.2 Modifications to Terms</h3>
+                    <p>We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change.</p>
+                </div>
+            </section>
             
-            <!-- Main content area -->
-            <div class="col-lg-9 col-md-8 content py-4">
-                <div class="tab-content" id="v-pills-tabContent">
-                    <!-- Creating Invoices Section -->
-                    <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel">
-                        <div class="content-section">
-                            <h2>Creating and Sending Invoices</h2>
-                            <p class="lead">Creating invoices in Fintle is quick and simple, allowing you to get paid faster and keep your finances organized.</p>
-                            
-                            <h4 class="mt-5 mb-3">Step-by-Step Guide</h4>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">1</span>Log in to your Fintle account</h5>
-                                <p>Navigate to Invoicing from the main menu.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">2</span>Create New Invoice</h5>
-                                <p>Click on Create New Invoice to start the process.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">3</span>Add Client Information</h5>
-                                <p>Choose an existing client from your list or add a new one by entering their name, email, and business details.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">4</span>Fill Out Invoice Details</h5>
-                                <ul>
-                                    <li>Invoice Number (automatically generated, but you can edit if needed)</li>
-                                    <li>Issue Date and Due Date</li>
-                                    <li>Payment Terms (Net 7, Net 30, etc.)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">5</span>Add Items or Services</h5>
-                                <p>Enter descriptions, quantity, unit price, and applicable taxes.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">6</span>Review the Total</h5>
-                                <p>Fintle automatically calculates the subtotal, taxes, and final amount.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">7</span>Add Notes or Terms</h5>
-                                <p>Optional section for payment instructions, thank-you notes, or legal terms.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">8</span>Save & Preview</h5>
-                                <p>Review your invoice before sending.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">9</span>Send Invoice</h5>
-                                <p>Click Send Invoice to deliver it directly to your client's email or share the link.</p>
-                            </div>
-                            
-                            <h4 class="mt-5 mb-3">Key Features</h4>
-                            <ul class="feature-list">
-                                <li>Send invoices instantly via email.</li>
-                                <li>Real-time notifications when clients view or pay invoices.</li>
-                                <li>Multiple payment options supported (bank transfer, credit card, etc.).</li>
-                                <li>Track invoice status: Draft, Sent, Viewed, Paid, or Overdue.</li>
-                            </ul>
+            <section id="account" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">2. Account Registration</h2>
+                    <p class="lead">To access certain features of our services, you may be required to register for an account.</p>
+                    
+                    <h3 class="head-three">2.1 Registration Requirements</h3>
+                    <p>When you register for an account, you may be required to provide us with some information about yourself, such as your name, email address, and other personal information. You agree that the information you provide to us is accurate and that you will keep it accurate and up-to-date at all times.</p>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">1</span>Provide Accurate Information</p>
+                       <p>You must provide accurate, current and complete information during the registration process.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">2</span>Maintain Security</p>
+                       <p>You are responsible for safeguarding your password and for all activities that occur under your account.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                       <p class="support-head"><span class="step-number">3</span>Notify Us of Breaches</p>
+                       <p>You agree to notify us immediately of any unauthorized use of your account.</p>
+                    </div>
+                    
+                    <h3 class="head-three">2.2 Eligibility</h3>
+                    <p>By using the Services, you represent and warrant that: (a) all registration information you submit will be true, accurate, current, and complete; (b) you will maintain the accuracy of such information and promptly update such registration information as necessary.</p>
+                </div>
+            </section>
+            
+            <section id="services" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">3. Services Description</h2>
+                    <p class="lead">Fintle provides cloud-based accounting and financial management tools for businesses.</p>
+                    
+                    <h3 class="head-three">3.1 Service Offerings</h3>
+                    <p>Fintle offers various services including but not limited to:</p>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-invoice"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5 class="head-five">Invoicing & Billing</h5>
+                            <p>Create, send, and manage professional invoices and billing statements.</p>
                         </div>
                     </div>
                     
-                    <!-- Recurring Invoices Section -->
-                    <div class="tab-pane fade" id="v-pills-recurring" role="tabpanel">
-                        <div class="content-section">
-                            <h2>Setting Up Recurring Invoices</h2>
-                            <p class="lead">If you work with subscription clients or provide regular services, Recurring Invoices help automate your billing so you never miss a payment.</p>
-                            
-                            <h4 class="mt-5 mb-3">How to Set Up a Recurring Invoice</h4>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">1</span>Navigate to Recurring Invoices</h5>
-                                <p>Go to Invoicing > Recurring Invoices.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">2</span>Create New Recurring Invoice</h5>
-                                <p>Click New Recurring Invoice to start the setup process.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">3</span>Choose Client</h5>
-                                <p>Select the client you want to bill automatically.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">4</span>Set Frequency</h5>
-                                <p>Options include weekly, monthly, quarterly, or custom. Choose the start date and the number of occurrences (or make it indefinite).</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">5</span>Add Invoice Details</h5>
-                                <p>Specify services, products, tax rates, and payment terms.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">6</span>Automation Settings</h5>
-                                <ul>
-                                    <li>Enable automatic sending (invoice sent to client without manual action)</li>
-                                    <li>Enable automatic payment collection (if the client has a saved payment method)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">7</span>Review & Activate</h5>
-                                <p>Once confirmed, invoices will be generated and sent automatically.</p>
-                            </div>
-                            
-                            <h4 class="mt-5 mb-3">Benefits</h4>
-                            <ul class="feature-list">
-                                <li>Save time by eliminating repetitive manual invoicing.</li>
-                                <li>Ensure consistent cash flow with on-time billing.</li>
-                                <li>Reduce missed or delayed payments.</li>
-                                <li>Fully customizable to match each client's billing cycle.</li>
-                            </ul>
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-chart-flow"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5 class="head-five">Expense Tracking</h5>
+                            <p>Track business expenses and generate expense reports.</p>
                         </div>
                     </div>
                     
-                    <!-- Customizing Templates Section -->
-                    <div class="tab-pane fade" id="v-pills-templates" role="tabpanel">
-                        <div class="content-section">
-                            <h2>Customizing Invoice Templates</h2>
-                            <p class="lead">Your invoices represent your business, and with Fintle's Invoice Template Customization, you can make them look professional and on-brand.</p>
-                            
-                            <h4 class="mt-5 mb-3">How to Customize Your Template</h4>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">1</span>Access Template Settings</h5>
-                                <p>Go to Settings > Invoice Templates.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">2</span>Choose a Template</h5>
-                                <p>Select a default template or create a new one.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">3</span>Personalize Layout & Style</h5>
-                                <ul>
-                                    <li>Add your company logo and brand colors</li>
-                                    <li>Select fonts, styles, and header/footer layout</li>
-                                    <li>Adjust spacing and positioning of key elements</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">4</span>Configure Invoice Fields</h5>
-                                <ul>
-                                    <li>Show/hide client details, tax ID, or purchase order number</li>
-                                    <li>Add custom fields such as project reference or discount codes</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">5</span>Set Default Messages</h5>
-                                <p>Add payment instructions, bank account details, or thank-you notes.</p>
-                            </div>
-                            
-                            <div class="step-card">
-                                <h5><span class="step-number">6</span>Save Your Template</h5>
-                                <p>Set it as default for all invoices, or apply it only to selected clients.</p>
-                            </div>
-                            
-                            <h4 class="mt-5 mb-3">Customization Options</h4>
-                            <ul class="feature-list">
-                                <li>Brand Identity: Add your logo, tagline, and color scheme.</li>
-                                <li>Flexible Layouts: Choose from multiple styles (classic, modern, compact).</li>
-                                <li>Legal & Compliance: Include tax registration numbers, digital signatures, or required disclaimers.</li>
-                                <li>Multi-Language & Multi-Currency support for global clients.</li>
-                            </ul>
-                            
-                            <h4 class="mt-5 mb-3">Why Customize?</h4>
-                            <ul class="feature-list">
-                                <li>Strengthen your brand identity with every invoice.</li>
-                                <li>Improve client trust with professional presentation.</li>
-                                <li>Ensure compliance with industry and tax regulations.</li>
-                            </ul>
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-law-document"></i>
                         </div>
+                        <div class="compliance-content">
+                            <h5 class="head-five">Tax Preparation</h5>
+                            <p>Tools to help prepare and organize documents for tax filing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="icofont-dashboard"></i>
+                        </div>
+                        <div class="compliance-content">
+                            <h5 class="head-five">Financial Reporting</h5>
+                            <p>Generate financial reports including profit/loss, balance sheets, and cash flow statements.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="head-three">3.2 Service Modifications</h3>
+                    <p>We reserve the right to modify or discontinue, temporarily or permanently, the Services (or any part thereof) with or without notice. You agree that we shall not be liable to you or to any third party for any modification, suspension or discontinuance of the Services.</p>
+                </div>
+            </section>
+            
+            <section id="user-conduct" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">4. User Conduct</h2>
+                    <p class="lead">As a condition of your use of the Services, you warrant that you will not use the Services for any purpose that is unlawful or prohibited by these Terms.</p>
+                    
+                    <h3 class="head-three">4.1 Prohibited Activities</h3>
+                    <p>You agree not to engage in any of the following prohibited activities:</p>
+                    <ul class="feature-list">
+                        <li>Copying, distributing, or disclosing any part of the Services in any medium</li>
+                        <li>Using any automated system, such as "robots," "spiders," "offline readers," etc., to access the Services</li>
+                        <li>Transmitting spam, chain letters, or other unsolicited email</li>
+                        <li>Attempting to interfere with, compromise the system integrity or security, or decipher any transmissions to or from the servers running the Services</li>
+                        <li>Taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure</li>
+                        <li>Uploading invalid data, viruses, worms, or other software agents through the Services</li>
+                        <li>Collecting or harvesting any personally identifiable information from the Services</li>
+                        <li>Using the Services for any commercial solicitation purposes</li>
+                        <li>Impersonating another person or otherwise misrepresenting your affiliation with a person or entity</li>
+                        <li>Interfering with the proper working of the Services</li>
+                    </ul>
+                    
+                    <div class="alert alert-warning">
+                        <strong>Warning:</strong> Violation of these user conduct rules may result in termination of your account and legal action.
                     </div>
                 </div>
-            </div>
+            </section>
+            
+            <section id="intellectual-property" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">5. Intellectual Property</h2>
+                    <p class="lead">The Services and their original content, features, and functionality are owned by Fintle and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+                    
+                    <h3 class="head-three">5.1 Our Intellectual Property</h3>
+                    <p>Fintle and our logos, our product or service names, slogans and the look and feel of the Services are trademarks of Fintle and may not be copied, imitated or used, in whole or in part, without our prior written permission.</p>
+                    
+                    <h3 class="head-three">5.2 Your Content</h3>
+                    <p>We claim no intellectual property rights over the material you provide to the Services. Your profile and materials uploaded remain yours. However, by using the Services, you agree to allow others to view and share your Content.</p>
+                    
+                    <div class="alert alert-info">
+                        <strong>Note:</strong> You retain ownership of all content you submit, post, display, or otherwise make available on the Services.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="privacy" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">6. Privacy Policy</h2>
+                    <p class="lead">Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your personal information.</p>
+                    
+                    <h3 class="head-three">6.1 Data Collection</h3>
+                    <p>We collect information you provide directly to us, information about your use of the Services, and information from third-party sources.</p>
+                    
+                    <h3 class="head-three">6.2 Data Usage</h3>
+                    <p>We use the information we collect to provide, maintain, and improve our Services, to develop new services, and to protect Fintle and our users.</p>
+                    
+                    <h3 class="head-three">6.3 Data Sharing</h3>
+                    <p>We do not sell your personal information to third parties. We share your information only in the ways that are described in the Privacy Policy.</p>
+                    
+                    <div class="alert alert-success">
+                        <strong>Transparency:</strong> We are committed to being transparent about our privacy practices. Please review our full Privacy Policy for complete details.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="termination" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">7. Termination</h2>
+                    <p class="lead">These Terms of Use shall remain in full force and effect while you use the Services.</p>
+                    
+                    <h3 class="head-three">7.1 Termination by You</h3>
+                    <p>You may terminate your account at any time by contacting us at support@fintle.com. Upon termination, your right to use the Services will immediately cease.</p>
+                    
+                    <h3 class="head-three">7.2 Termination by Us</h3>
+                    <p>We may terminate or suspend your account and bar access to the Services immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.</p>
+                    
+                    <h3 class="head-three">7.3 Effect of Termination</h3>
+                    <p>Upon termination, your right to use the Services will immediately cease. If you wish to terminate your account, you may simply discontinue using the Services.</p>
+                </div>
+            </section>
+            
+            <section id="disclaimer" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">8. Disclaimer</h2>
+                    <p class="lead">The Services are provided on an "AS IS" and "AS AVAILABLE" basis.</p>
+                    
+                    <h3 class="head-three">8.1 No Warranty</h3>
+                    <p>Fintle makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                    
+                    <h3 class="head-three">8.2 Accuracy of Materials</h3>
+                    <p>The materials appearing on Fintle's website could include technical, typographical, or photographic errors. Fintle does not warrant that any of the materials on its website are accurate, complete or current.</p>
+                    
+                    <div class="alert alert-warning">
+                        <strong>Disclaimer:</strong> Fintle does not provide accounting, legal, or tax advice. The Services are intended to assist with financial management but should not be considered a substitute for professional advice.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="limitation" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">9. Limitation of Liability</h2>
+                    <p class="lead">In no event shall Fintle, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages.</p>
+                    
+                    <h3 class="head-three">9.1 Scope of Liability</h3>
+                    <p>Our total cumulative liability to you for any and all claims arising from or relating to these Terms or your use of the Services, whether in contract, tort, or otherwise, will not exceed the total amount of fees you paid to us for use of the Services during the twelve (12) months immediately preceding the events giving rise to such liability.</p>
+                    
+                    <h3 class="head-three">9.2 Basis of the Bargain</h3>
+                    <p>The limitations of liability set forth above are fundamental elements of the basis of the agreement between Fintle and you.</p>
+                </div>
+            </section>
+            
+            <section id="governing-law" class="terms-section">
+                <div class="content-section">
+                    <h2 class="head-two">10. Governing Law</h2>
+                    <p class="lead">These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict of law provisions.</p>
+                    
+                    <h3 class="head-three">10.1 Jurisdiction</h3>
+                    <p>You agree to submit to the personal jurisdiction of the courts located in Delaware for any actions for which we retain the right to seek injunctive or other equitable relief in a court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation or violation of our copyrights, trademarks, trade secrets, patents, or other intellectual property or proprietary rights.</p>
+                    
+                    <h3 class="head-three">10.2 Arbitration</h3>
+                    <p>Any dispute arising from these Terms and your use of the Services will be settled through binding arbitration rather than in court, except that you may assert claims in small claims court if your claims qualify.</p>
+                    
+                    <div class="alert alert-info">
+                        <strong>Legal Notice:</strong> Please read this section carefully as it affects your rights. Most disputes can be resolved without resorting to litigation.
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
-    <a href="#" class="back-to-top d-flex" id="backToTop">
-        <i class="bi bi-arrow-up"></i>
-    </a>
+    <!-- Footer section start -->
+    <footer class="footer_sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer_widget">
+                        <a href="index.html" class="footer_logo">
+                            <img src="https://via.placeholder.com/150x40/ffffff/4a3cff?text=FINTLE" alt="Fintle Logo">
+                        </a>
+                        <p>Streamline your accounting processes with Fintle's comprehensive financial management platform designed for businesses of all sizes.</p>
+                        <div class="footer_social">
+                            <ul>
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="footer_widget">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="footer_widget">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="helpcenter.html">Help Center</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="termsofuse.html">Terms of Use</a></li>
+                            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer_widget">
+                        <h4>Subscribe to our Newsletter</h4>
+                        <p>Stay updated with our latest features and industry insights.</p>
+                        <form class="footer_subscribe">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright_sec">
+                <p>© 2025 Fintle. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer section end -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle URL hash to navigate to specific sections
-            if (window.location.hash) {
-                const hash = window.location.hash.substring(1);
-                const tabTrigger = document.querySelector(`[href="#${hash}"]`);
-                if (tabTrigger) {
-                    const tab = new bootstrap.Tab(tabTrigger);
-                    tab.show();
-                }
-            }
-            
-            // Back to top button
-            const backToTopButton = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'flex';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
-            
-            backToTopButton.addEventListener('click', (e) => {
+        // Sidebar toggle functionality
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebarContent').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            
-            // Update URL hash when tab is changed
-            const tabEls = document.querySelectorAll('a[data-bs-toggle="pill"]');
-            tabEls.forEach(tabEl => {
-                tabEl.addEventListener('shown.bs.tab', (e) => {
-                    const target = e.target.getAttribute('href');
-                    window.location.hash = target;
-                });
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Update active class in sidebar
+                    document.querySelectorAll('.sidebar-content a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Scroll to element
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
 </body>
+
 </html>
