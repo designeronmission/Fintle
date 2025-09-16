@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Gradient Email Template</title>
+    <title>New Features in Fintle</title>
     <style>
         /* CSS Variables */
         :root {
             --gradient-start: #162862;
             --gradient-end: #1e1893;
-            --accent-color: #ff6b6b;
+            --accent-color: #4CAF50;
             --light-bg: #f8f9fa;
             --dark-text: #212529;
             --light-text: #ffffff;
@@ -26,7 +26,7 @@
         }
         
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             color: var(--dark-text);
             background-color: #f0f2f5;
@@ -47,46 +47,30 @@
         /* Header with gradient */
         .email-header {
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            padding: 40px 20px 70px 20px;
+            padding: 40px 30px;
             text-align: center;
             color: var(--light-text);
             position: relative;
         }
         
-        /* Modern shape divider */
-        .header-divider {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-        
-        .header-divider svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 40px;
-        }
-        
-        .header-divider .shape-fill {
-            fill: var(--light-bg);
-        }
-        
         .logo {
             font-size: 32px;
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 15px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
-        .tagline {
+        .header-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 15px 0 10px;
+        }
+        
+        .header-subtitle {
             font-size: 18px;
             opacity: 0.9;
             max-width: 80%;
             margin: 0 auto;
-            font-weight: 300;
         }
         
         /* Content Styles */
@@ -94,29 +78,27 @@
             padding: 40px 30px;
         }
         
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 25px;
+        .intro-section {
             text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .intro-heading {
             color: var(--gradient-end);
-            position: relative;
-            padding-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
         
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-            border-radius: 2px;
+        .intro-text {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 90%;
+            margin: 0 auto;
         }
         
-        /* Feature Cards */
-        .features {
+        /* Features Grid */
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
@@ -130,6 +112,7 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--gradient-end);
         }
         
         .feature-card:hover {
@@ -162,34 +145,8 @@
             line-height: 1.5;
         }
         
-        /* Stats Section */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .stat-item {
-            padding: 15px;
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--gradient-end);
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* CTA Section */
-        .cta-section {
+        /* Highlight Section */
+        .highlight-section {
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             border-radius: var(--border-radius);
             padding: 40px;
@@ -198,12 +155,12 @@
             margin: 40px 0;
         }
         
-        .cta-title {
-            font-size: 28px;
+        .highlight-title {
+            font-size: 26px;
             margin-bottom: 15px;
         }
         
-        .cta-text {
+        .highlight-text {
             margin-bottom: 25px;
             opacity: 0.9;
             max-width: 80%;
@@ -211,10 +168,54 @@
             margin-right: auto;
         }
         
+        .highlight-features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .highlight-item {
+            flex: 0 0 30%;
+            margin: 10px;
+            padding: 15px;
+        }
+        
+        .highlight-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .highlight-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cta-title {
+            color: var(--gradient-end);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-text {
+            color: #666;
+            margin-bottom: 25px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         .cta-button {
             display: inline-block;
-            background: var(--light-text);
-            color: var(--gradient-end);
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
             text-decoration: none;
             padding: 15px 40px;
             border-radius: 30px;
@@ -310,7 +311,6 @@
             font-size: 14px;
             text-decoration: none;
             margin: 0 12px;
-            transition: color 0.3s ease;
         }
         
         .footer-link:hover {
@@ -341,111 +341,101 @@
                 padding: 30px 20px;
             }
             
-            .features {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            .stats {
+            .highlight-features {
                 flex-direction: column;
             }
             
-            .stat-item {
+            .highlight-item {
+                flex: 1 0 100%;
                 margin-bottom: 20px;
-            }
-            
-            .cta-section {
-                padding: 30px 20px;
-            }
-            
-            .footer-links {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .footer-link {
-                margin: 5px 0;
             }
         }
     </style>
 </head>
 <body>
     <div class="email-container">
-        <!-- Header with gradient -->
+        <!-- Header Section -->
         <div class="email-header">
-            <div class="logo">Welcome Onboard</div>
-            <p class="tagline">Modern financial solutions for the digital age</p>
-            
-            <!-- Shape divider -->
-            <div class="header-divider">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-                </svg>
-            </div>
+            <div class="logo">Fintle</div>
+            <h1 class="header-title">New Features Available!</h1>
+            <p class="header-subtitle">We're excited to announce powerful new tools to simplify your accounting</p>
         </div>
         
         <!-- Body Content -->
         <div class="email-body">
-            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="intro-section">
+                <h2 class="intro-heading">What's New in Fintle</h2>
+                <p class="intro-text">We've been working hard to bring you new features that will transform how you manage your business finances. All available at zero cost!</p>
+            </div>
             
-            <div class="features">
+            <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">💼</div>
-                    <h3 class="feature-title">Business Solutions</h3>
-                    <p class="feature-text">Comprehensive tools to manage your business finances efficiently and effectively.</p>
+                    <div class="feature-icon">🧾</div>
+                    <h3 class="feature-title">Smart Invoicing</h3>
+                    <p class="feature-text">Automated invoice generation with customizable templates and automatic payment reminders.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Advanced Analytics</h3>
-                    <p class="feature-text">Gain valuable insights with our powerful data visualization and reporting tools.</p>
+                    <h3 class="feature-title">Advanced Reporting</h3>
+                    <p class="feature-text">New visual reports with insights into cash flow, expenses, and profitability trends.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Secure & Compliant</h3>
-                    <p class="feature-text">Enterprise-grade security and compliance with all financial regulations.</p>
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Bank Sync</h3>
+                    <p class="feature-text">Automatically import and categorize transactions from your bank accounts.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3 class="feature-title">Fast Implementation</h3>
-                    <p class="feature-text">Get up and running quickly with our easy setup process and onboarding.</p>
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Mobile App</h3>
+                    <p class="feature-text">New mobile application for managing your finances on the go with full functionality.</p>
                 </div>
             </div>
             
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                </div>
+            <div class="highlight-section">
+                <h2 class="highlight-title">Why You'll Love These Updates</h2>
+                <p class="highlight-text">Our new features are designed to save you time and provide deeper insights into your business finances.</p>
                 
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support Available</div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Happy Clients</div>
+                <div class="highlight-features">
+                    <div class="highlight-item">
+                        <div class="highlight-number">40%</div>
+                        <div class="highlight-label">Faster Invoicing</div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-number">100%</div>
+                        <div class="highlight-label">Free Forever</div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-number">24/7</div>
+                        <div class="highlight-label">Support Available</div>
+                    </div>
                 </div>
             </div>
             
             <div class="cta-section">
-                <h2 class="cta-title">Ready to Transform Your Financial Management?</h2>
-                <p class="cta-text">Join thousands of businesses that trust our platform for their financial operations.</p>
-                <a href="#" class="cta-button">Get Started Today</a>
+                <h2 class="cta-title">Ready to Explore the New Features?</h2>
+                <p class="cta-text">Log in to your Fintle account to start using these powerful new tools today.</p>
+                <a href="#" class="cta-button">Explore New Features</a>
             </div>
             
             <div class="testimonial">
-                <p class="testimonial-text">This platform has completely transformed how we manage our finances. The intuitive interface and powerful features have saved us countless hours each month.</p>
-                <p class="testimonial-author">- Sarah Johnson, CFO at TechCorp</p>
+                <p class="testimonial-text">The new bank sync feature has saved me hours of manual data entry. Fintle keeps getting better while staying completely free!</p>
+                <p class="testimonial-author">- Maria Rodriguez, Small Business Owner</p>
             </div>
         </div>
         
         <!-- Footer Section -->
         <div class="email-footer">
-            <h3 class="footer-heading">Finance Pro</h3>
-            <p>Modern financial solutions for the digital age</p>
+            <h3 class="footer-heading">Fintle Accounting</h3>
+            <p>Zero-cost accounting for smarter business finance</p>
             
             <div class="social-links">
                 <a href="#" class="social-link">f</a>
@@ -461,7 +451,7 @@
                 <a href="#" class="footer-link">Contact Us</a>
             </div>
             
-            <p class="copyright">© 2023 Finance Pro. All rights reserved.</p>
+            <p class="copyright">© 2023 Fintle Accounting. All rights reserved.</p>
             <p class="powered-by">Powered by HTML Email Template</p>
         </div>
     </div>
