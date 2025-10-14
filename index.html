@@ -961,9 +961,12 @@
                <li><a href="features.html">Features</a></li>
                 <li><a href="termsofuse.html">Terms of use</a></li>
                  <li><a href="privacypolicy.html">Privacy policy</a></li>
+                 <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
+                    
               </ul>
             </div>
           </div>
+
 
           <!-- footer link 4 -->
           <div class="col-lg-3 col-md-6 col-12">
@@ -1018,6 +1021,91 @@
     </div>
   </footer>
   <!-- Footer-Section end -->
+
+
+  <!-- Cookie Preferences Container -->
+  <div class="cookie-preferences-container" id="cookie-preferences-container">
+    <div class="cookie-panel">
+      <div class="cookie-header">
+        <h5><i class="fas fa-cookie-bite cookie-icon"></i> Cookie Preferences</h5>
+        <button class="close-cookie-btn" id="close-cookie-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="cookie-body">
+        <div class="cookie-text">
+          <p>We use cookies and similar technologies to enhance your experience on our website. <span class="highlight">Some cookies are essential</span> for the website to function properly, while others help us analyze usage and deliver personalized content.</p>
+          <p>By clicking "Accept All", you consent to our use of all cookies. You can customize your preferences or reject non-essential cookies using the options below.</p>
+          <p>For more details, see our <a href="#" style="color: #182961;">Cookie Policy</a> and <a href="#" style="color: #182961;">Privacy Policy</a>.</p>
+        </div>
+        
+        <div class="cookie-buttons">
+          <button class="btn-cookie btn-reject" id="reject-cookies-btn">Reject All</button>
+          <button class="btn-cookie btn-customize" id="customize-cookies-btn">Customize</button>
+          <button class="btn-cookie btn-accept" id="accept-cookies-btn">Accept All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Options Modal -->
+  <div class="cookie-options-modal" id="cookie-options-modal">
+    <div class="cookie-options-content">
+      <div class="cookie-options-header">
+        <h5><i class="fas fa-sliders-h cookie-icon"></i> Customize Cookie Preferences</h5>
+        <button class="close-options-btn" id="close-options-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="cookie-options-body">
+        <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
+        
+        <div class="cookie-categories">
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
+              <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="essential-cookies" checked disabled>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Analytics Cookies</div>
+              <div class="category-desc">Help us understand how visitors interact with our website.</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="analytics-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Marketing Cookies</div>
+              <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="marketing-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="options-buttons">
+          <button class="btn-options btn-cancel" id="cancel-options-btn">Cancel</button>
+          <button class="btn-options btn-save" id="save-options-btn">Save Preferences</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
   <!-- Page-wrapper-Start -->
@@ -1186,9 +1274,109 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(block);
     });
   });
+
+
+
 </script>
 
  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cookieContainer = document.getElementById('cookie-preferences-container');
+      const cookieModal = document.getElementById('cookie-options-modal');
+      const showCookieBtn = document.getElementById('show-cookie-preferences');
+      const closeCookieBtn = document.getElementById('close-cookie-btn');
+      const closeOptionsBtn = document.getElementById('close-options-btn');
+      const rejectCookiesBtn = document.getElementById('reject-cookies-btn');
+      const customizeCookiesBtn = document.getElementById('customize-cookies-btn');
+      const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+      const cancelOptionsBtn = document.getElementById('cancel-options-btn');
+      const saveOptionsBtn = document.getElementById('save-options-btn');
+      const analyticsCookies = document.getElementById('analytics-cookies');
+      const marketingCookies = document.getElementById('marketing-cookies');
+
+      // Check if user has already made a choice
+      const hasCookiePreference = localStorage.getItem('fintleCookiePreference');
+      
+      // Show cookie preferences when button is clicked (for demo)
+      showCookieBtn.addEventListener('click', function() {
+        cookieContainer.style.display = 'block';
+      });
+
+      // Close cookie preferences
+      closeCookieBtn.addEventListener('click', function() {
+        cookieContainer.style.display = 'none';
+      });
+
+      // Open cookie options modal
+      customizeCookiesBtn.addEventListener('click', function() {
+        cookieModal.style.display = 'flex';
+        
+        // Load current preferences if available
+        const analyticsPref = localStorage.getItem('fintleAnalyticsCookies');
+        const marketingPref = localStorage.getItem('fintleMarketingCookies');
+        
+        if (analyticsPref !== null) {
+          analyticsCookies.checked = analyticsPref === 'true';
+        }
+        
+        if (marketingPref !== null) {
+          marketingCookies.checked = marketingPref === 'true';
+        }
+      });
+
+      // Close cookie options modal
+      closeOptionsBtn.addEventListener('click', function() {
+        cookieModal.style.display = 'none';
+      });
+
+      cancelOptionsBtn.addEventListener('click', function() {
+        cookieModal.style.display = 'none';
+      });
+
+      // Accept all cookies
+      acceptCookiesBtn.addEventListener('click', function() {
+        localStorage.setItem('fintleCookiePreference', 'accepted');
+        localStorage.setItem('fintleAnalyticsCookies', 'true');
+        localStorage.setItem('fintleMarketingCookies', 'true');
+        cookieContainer.style.display = 'none';
+        alert('All cookies accepted!');
+      });
+
+      // Reject all cookies (except essential)
+      rejectCookiesBtn.addEventListener('click', function() {
+        localStorage.setItem('fintleCookiePreference', 'rejected');
+        localStorage.setItem('fintleAnalyticsCookies', 'false');
+        localStorage.setItem('fintleMarketingCookies', 'false');
+        cookieContainer.style.display = 'none';
+        alert('Non-essential cookies rejected!');
+      });
+
+      // Save cookie options
+      saveOptionsBtn.addEventListener('click', function() {
+        const analyticsChecked = analyticsCookies.checked;
+        const marketingChecked = marketingCookies.checked;
+        
+        localStorage.setItem('fintleCookiePreference', 'custom');
+        localStorage.setItem('fintleAnalyticsCookies', analyticsChecked.toString());
+        localStorage.setItem('fintleMarketingCookies', marketingChecked.toString());
+        
+        cookieModal.style.display = 'none';
+        cookieContainer.style.display = 'none';
+        
+        alert('Cookie preferences saved!');
+      });
+
+      // For demo purposes, show the cookie preferences on page load
+      // In a real implementation, you would check if the user has already made a choice
+      // and only show the preferences if they haven't
+      if (!hasCookiePreference) {
+        // Uncomment the line below to show cookie preferences on page load
+        // cookieContainer.style.display = 'block';
+      }
+    });
+  </script>
 
 </body>
 
