@@ -1,579 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cookie Preferences</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Cookie Preferences Container */
-    .cookie-preferences-container {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 15px;
-      background: white;
-      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
-      display: none;
-      max-width: 100%;
-    }
-    
-    .cookie-panel {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(97, 34, 135, 0.1);
-      margin: 0 auto;
-      max-width: 1200px;
-    }
-    
-    .cookie-header {
-      padding: 20px;
-      background: linear-gradient(120deg, #612287, #4a1a69);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .cookie-header h5 {
-      margin: 0;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-    }
-    
-    .cookie-icon {
-      font-size: 24px;
-      margin-right: 12px;
-    }
-    
-    .close-cookie-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    
-    .cookie-body {
-      padding: 25px;
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    
-    .cookie-text {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #495057;
-      margin-bottom: 25px;
-    }
-    
-    .cookie-text p {
-      margin-bottom: 15px;
-    }
-    
-    .highlight {
-      background-color: rgba(97, 34, 135, 0.1);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-      color: #612287;
-    }
-    
-    .cookie-buttons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    
-    .btn-cookie {
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-      font-size: 16px;
-    }
-    
-    .btn-reject {
-      background: white;
-      color: #612287;
-      border: 2px solid #612287;
-    }
-    
-    .btn-reject:hover {
-      background: #f8f9fa;
-      transform: translateY(-2px);
-    }
-    
-    .btn-customize {
-      background: white;
-      color: #612287;
-      border: 2px solid #612287;
-    }
-    
-    .btn-customize:hover {
-      background: #f8f9fa;
-      transform: translateY(-2px);
-    }
-    
-    .btn-accept {
-      background: #612287;
-      color: white;
-      border: 2px solid #612287;
-    }
-    
-    .btn-accept:hover {
-      background: #4a1a69;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(97, 34, 135, 0.3);
-    }
-    
-    /* Cookie Options Modal */
-    .cookie-options-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .cookie-options-content {
-      background-color: white;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 600px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-    
-    .cookie-options-header {
-      padding: 20px;
-      border-bottom: 1px solid #e0e0e0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(120deg, #612287, #4a1a69);
-      color: white;
-    }
-    
-    .cookie-options-header h5 {
-      margin: 0;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-    }
-    
-    .cookie-options-header .cookie-icon {
-      margin-right: 12px;
-    }
-    
-    .close-options-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    
-    .cookie-options-body {
-      padding: 25px;
-    }
-    
-    .cookie-options-body p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #495057;
-      margin-bottom: 20px;
-    }
-    
-    .cookie-categories {
-      margin-top: 20px;
-    }
-    
-    .cookie-category {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    
-    .category-info {
-      flex: 1;
-      margin-right: 20px;
-    }
-    
-    .category-name {
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 8px;
-      font-size: 18px;
-    }
-    
-    .category-desc {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.5;
-    }
-    
-    .text-muted {
-      color: #55197a !important;
-      font-weight: 500;
-      font-size: 15px;
-    }
-    
-    /* Toggle Switch Styles */
-    .toggle-switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 30px;
-    }
-    
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    
-    .toggle-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 30px;
-    }
-    
-    .toggle-slider:before {
-      position: absolute;
-      content: "";
-      height: 22px;
-      width: 22px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-    }
-    
-    input:checked + .toggle-slider {
-      background-color: #612287;
-    }
-    
-    input:checked + .toggle-slider:before {
-      transform: translateX(30px);
-    }
-    
-    input:disabled + .toggle-slider {
-      background-color: #e0e0e0;
-      cursor: not-allowed;
-    }
-    
-    input:disabled + .toggle-slider:before {
-      background-color: #f5f5f5;
-    }
-    
-    .options-buttons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 15px;
-      margin-top: 30px;
-    }
-    
-    .btn-options {
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-      font-size: 16px;
-    }
-    
-    .btn-cancel {
-      background: white;
-      color: #612287;
-      border: 2px solid #612287;
-    }
-    
-    .btn-cancel:hover {
-      background: #f8f9fa;
-    }
-    
-    .btn-save {
-      background: #612287;
-      color: white;
-      border: 2px solid #612287;
-    }
-    
-    .btn-save:hover {
-      background: #4a1a69;
-      box-shadow: 0 5px 15px rgba(97, 34, 135, 0.3);
-    }
-    
-    /* Demo content */
-    .demo-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      margin-top: 40px;
-    }
-    
-    /* Responsive styles */
-    @media (max-width: 768px) {
-      .cookie-buttons, .options-buttons {
-        flex-direction: column;
-      }
-      
-      .btn-cookie, .btn-options {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      
-      .cookie-header h5, .cookie-options-header h5 {
-        font-size: 1.3rem;
-      }
-      
-      .cookie-body {
-        padding: 20px;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .cookie-preferences-container {
-        padding: 10px;
-      }
-      
-      .cookie-header, .cookie-options-header {
-        padding: 15px;
-      }
-      
-      .cookie-body, .cookie-options-body {
-        padding: 15px;
-      }
-      
-      .cookie-category {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .category-info {
-        margin-right: 0;
-        margin-bottom: 15px;
-      }
-      
-      .toggle-switch {
-        align-self: flex-end;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Description -->
+    <meta name="description" content="Fintle Cookie Policy - Learn about how we use cookies and similar technologies on our platform">
+    <title>Cookie Policy - Fintle</title>
+
+    <!-- icofont-css-link -->
+    <link rel="stylesheet" href="css/icofont.min.css">
+    <!-- Owl-Carosal-Style-link -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Bootstrap-Style-link -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Coustome-Style-link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-Style-link -->
+    <link rel="stylesheet" href="css/responsive.css">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/fav-icon.png" type="image/x-icon">
+    <!-- webfont-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-  <!-- Demo content to show the cookie preferences in context -->
-  <div class="demo-content">
-    <h1>Cookie Preferences Demo</h1>
-    <p>This page demonstrates the cookie preferences interface. Click the button below to show the cookie preferences panel.</p>
-    <button id="show-cookie-preferences" style="padding: 12px 24px; background: #612287; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
-      Show Cookie Preferences
-    </button>
-  </div>
+    <!-- Header Start -->
+    <header>
+        <!-- container start -->
+        <div class="container">
+            <!-- navigation bar -->
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo  -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo/fintle_logo.png" alt="Fintle Logo">
+                </a>
 
-  <!-- Cookie Preferences Container -->
-  <div class="cookie-preferences-container" id="cookie-preferences-container">
-    <div class="cookie-panel">
-      <div class="cookie-header">
-        <h5><i class="fas fa-cookie-bite cookie-icon"></i> Cookie Preferences</h5>
-        <button class="close-cookie-btn" id="close-cookie-btn">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      
-      <div class="cookie-body">
-        <div class="cookie-text">
-          <p>We use cookies and similar technologies to enhance your experience on our website. <span class="highlight">Some cookies are essential</span> for the website to function properly, while others help us analyze usage and deliver personalized content.</p>
-          <p>By clicking "Accept All", you consent to our use of all cookies. You can customize your preferences or reject non-essential cookies using the options below.</p>
-          <p>For more details, see our <a href="#" style="color: #612287;">Cookie Policy</a> and <a href="#" style="color: #612287;">Privacy Policy</a>.</p>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
+                        <div class="toggle-wrap">
+                            <span class="toggle-bar"></span>
+                        </div>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- secondery menu start -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <!-- secondery menu end -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="about.html">About us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="helpcenter.html">Help Center</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="contact.html">Contact</a>
+                        </li>
+
+                        <li class="nav-item">
+                         <a href="signin.html" class="btn puprple_btn">Get Started</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+            <!-- navigation end -->
         </div>
-        
-        <div class="cookie-buttons">
-          <button class="btn-cookie btn-reject" id="reject-cookies-btn">Reject All</button>
-          <button class="btn-cookie btn-customize" id="customize-cookies-btn">Customize</button>
-          <button class="btn-cookie btn-accept" id="accept-cookies-btn">Accept All</button>
+        <!-- container end -->
+    </header>
+
+
+    <!-- blog Hero -->
+    <section class="help-center-hero">
+        <div class="container">
+            <h1>Cookie Policy</h1>
+            <p>Last updated: June 15, 2025</p>
+
+            <ul class="ul-new pb-4">
+                <li><a href="index.html">Home</a></li>
+                <li><span>»</span></li>
+                <li><a href="cookiepolicy.html">Cookie Policy</a></li>
+            </ul>
         </div>
-      </div>
+    </section>
+
+    <!-- Cookie Policy Content -->
+    <div class="container terms-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle">Contents</button>
+            <div class="sidebar-content" id="sidebarContent">
+                <h4>Contents</h4>
+                <ul>
+                    <li><a href="#introduction" class="active">1. Introduction</a></li>
+                    <li><a href="#what-are-cookies">2. What Are Cookies</a></li>
+                    <li><a href="#how-we-use-cookies">3. How We Use Cookies</a></li>
+                    <li><a href="#types-of-cookies">4. Types of Cookies We Use</a></li>
+                    <li><a href="#third-party-cookies">5. Third-Party Cookies</a></li>
+                    <li><a href="#cookie-management">6. Managing Cookies</a></li>
+                    <li><a href="#specific-cookies">7. Specific Cookies We Use</a></li>
+                    <li><a href="#updates">8. Updates to This Policy</a></li>
+                    <li><a href="#contact">9. Contact Information</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="terms-content">
+            <section id="introduction" class="terms-section">
+                <h4>1. Introduction</h4>
+                <p>This Cookie Policy explains how Fintle ("we", "us", or "our") uses cookies and similar technologies to recognize you when you visit our website at www.fintle.com and use our accounting platform. It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
+                <p>In some cases, we may use cookies to collect personal information, or information that becomes personal information if we combine it with other information. In such cases, our <a href="privacypolicy.html" style="color: var(--primary);">Privacy Policy</a> will apply in addition to this Cookie Policy.</p>
+            </section>
+
+            <section id="what-are-cookies" class="terms-section">
+                <h4>2. What Are Cookies</h4>
+                <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
+                <p>Cookies set by the website owner (in this case, Fintle) are called "first-party cookies." Cookies set by parties other than the website owner are called "third-party cookies." Third-party cookies enable third-party features or functionality to be provided on or through the website (e.g., advertising, interactive content, and analytics).</p>
+            </section>
+
+            <section id="how-we-use-cookies" class="terms-section">
+                <h4>3. How We Use Cookies</h4>
+                <p>We use first-party and third-party cookies for several reasons. Some cookies are required for technical reasons for our website to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our platform.</p>
+                <p>Specifically, we use cookies for the following purposes:</p>
+                <ul>
+                    <li>To enable certain functions of the Fintle platform</li>
+                    <li>To provide analytics on how our platform is used</li>
+                    <li>To store your preferences and account settings</li>
+                    <li>To enable advertisements delivery, including behavioral advertising</li>
+                    <li>To allow sharing of content via social media</li>
+                </ul>
+            </section>
+
+            <section id="types-of-cookies" class="terms-section">
+                <h4>4. Types of Cookies We Use</h4>
+                <p>The specific types of first and third-party cookies served through our website and the purposes they perform are described in the table below:</p>
+                
+                <div class="cookie-table">
+                    <div class="cookie-type">
+                        <h5>Essential Cookies</h5>
+                        <p>These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as access to secure areas.</p>
+                    </div>
+                    
+                    <div class="cookie-type">
+                        <h5>Performance and Functionality Cookies</h5>
+                        <p>These cookies are used to enhance the performance and functionality of our website but are non-essential to their use. However, without these cookies, certain functionality may become unavailable.</p>
+                    </div>
+                    
+                    <div class="cookie-type">
+                        <h5>Analytics and Customization Cookies</h5>
+                        <p>These cookies collect information that is used either in aggregate form to help us understand how our website is being used or how effective our marketing campaigns are, or to help us customize our website for you.</p>
+                    </div>
+                    
+                    <div class="cookie-type">
+                        <h5>Advertising Cookies</h5>
+                        <p>These cookies are used to make advertising messages more relevant to you. They perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed, and in some cases selecting advertisements that are based on your interests.</p>
+                    </div>
+                    
+                    <div class="cookie-type">
+                        <h5>Social Media Cookies</h5>
+                        <p>These cookies are set by a range of social media services that we have added to the site to enable you to share our content with your friends and networks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="third-party-cookies" class="terms-section">
+                <h4>5. Third-Party Cookies</h4>
+                <p>In addition to our own cookies, we may also use various third-party cookies to report usage statistics of the service, deliver advertisements on and through the service, and so on.</p>
+                <p>Some of the third-party services we use include:</p>
+                <ul>
+                    <li><strong>Google Analytics:</strong> To understand how visitors engage with our website</li>
+                    <li><strong>Google Ads:</strong> For advertising and retargeting purposes</li>
+                    <li><strong>Facebook Pixel:</strong> For tracking conversions from Facebook ads and building targeted audiences</li>
+                    <li><strong>Hotjar:</strong> To better understand our users' needs and optimize their experience</li>
+                </ul>
+                <p>These third-party services may place their own cookies on your browser, and their use of your information is governed by their respective privacy policies.</p>
+            </section>
+
+            <section id="cookie-management" class="terms-section">
+                <h4>6. Managing Cookies</h4>
+                <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by clicking on the appropriate opt-out links provided in the cookie table or by modifying your web browser controls.</p>
+                
+                <div class="highlight">
+                    <p class="bs-fs"><strong>Browser Controls:</strong> Most web browsers allow you to control cookies through their settings preferences. However, if you limit the ability of websites to set cookies, you may worsen your overall user experience, as it will no longer be personalized to you. It may also stop you from saving customized settings like login information.</p>
+                </div>
+                
+                <p>To find out more about cookies, including how to see what cookies have been set and how to manage and delete them, visit <a href="https://www.aboutcookies.org" target="_blank" style="color: var(--primary);">www.aboutcookies.org</a> or <a href="https://www.allaboutcookies.org" target="_blank" style="color: var(--primary);">www.allaboutcookies.org</a>.</p>
+                
+                <p>For more information about targeted advertising and your choices, visit:</p>
+                <ul>
+                    <li>Digital Advertising Alliance: <a href="https://www.aboutads.info/choices/" target="_blank" style="color: var(--primary);">https://www.aboutads.info/choices/</a></li>
+                    <li>Network Advertising Initiative: <a href="https://www.networkadvertising.org/choices/" target="_blank" style="color: var(--primary);">https://www.networkadvertising.org/choices/</a></li>
+                </ul>
+            </section>
+
+            <section id="specific-cookies" class="terms-section">
+                <h4>7. Specific Cookies We Use</h4>
+                <p>The table below lists the specific cookies we use on the Fintle platform:</p>
+                
+                <div class="table-responsive">
+                    <table class="cookie-details-table">
+                        <thead>
+                            <tr>
+                                <th>Cookie Name</th>
+                                <th>Provider</th>
+                                <th>Purpose</th>
+                                <th>Expiry</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>session_id</td>
+                                <td>Fintle</td>
+                                <td>Maintains your session state across page requests</td>
+                                <td>Session</td>
+                            </tr>
+                            <tr>
+                                <td>user_preferences</td>
+                                <td>Fintle</td>
+                                <td>Stores your account preferences and settings</td>
+                                <td>1 year</td>
+                            </tr>
+                            <tr>
+                                <td>_ga</td>
+                                <td>Google Analytics</td>
+                                <td>Distinguishes unique users</td>
+                                <td>2 years</td>
+                            </tr>
+                            <tr>
+                                <td>_gid</td>
+                                <td>Google Analytics</td>
+                                <td>Distinguishes unique users</td>
+                                <td>24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>_gat</td>
+                                <td>Google Analytics</td>
+                                <td>Throttles request rate</td>
+                                <td>1 minute</td>
+                            </tr>
+                            <tr>
+                                <td>fr</td>
+                                <td>Facebook</td>
+                                <td>Used to deliver, measure and improve the relevancy of ads</td>
+                                <td>3 months</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="updates" class="terms-section">
+                <h4>8. Updates to This Policy</h4>
+                <p>We may update this Cookie Policy from time to time to reflect, for example, changes to the cookies we use or for other operational, legal, or regulatory reasons. Please therefore re-visit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
+                <p>The date at the top of this Cookie Policy indicates when it was last updated. If we make material changes to how we use cookies, we will notify you by prominently posting a notice of such changes before they take effect or by directly sending you a notification.</p>
+            </section>
+
+            <section id="contact" class="terms-section">
+                <h4>9. Contact Information</h4>
+                <p>If you have any questions about our use of cookies or other technologies, please contact us at:</p>
+                <p><strong>Fintle Support</strong><br>
+                Email: fintlesupport@gmail.com<br>
+                Address: Flat No.2 & 3 (II Floor) VOC Street, Indian Bank Colony, New Natham Road, Madurai-625014, Tamilnadu - India.</p>
+            </section>
+        </div>
     </div>
-  </div>
 
-  <!-- Cookie Options Modal -->
-  <div class="cookie-options-modal" id="cookie-options-modal">
-    <div class="cookie-options-content">
-      <div class="cookie-options-header">
-        <h5><i class="fas fa-sliders-h cookie-icon"></i> Customize Cookie Preferences</h5>
-        <button class="close-options-btn" id="close-options-btn">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      
-      <div class="cookie-options-body">
-        <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
-        
-        <div class="cookie-categories">
-          <div class="cookie-category">
-            <div class="category-info">
-              <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
-              <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
-            </div>
-            <label class="toggle-switch">
-              <input type="checkbox" id="essential-cookies" checked disabled>
-              <span class="toggle-slider"></span>
-            </label>
+    <!-- Footer-Section start -->
+    <footer>
+        <div class="top_footer" id="contact">
+          <!-- container start -->
+          <div class="container">
+              <!-- row start -->
+              <div class="row">
+                  <!-- footer link 1 -->
+                  <div class="col-lg-5 col-md-6 col-12">
+                      <div class="abt_side">
+                        <div class="logo"> <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo" ></div>
+                        <p>Fintle is your all-in-one accounting tool to create bills, track sales, and manage purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
+                        <a href="tel:1235678901" class="footer_cta_text">Call : +91 123 4567890 </a> <br>
+                            <a href="mailto:example@email.com" class="footer_cta_text"> Email : fintlesupport@gmail.com </a>
+                      </div>
+                  </div>
+
+                  <!-- footer link 2 -->
+                  <div class="col-lg-2 col-md-6 col-12">
+                      <div class="links">
+                        <h6>Quick Links</h6>
+                          <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <!-- footer link 3 -->
+                  <div class="col-lg-2 col-md-6 col-12">
+                    <div class="links">
+                      <h6>Suport</h6>
+                        <ul>
+                          <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="helpcenter.html">Support</a></li>
+                       <li><a href="features.html">Features</a></li>
+                        <li><a href="termsofuse.html">Terms of use</a></li>
+                           <li><a href="privacypolicy.html">Privacy policy</a></li>
+                 <li><a href="cookiepolicy.html">Cookie policy</a></li>
+                 <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
+                        </ul>
+                    </div>
+                  </div>
+
+                  <!-- footer link 4 -->
+                  <div class="col-lg-3 col-md-6 col-12">
+                        <h6>Subscribe us</h6>
+                        <div class="news_letter">
+                          <p>Subscribe our newsleter to receive latest updates regularly from us!</p>
+                          <form>
+                            <div class="form-group">
+                              <input type="email" class="form-control" placeholder="Enter your email">
+                              <button class="btn" aria-label="subscribe"><i class="icofont-paper-plane"></i></button>
+                            </div>
+                            <p class="note">By clicking send link you agree to receive message.</p>
+                          </form>
+                        </div>
+                  </div>
+              </div>
+              <!-- row end -->
           </div>
-          
-          <div class="cookie-category">
-            <div class="category-info">
-              <div class="category-name">Analytics Cookies</div>
-              <div class="category-desc">Help us understand how visitors interact with our website.</div>
-            </div>
-            <label class="toggle-switch">
-              <input type="checkbox" id="analytics-cookies">
-              <span class="toggle-slider"></span>
-            </label>
-          </div>
-          
-          <div class="cookie-category">
-            <div class="category-info">
-              <div class="category-name">Marketing Cookies</div>
-              <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
-            </div>
-            <label class="toggle-switch">
-              <input type="checkbox" id="marketing-cookies">
-              <span class="toggle-slider"></span>
-            </label>
+          <!-- container end -->
+
+          <!-- last footer -->
+          <div class="bottom_footer">
+            <!-- container start -->
+              <div class="container">
+                <!-- row start -->
+                <div class="row">
+                  <div class="col-md-4">
+                      <p>© 2025 Fintle. All rights reserved.</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <ul class="social_media">
+                     <li><a href="#" aria-label="facebook page"><i class="icofont-facebook"></i></a></li>
+                <li><a href="#" aria-label="instagram page"><i class="icofont-instagram"></i></a></li>
+                <li><a href="#" aria-label="youtube page"><i class="icofont-youtube-play"></i></a></li>
+                  <li><a href="#" aria-label="linkedin page"><i class="icofont-linkedin"></i></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-4">
+                      <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="blank">Aparajayah</a></p>
+                  </div>
+              </div>
+              <!-- row end -->
+              </div>
+              <!-- container end -->
           </div>
         </div>
-        
-        <div class="options-buttons">
-          <button class="btn-options btn-cancel" id="cancel-options-btn">Cancel</button>
-          <button class="btn-options btn-save" id="save-options-btn">Save Preferences</button>
+    </footer>
+    <!-- Footer-Section end -->
+
+    <!-- Page-wrapper-Start -->
+    <div class="page_wrapper">
+        <!-- go top button -->
+        <div class="go_top" id="Gotop">
+            <span><i class="icofont-arrow-up"></i></span>
         </div>
-      </div>
     </div>
-  </div>
+    <!-- Page-wrapper-End -->
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cookieContainer = document.getElementById('cookie-preferences-container');
-      const cookieModal = document.getElementById('cookie-options-modal');
-      const showCookieBtn = document.getElementById('show-cookie-preferences');
-      const closeCookieBtn = document.getElementById('close-cookie-btn');
-      const closeOptionsBtn = document.getElementById('close-options-btn');
-      const rejectCookiesBtn = document.getElementById('reject-cookies-btn');
-      const customizeCookiesBtn = document.getElementById('customize-cookies-btn');
-      const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
-      const cancelOptionsBtn = document.getElementById('cancel-options-btn');
-      const saveOptionsBtn = document.getElementById('save-options-btn');
-      const analyticsCookies = document.getElementById('analytics-cookies');
-      const marketingCookies = document.getElementById('marketing-cookies');
+    <!-- Jquery-js-Link -->
+    <script src="js/jquery.js"></script>
+    <!-- owl-js-Link -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- bootstrap-js-Link -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- main-js-Link -->
+    <script src="js/main.js"></script>
 
-      // Check if user has already made a choice
-      const hasCookiePreference = localStorage.getItem('fintleCookiePreference');
-      
-      // Show cookie preferences when button is clicked (for demo)
-      showCookieBtn.addEventListener('click', function() {
-        cookieContainer.style.display = 'block';
-      });
-
-      // Close cookie preferences
-      closeCookieBtn.addEventListener('click', function() {
-        cookieContainer.style.display = 'none';
-      });
-
-      // Open cookie options modal
-      customizeCookiesBtn.addEventListener('click', function() {
-        cookieModal.style.display = 'flex';
-        
-        // Load current preferences if available
-        const analyticsPref = localStorage.getItem('fintleAnalyticsCookies');
-        const marketingPref = localStorage.getItem('fintleMarketingCookies');
-        
-        if (analyticsPref !== null) {
-          analyticsCookies.checked = analyticsPref === 'true';
-        }
-        
-        if (marketingPref !== null) {
-          marketingCookies.checked = marketingPref === 'true';
-        }
-      });
-
-      // Close cookie options modal
-      closeOptionsBtn.addEventListener('click', function() {
-        cookieModal.style.display = 'none';
-      });
-
-      cancelOptionsBtn.addEventListener('click', function() {
-        cookieModal.style.display = 'none';
-      });
-
-      // Accept all cookies
-      acceptCookiesBtn.addEventListener('click', function() {
-        localStorage.setItem('fintleCookiePreference', 'accepted');
-        localStorage.setItem('fintleAnalyticsCookies', 'true');
-        localStorage.setItem('fintleMarketingCookies', 'true');
-        cookieContainer.style.display = 'none';
-        alert('All cookies accepted!');
-      });
-
-      // Reject all cookies (except essential)
-      rejectCookiesBtn.addEventListener('click', function() {
-        localStorage.setItem('fintleCookiePreference', 'rejected');
-        localStorage.setItem('fintleAnalyticsCookies', 'false');
-        localStorage.setItem('fintleMarketingCookies', 'false');
-        cookieContainer.style.display = 'none';
-        alert('Non-essential cookies rejected!');
-      });
-
-      // Save cookie options
-      saveOptionsBtn.addEventListener('click', function() {
-        const analyticsChecked = analyticsCookies.checked;
-        const marketingChecked = marketingCookies.checked;
-        
-        localStorage.setItem('fintleCookiePreference', 'custom');
-        localStorage.setItem('fintleAnalyticsCookies', analyticsChecked.toString());
-        localStorage.setItem('fintleMarketingCookies', marketingChecked.toString());
-        
-        cookieModal.style.display = 'none';
-        cookieContainer.style.display = 'none';
-        
-        alert('Cookie preferences saved!');
-      });
-
-      // For demo purposes, show the cookie preferences on page load
-      // In a real implementation, you would check if the user has already made a choice
-      // and only show the preferences if they haven't
-      if (!hasCookiePreference) {
-        // Uncomment the line below to show cookie preferences on page load
-        // cookieContainer.style.display = 'block';
-      }
-    });
-  </script>
+    <script>
+        // Mobile sidebar toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarContent = document.getElementById('sidebarContent');
+            
+            if (sidebarToggle && sidebarContent) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebarContent.classList.toggle('active');
+                    sidebarToggle.classList.toggle('active');
+                });
+            }
+            
+            // Highlight current section in sidebar when scrolling
+            const sections = document.querySelectorAll('.terms-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Close sidebar when a link is clicked on mobile
+            if (window.innerWidth <= 1024) {
+                const sidebarLinks = document.querySelectorAll('.sidebar a');
+                sidebarLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        sidebarContent.classList.remove('active');
+                        sidebarToggle.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
