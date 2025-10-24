@@ -5479,6 +5479,7 @@ footer .bottom_footer .developer_text a {
     padding: 0 140px 0 0;
     overflow: hidden;
     position: relative;
+    height: 700px;
 }
 
 
@@ -7294,6 +7295,16 @@ footer .bottom_footer .developer_text a {
         padding-left: 0 !important;
         margin-left: 0 !important;
     }
+    .signup_section .form_block .side_screen{
+                height: auto;
+    }
+
+
+    .otp-input{
+    width: 46px !important;
+    height: 46px !important;
+}
+
 
 
 }
