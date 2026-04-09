@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fintle Help Center - Get answers to your questions, learn how to use our features, and contact support">
+    <title>Help Center - Fintle</title>
+         <!-- icofont-css-link -->
+    <link rel="stylesheet" href="css/icofont.min.css">
+    <!-- Owl-Carosal-Style-link -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Bootstrap-Style-link -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/fav-icon.png" type="image/x-icon">
+    <!-- webfont-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --gradient-start: #162862;
+            --gradient-end: #1e1893;
+            --accent-color: #ff6b6b;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --light-text: #ffffff;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .email-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        /* Header with gradient */
+        .email-header {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            padding: 40px 20px 70px 20px;
+            text-align: center;
+            color: var(--light-text);
+            position: relative;
+        }
+        
+        /* Modern shape divider */
+        .header-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .header-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 40px;
+        }
+        
+        .header-divider .shape-fill {
+            fill: var(--light-bg);
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .logo-img{
+            width: 140px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        .heading-one{
+             font-size: 32px;
+            font-weight: 600;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 80%;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        /* Content Styles */
+        .email-body {
+            padding: 40px 30px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--gradient-end);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+        
+        /* Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 28px;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--gradient-end);
+        }
+        
+        .feature-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 15px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gradient-end);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            color: var(--light-text);
+            margin: 40px 0;
+        }
+        
+        .cta-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-text {
+            margin-bottom: 25px;
+            opacity: 0.9;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--light-text);
+            color: var(--gradient-end);
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Testimonial */
+        .testimonial {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 30px;
+            font-size: 60px;
+            color: var(--gradient-end);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--gradient-end);
+        }
+        
+        /* Footer Styles */
+        .email-footer {
+            background: var(--gradient-start);
+            color: var(--light-text);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .footer-heading {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            margin-bottom: 25px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--light-text);
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 20px;
+        }
+        
+        .powered-by {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 650px) {
+            .email-container {
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .email-header, .email-body, .email-footer {
+                padding: 30px 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                margin-bottom: 20px;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .footer-link {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header with gradient -->
+        <div class="email-header">
+            <div class="logo"><img src="https://api.eggvy.com/uploads/1750776261075-1742975202404-logo.png" alt="logo" class="logo-img"></div>
+            <h3 class="heading-one">Welcome Onboard!</h3>
+            <p class="tagline"> Zero-Cost Accounting for Smarter Business Finance</p>
+            
+            <!-- Shape divider -->
+            <div class="header-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Body Content -->
+        <div class="email-body">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="icofont-businessman"></i></div>
+                    <h3 class="feature-title">Business Solutions</h3>
+                    <p class="feature-text">Comprehensive tools to manage your business finances efficiently and effectively.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="icofont-chart-bar-graph"></i></div>
+                    <h3 class="feature-title">Advanced Analytics</h3>
+                    <p class="feature-text">Gain valuable insights with our powerful data visualization and reporting tools.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="icofont-shield"></i></div>
+                    <h3 class="feature-title">Secure & Compliant</h3>
+                    <p class="feature-text">Enterprise-grade security and compliance with all financial regulations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="icofont-rocket"></i></div>
+                    <h3 class="feature-title">Fast Implementation</h3>
+                    <p class="feature-text">Get up and running quickly with our easy setup process and onboarding.</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Transform Your Financial Management?</h2>
+                <p class="cta-text">Join thousands of businesses that trust our platform for their financial operations.</p>
+                <a href="signin.html" target="_blank" class="cta-button">Get Started Today</a>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">This platform has completely transformed how we manage our finances. The intuitive interface and powerful features have saved us countless hours each month.</p>
+                <p class="testimonial-author">- Sarah Johnson, CFO at TechCorp</p>
+            </div>
+        </div>
+        
+        <!-- Footer Section -->
+        <div class="email-footer">
+            <h3 class="footer-heading">Fintle Accounting</h3>
+            <p>Zero-Cost Accounting for Smarter Business Finance</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="icofont-instagram"></i></a>
+                <a href="#" class="social-link"><i class="icofont-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="icofont-youtube-play"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Unsubscribe</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+            
+            <p class="copyright">© 2025 Fintle. All rights reserved.</p>
+            <p class="powered-by">Powered by Aparajayah</p>
+        </div>
+    </div>
+</body>
+</html> 
