@@ -5905,7 +5905,7 @@ footer .bottom_footer .developer_text a {
 }
 
 .about_section .about_box .aboutus_img {
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
