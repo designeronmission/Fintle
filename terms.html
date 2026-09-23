@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fintle Terms of Use and Privacy Policy - Legal information about our accounting platform">
+    <title>Terms of Use & Privacy Policy - Fintle</title>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/icofont.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Additional styles to match FAQ template layout */
+        .legal-hero {
+            background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .legal-hero h1 {
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .legal-hero p {
+            color: #5a5a7a;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .legal-hero .ul-new {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .legal-hero .ul-new li a {
+            color: #4a4a8a;
+            text-decoration: none;
+        }
+
+        .legal-hero .ul-new li span {
+            color: #a0a0c0;
+        }
+
+        .legal-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* Left Side Sticky Navigation */
+        .legal-categories {
+            flex: 0 0 260px;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eef0f5;
+        }
+
+        .legal-categories h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eef0f5;
+        }
+
+        .legal-categories .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .legal-categories .category-item {
+            margin-bottom: 6px;
+        }
+
+        .legal-categories .category-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: #4a4a6a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .legal-categories .category-link:hover {
+            background: #f0f2ff;
+            color: #3a3a8a;
+        }
+
+        .legal-categories .category-link.active {
+            background: linear-gradient(135deg, #6a5acd, #4a3ab0);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(106, 90, 205, 0.3);
+        }
+
+        .legal-categories .category-link i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+            width: 22px;
+            text-align: center;
+        }
+
+        /* Right Side Content */
+        .legal-content {
+            flex: 1;
+            background: #fff;
+            border-radius: 16px;
+            padding: 35px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eef0f5;
+        }
+
+        .legal-section {
+            margin-bottom: 45px;
+            scroll-margin-top: 100px;
+        }
+
+        .legal-section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #6a5acd;
+            display: inline-block;
+        }
+
+        .legal-section .last-updated {
+            font-size: 0.85rem;
+            color: #8a8aa0;
+            margin-bottom: 20px;
+        }
+
+        .legal-section h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2a2a4a;
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        .legal-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #3a3a5a;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .legal-section p {
+            color: #4a4a6a;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .legal-section ul,
+        .legal-section ol {
+            color: #4a4a6a;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            padding-left: 22px;
+        }
+
+        .legal-section ul li,
+        .legal-section ol li {
+            margin-bottom: 6px;
+        }
+
+        .legal-section ul li strong,
+        .legal-section ol li strong {
+            color: #2a2a4a;
+        }
+
+        .legal-section .highlight-box {
+            background: #f8f9ff;
+            border-left: 4px solid #6a5acd;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+
+        .legal-section .highlight-box p {
+            margin-bottom: 0;
+            font-size: 0.92rem;
+        }
+
+        .legal-section .contact-info {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-top: 16px;
+            border: 1px solid #e8eaff;
+        }
+
+        .legal-section .contact-info p {
+            margin-bottom: 4px;
+        }
+
+        .legal-section .contact-info a {
+            color: #6a5acd;
+            text-decoration: none;
+        }
+
+        .legal-section .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .legal-container {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .legal-categories {
+                flex: 1 1 auto;
+                position: static;
+                width: 100%;
+            }
+
+            .legal-categories .category-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .legal-categories .category-item {
+                margin-bottom: 0;
+            }
+
+            .legal-categories .category-link {
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 0.88rem;
+            }
+
+            .legal-content {
+                padding: 25px 22px;
+            }
+
+            .legal-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .legal-hero {
+                padding: 50px 0 40px;
+            }
+
+            .legal-hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .legal-hero p {
+                font-size: 0.95rem;
+                padding: 0 15px;
+            }
+
+            .legal-content {
+                padding: 20px 16px;
+            }
+
+            .legal-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .legal-categories .category-link {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Start -->
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo/fintle_logo.png" alt="Fintle Logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <div class="toggle-wrap">
+                            <span class="toggle-bar"></span>
+                        </div>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="helpcenter.html">Help Center</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="signin.html" class="btn puprple_btn">Get Started</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Legal Hero Section -->
+    <section class="help-center-hero legal-hero">
+        <div class="container">
+            <h1>Terms of Use & Privacy Policy</h1>
+            <p>Your trusted financial management partner — transparent, secure, and built for you</p>
+
+            <ul class="ul-new pb-4">
+                <li><a href="index.html">Home</a></li>
+                <li><span>»</span></li>
+                <li><a href="termsofuse.html">Legal</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Legal Main Content -->
+    <div class="container">
+        <div class="legal-container">
+            <!-- Left Side Categories (Sticky) -->
+            <div class="legal-categories">
+                <h3>Quick Navigation</h3>
+                <ul class="category-list">
+                    <li class="category-item">
+                        <a href="#terms-of-use" class="category-link active" data-category="terms">
+                            <i class="icofont-law-document"></i> Terms of Use
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#privacy-policy" class="category-link" data-category="privacy">
+                            <i class="icofont-shield"></i> Privacy Policy
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#data-security" class="category-link" data-category="security">
+                            <i class="icofont-lock"></i> Data Security
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#your-rights" class="category-link" data-category="rights">
+                            <i class="icofont-user-suited"></i> Your Rights
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#contact-legal" class="category-link" data-category="contact">
+                            <i class="icofont-email"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side Legal Content -->
+            <div class="legal-content">
+                <!-- Terms of Use Section -->
+                <section id="terms-of-use" class="legal-section">
+                    <h2>Terms of Use</h2>
+                    <p class="last-updated">Last Updated: January 1, 2025</p>
+
+                    <p>Welcome to Fintle ("Fintle," "we," "us," or "our"). These Terms of Use ("Terms") govern your access to and use of the Fintle website, applications, and services (collectively, the "Service"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, please do not use the Service.</p>
+
+                    <h3>1. About Fintle</h3>
+                    <p>Fintle provides a zero-cost accounting and financial management platform designed for small businesses, nonprofits, accountants, and other users. Features include invoicing, quotation and estimate generation, sales, purchase and expense tracking, receivables and payables management, financial reporting, GST and e-invoicing support, and customizable billing formats.</p>
+
+                    <h3>2. Eligibility</h3>
+                    <p>You must be at least 18 years of age and capable of entering into a legally binding agreement to use the Service. If you use the Service on behalf of a business or organization, you represent that you have authority to bind that entity to these Terms.</p>
+
+                    <h3>3. Account Registration</h3>
+                    <ul>
+                        <li>You agree to provide accurate, current, and complete information during registration and to keep it updated.</li>
+                        <li>You are responsible for maintaining the confidentiality of your login credentials.</li>
+                        <li>You are responsible for all activity that occurs under your account.</li>
+                        <li>Notify us immediately at <a href="mailto:support@fintle.com">support@fintle.com</a> if you suspect unauthorized access.</li>
+                    </ul>
+
+                    <h3>4. Acceptable Use</h3>
+                    <p>You agree not to:</p>
+                    <ul>
+                        <li>Use the Service for any unlawful, fraudulent, or unauthorized purpose.</li>
+                        <li>Upload or transmit viruses, malware, or harmful code.</li>
+                        <li>Attempt to gain unauthorized access to the Service, other accounts, or our systems.</li>
+                        <li>Reverse engineer, scrape, copy, or resell any part of the Service without written permission.</li>
+                        <li>Use the Service to generate false, misleading, or non-compliant financial or tax documents.</li>
+                        <li>Interfere with or disrupt the integrity or performance of the Service.</li>
+                    </ul>
+
+                    <h3>5. Financial and Tax Disclaimer</h3>
+                    <div class="highlight-box">
+                        <p><strong>Important:</strong> Fintle is a tool to assist with accounting, invoicing, and reporting. It does <strong>not</strong> provide legal, tax, accounting, or financial advice. You are solely responsible for the accuracy of data you enter, compliance with applicable tax, GST, e-invoicing, and regulatory requirements in your jurisdiction, and verifying any calculations, reports, or documents generated by the Service before relying on them.</p>
+                    </div>
+                    <p>We recommend consulting a qualified professional for advice specific to your situation.</p>
+
+                    <h3>6. Free Service and Fees</h3>
+                    <p>Fintle is currently offered as a zero-cost service. We reserve the right to introduce paid features, tiers, or fees in the future. If we do, we will provide advance notice, and continued use of paid features will be subject to additional terms.</p>
+
+                    <h3>7. Intellectual Property</h3>
+                    <p>All content, trademarks, logos, software, and materials made available through the Service are owned by or licensed to Fintle and are protected by applicable intellectual property laws. You retain ownership of the data you upload; you grant us a limited license to process it solely to provide the Service.</p>
+
+                    <h3>8. Third-Party Services</h3>
+                    <p>The Service may integrate with third-party platforms (e.g., SMS, WhatsApp, payment gateways, banks). Your use of those services is subject to their own terms and privacy policies. We are not responsible for third-party services.</p>
+
+                    <h3>9. Availability and Modifications</h3>
+                    <p>We may modify, suspend, or discontinue any part of the Service at any time, with or without notice. We do not guarantee uninterrupted or error-free operation.</p>
+
+                    <h3>10. Termination</h3>
+                    <p>We may suspend or terminate your access if you violate these Terms or use the Service in a way that may harm Fintle, other users, or third parties. You may stop using the Service at any time.</p>
+
+                    <h3>11. Limitation of Liability</h3>
+                    <p>To the maximum extent permitted by law, Fintle and its officers, employees, and partners shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, or business opportunities, arising from your use of the Service. The Service is provided "as is" and "as available."</p>
+
+                    <h3>12. Indemnification</h3>
+                    <p>You agree to indemnify and hold harmless Fintle from any claims, losses, liabilities, or expenses arising from your use of the Service, your content, or your violation of these Terms.</p>
+
+                    <h3>13. Governing Law</h3>
+                    <p>These Terms shall be governed by the laws of India, without regard to conflict of law principles. Disputes shall be subject to the exclusive jurisdiction of the courts in Mumbai, Maharashtra, India.</p>
+
+                    <h3>14. Changes to These Terms</h3>
+                    <p>We may update these Terms from time to time. Material changes will be notified via the Service or email. Continued use after changes take effect constitutes acceptance.</p>
+                </section>
+
+                <!-- Privacy Policy Section -->
+                <section id="privacy-policy" class="legal-section">
+                    <h2>Privacy Policy</h2>
+                    <p class="last-updated">Last Updated: January 1, 2025</p>
+
+                    <p>This Privacy Policy explains how Fintle ("we," "us," "our") collects, uses, shares, and protects your information when you use our website, applications, and services (the "Service"). By using the Service, you consent to the practices described here.</p>
+
+                    <h3>1. Information We Collect</h3>
+
+                    <h4>a) Information you provide:</h4>
+                    <ul>
+                        <li>Account details: name, email, phone number, business name, address, and password.</li>
+                        <li>Business and financial data: invoices, quotations, expenses, purchases, sales, tax details (e.g., GSTIN), vendor and customer information, bank details you choose to link or enter.</li>
+                        <li>Communications: messages you send to support or through the platform.</li>
+                    </ul>
+
+                    <h4>b) Information collected automatically:</h4>
+                    <ul>
+                        <li>Device and usage data: IP address, browser type, operating system, pages viewed, and actions taken.</li>
+                        <li>Cookies and similar technologies to remember preferences and improve the Service.</li>
+                    </ul>
+
+                    <h4>c) Information from third parties:</h4>
+                    <ul>
+                        <li>Data from integrations you authorize, such as payment gateways, messaging services (SMS/WhatsApp), or banking partners.</li>
+                    </ul>
+
+                    <h3>2. How We Use Your Information</h3>
+                    <p>We use your information to:</p>
+                    <ul>
+                        <li>Provide, operate, and maintain the Service.</li>
+                        <li>Generate invoices, reports, and documents you request.</li>
+                        <li>Send invoices, reminders, and notifications via SMS, WhatsApp, or email on your behalf.</li>
+                        <li>Improve features, performance, and user experience.</li>
+                        <li>Communicate service updates, security alerts, and support messages.</li>
+                        <li>Comply with legal, tax, and regulatory obligations.</li>
+                        <li>Detect and prevent fraud, abuse, or security incidents.</li>
+                    </ul>
+
+                    <h3>3. Legal Basis for Processing</h3>
+                    <p>Depending on your jurisdiction, we process personal data based on:</p>
+                    <ul>
+                        <li>Your consent.</li>
+                        <li>Performance of a contract (providing the Service).</li>
+                        <li>Legal obligations (e.g., tax and accounting laws).</li>
+                        <li>Legitimate interests (e.g., improving the Service, security).</li>
+                    </ul>
+
+                    <h3>4. Sharing Your Information</h3>
+                    <p>We do <strong>not</strong> sell your personal data. We may share information with:</p>
+                    <ul>
+                        <li><strong>Service providers</strong> who help us operate the Service (hosting, analytics, messaging, payment processing), bound by confidentiality obligations.</li>
+                        <li><strong>Third-party integrations</strong> you enable (e.g., WhatsApp, SMS gateways, banks).</li>
+                        <li><strong>Legal authorities</strong> when required by law or to protect rights, safety, and security.</li>
+                        <li><strong>Business transfers</strong> in the event of a merger, acquisition, or asset sale, with notice to you.</li>
+                    </ul>
+
+                    <h3>5. Data Retention</h3>
+                    <p>We retain your data for as long as your account is active or as needed to provide the Service and comply with legal, tax, and accounting requirements. When no longer needed, we delete or anonymize it.</p>
+                </section>
+
+                <!-- Data Security Section -->
+                <section id="data-security" class="legal-section">
+                    <h2>Data Security</h2>
+
+                    <p>We use reasonable technical and organizational measures, including encryption in transit and access controls, to protect your data. However, no system is completely secure, and we cannot guarantee absolute security.</p>
+
+                    <h3>Security Measures We Implement</h3>
+                    <ul>
+                        <li><strong>Encryption:</strong> All data transmitted between your device and our servers is encrypted using industry-standard TLS/SSL protocols.</li>
+                        <li><strong>Access Controls:</strong> Strict internal access controls ensure only authorized personnel can access user data, and only when necessary to provide support or maintain the Service.</li>
+                        <li><strong>Regular Audits:</strong> We conduct regular security audits and vulnerability assessments to identify and address potential risks.</li>
+                        <li><strong>Data Backup:</strong> Regular encrypted backups are performed to prevent data loss and ensure service continuity.</li>
+                        <li><strong>Secure Infrastructure:</strong> Our servers are hosted in secure, SOC 2 compliant data centers with 24/7 monitoring.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><strong>Your role in security:</strong> You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Please use a strong, unique password and enable two-factor authentication where available.</p>
+                    </div>
+                </section>
+
+                <!-- Your Rights Section -->
+                <section id="your-rights" class="legal-section">
+                    <h2>Your Rights</h2>
+
+                    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+
+                    <ul>
+                        <li><strong>Right to Access:</strong> You can request a copy of the personal data we hold about you.</li>
+                        <li><strong>Right to Correction:</strong> You can request that we correct any inaccurate or incomplete data.</li>
+                        <li><strong>Right to Deletion:</strong> You can request that we delete your personal data, subject to legal retention requirements.</li>
+                        <li><strong>Right to Object:</strong> You can object to certain processing activities, such as direct marketing.</li>
+                        <li><strong>Right to Restrict Processing:</strong> You can request that we limit how we use your data in certain circumstances.</li>
+                        <li><strong>Right to Data Portability:</strong> You can request your data in a structured, commonly used, machine-readable format.</li>
+                        <li><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, you can withdraw it at any time.</li>
+                        <li><strong>Right to Lodge a Complaint:</strong> You can file a complaint with your local data protection authority.</li>
+                    </ul>
+
+                    <p>To exercise any of these rights, please contact us at <a href="mailto:privacy@fintle.com">privacy@fintle.com</a>. We will respond to your request within 30 days.</p>
+
+                    <h3>Cookies</h3>
+                    <p>We use cookies and similar technologies to enhance your experience. You can manage cookies through your browser settings, though some features may not work properly without them. For more details, please see our <a href="cookiepolicy.html">Cookie Policy</a>.</p>
+
+                    <h3>Children's Privacy</h3>
+                    <p>The Service is not intended for individuals under 18. We do not knowingly collect data from children. If you believe a child has provided data, contact us for removal.</p>
+
+                    <h3>International Data Transfers</h3>
+                    <p>Your data may be stored and processed in countries other than your own. We take steps to ensure appropriate safeguards are in place for such transfers, including standard contractual clauses where required.</p>
+                </section>
+
+                <!-- Contact Legal Section -->
+                <section id="contact-legal" class="legal-section">
+                    <h2>Contact Us</h2>
+
+                    <p>For questions about these Terms of Use, our Privacy Policy, or to exercise your data rights, please contact us:</p>
+
+                    <div class="contact-info">
+                        <p><strong>Fintle Legal & Privacy Team</strong></p>
+                        <p>Email: <a href="mailto:legal@fintle.com">legal@fintle.com</a></p>
+                        <p>Privacy Inquiries: <a href="mailto:privacy@fintle.com">privacy@fintle.com</a></p>
+                        <p>Support: <a href="mailto:fintlesupport@gmail.com">fintlesupport@gmail.com</a></p>
+                        <p>Phone: <a href="tel:+911234567890">+91 123 456 7890</a></p>
+                        <p>Address: Mumbai, Maharashtra, India</p>
+                    </div>
+
+                    <p style="margin-top: 20px;">We aim to respond to all legal and privacy inquiries within 30 business days.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer-Section start -->
+    <footer>
+        <div class="top_footer" id="contact">
+
+            <!-- container start -->
+            <div class="container">
+                <!-- row start -->
+                <div class="row">
+                    <!-- footer link 1 -->
+                    <div class="col-lg-5 col-md-6 col-12">
+                        <div class="abt_side">
+                            <div class="logo"> <img src="assets/images/logo/fintle_logo_white.png" alt="image"></div>
+                            <p>Fintle is your all-in-one accounting tool to create bills, track sales, and manage purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
+                            <a href="tel:1235678901" class="footer_cta_text">Call : +91 123 4567890 </a> <br>
+                            <a href="mailto:example@email.com" class="footer_cta_text"> Email : fintlesupport@gmail.com </a>
+                        </div>
+                    </div>
+
+                    <!-- footer link 2 -->
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <div class="links">
+                            <h6>Quick Links</h6>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About us</a></li>
+                                  <li><a href="features.html">Features</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- footer link 3 -->
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <div class="links">
+                            <h6>Suport</h6>
+                            <ul>
+                                <li><a href="faq.html">FAQs</a></li>
+                               <li><a href="disclaimer.html">Disclaimer</a></li>
+                                  <li><a href="Subscription-cancellation.html">Subscription Cancellation and Refund Policy</a></li>
+                                <li><a href="termsofuse.html">Terms of use</a></li>
+                                <li><a href="privacypolicy.html">Privacy policy</a></li>
+                                <li><a href="cookiepolicy.html">Cookie policy</a></li>
+                                  <li><a href="account_data.html">Account & Data Deletion Policy</a></li>
+                                 <li><a href="acceptableusepolicy.html">Acceptable Use Policy</a></li>
+                                 <li><a href="business_data_processing.html">Business Data Processing Addendum</a></li>
+                                 <li><a href="implementation_appendix.html">Implementation Appendix</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- footer link 4 -->
+                    <div class="col-lg-3 col-md-6 col-12">
+
+                        <h6>Subscribe us</h6>
+                        <div class="news_letter">
+                            <p>Subscribe our newsleter to receive latest updates regularly from us!</p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email">
+                                    <button class="btn" aria-label="subscribe"><i class="icofont-paper-plane"></i></button>
+                                </div>
+                                <p class="note">By clicking send link you agree to receive message.</p>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- row end -->
+            </div>
+            <!-- container end -->
+
+            <!-- last footer -->
+            <div class="bottom_footer">
+                <!-- container start -->
+                <div class="container">
+                    <!-- row start -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>© 2025 Fintle. All rights reserved.</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <ul class="social_media">
+                                <li><a href="#" aria-label="facebook page"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#" aria-label="instagram page"><i class="icofont-instagram"></i></a></li>
+                                <li><a href="#" aria-label="youtube page"><i class="icofont-youtube-play"></i></a></li>
+                                <li><a href="#" aria-label="linkedin page"><i class="icofont-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="blank">Aparajayah</a></p>
+                        </div>
+                    </div>
+                    <!-- row end -->
+                </div>
+                <!-- container end -->
+            </div>
+
+        </div>
+    </footer>
+    <!-- Footer-Section end -->
+
+    <!-- Page-wrapper-Start -->
+    <div class="page_wrapper">
+        <div class="go_top" id="Gotop">
+            <span><i class="icofont-arrow-up"></i></span>
+        </div>
+    </div>
+
+    <!-- JS Links -->
+    <script src="js/jquery.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Smooth scrolling for category links
+            $('.category-link').on('click', function (e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - 100
+                }, 800);
+
+                // Update active state
+                $('.category-link').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            // Update active category on scroll
+            $(window).on('scroll', function () {
+                var scrollPosition = $(window).scrollTop() + 120;
+
+                $('.legal-section').each(function () {
+                    var sectionTop = $(this).offset().top;
+                    var sectionBottom = sectionTop + $(this).outerHeight();
+                    var sectionId = $(this).attr('id');
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        $('.category-link').removeClass('active');
+                        $('.category-link[href="#' + sectionId + '"]').addClass('active');
+                    }
+                });
+            });
+
+            // Scroll to top button
+            $('#Gotop').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 800);
+            });
+        });
+    </script>
+</body>
+
+</html>

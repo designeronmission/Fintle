@@ -26,6 +26,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
 
+    <style>
+        /* FIX: Prevents sections from being hidden behind the fixed header when clicking sidebar links */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px; /* Adjust this value to match your header height */
+        }
+
+        .privacy-section {
+            scroll-margin-top: 120px; /* Adjust this value to match your header height */
+        }
+
+        /* Optional: If your header height changes on mobile, adjust here */
+        @media (max-width: 991px) {
+            html {
+                scroll-padding-top: 90px;
+            }
+            .privacy-section {
+                scroll-margin-top: 90px;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -85,21 +107,19 @@
     </header>
 
 
-    <!-- blog Hero -->
-    <section class="help-center-hero">
-        <div class="container">
-            <h1>Privacy Policy</h1>
-            <p>Last updated: June 15, 2025</p>
+<!-- blog Hero -->
+<section class="help-center-hero">
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>Last updated: <span id="last-updated-date">June 15, 2025</span></p>
 
-            <ul class="ul-new pb-4">
-                <li><a href="index.html">Home</a></li>
-                <li><span>»</span></li>
-                  <li><a href="privacypolicy.html">Privacy policy</a></li>
-                 <li><a href="cookiepolicy.html">Cookie policy</a></li>
-                 <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
-            </ul>
-        </div>
-    </section>
+        <ul class="ul-new pb-4">
+            <li><a href="index.html">Home</a></li>
+            <li><span>»</span></li>
+            <li><a href="privacypolicy.html">Privacy policy</a></li>
+        </ul>
+    </div>
+</section>
 
 
     <!-- Privacy Content -->
@@ -110,379 +130,332 @@
             <div class="privacy-sidebar-content" id="privacyContent">
                 <h4>Contents</h4>
                 <ul>
-                    <li><a href="#introduction" class="active">1. Introduction</a></li>
-                    <li><a href="#information-collection">2. Information We Collect</a></li>
-                    <li><a href="#how-we-use">3. How We Use Your Information</a></li>
-                    <li><a href="#data-sharing">4. Data Sharing & Disclosure</a></li>
-                    <li><a href="#data-security">5. Data Security</a></li>
-                    <li><a href="#data-retention">6. Data Retention</a></li>
-                    <li><a href="#your-rights">7. Your Rights</a></li>
-                    <li><a href="#cookies">8. Cookies & Tracking</a></li>
-                    <li><a href="#children-privacy">9. Children's Privacy</a></li>
-                    <li><a href="#changes">10. Changes to Policy</a></li>
-                    <li><a href="#contact">11. Contact Us</a></li>
+                    <li><a href="#who-we-are" class="active">1. Who We Are & What This Policy Covers</a></li>
+                    <li><a href="#information-we-collect">2. Information We Collect & Why</a></li>
+                    <li><a href="#how-we-use">3. How We Use Information & Obtain Choices</a></li>
+                    <li><a href="#business-records">4. Business Records & Other People</a></li>
+                    <li><a href="#when-shared">5. When Information Is Shared</a></li>
+                    <li><a href="#where-processed">6. Where Information Is Processed</a></li>
+                    <li><a href="#security">7. Security</a></li>
+                    <li><a href="#retention">8. Retention</a></li>
+                    <li><a href="#your-requests">9. Your Requests & Complaints</a></li>
+                    <li><a href="#children-updates">10. Children & Policy Updates</a></li>
                 </ul>
             </div>
         </div>
 
         <!-- Main Content -->
         <div class="privacy-content">
-            <section id="introduction" class="privacy-section">
-                <h4>1. Introduction</h4>
-                <p>At Fintle, we respect your privacy and are committed to protecting your personal data. This privacy
-                    policy will inform you about how we look after your personal data when you visit our website or use
-                    our services and tell you about your privacy rights and how the law protects you.</p>
-                <p>This policy applies to information we collect:</p>
-                <ul>
-                    <li>On our website and mobile application</li>
-                    <li>In email, text, and other electronic messages between you and our services</li>
-                    <li>Through mobile and desktop applications you download from us</li>
-                </ul>
+            <section id="who-we-are" class="privacy-section">
+                <h4>1. Who We Are and What This Policy Covers</h4>
+                <p>Fintle is operated by [[LEGAL ENTITY NAME]], with its registered office at [[REGISTERED ADDRESS]] ("Fintle", "we", "us" or "our"). This policy explains how we collect, use, share, protect and retain personal information when you visit our website, register for an account, use our accounting and invoicing services, or contact us.</p>
+                <p>It applies to beta.fintle.com, www.fintle.com when launched, our associated Fintle web portal, and our official iOS and Android apps. "You" includes visitors, account holders, authorised business users and people whose information is included in records submitted to Fintle.</p>
+                <p>For registration, our own billing, security and customer support, we decide why and how personal information is used. When a business stores its customers', suppliers' or employees' information in Fintle, we generally process that information on the business's instructions. That business is responsible for explaining its own collection and use. Our Business Data Processing Addendum governs that processing where it forms part of the business's agreement with us.</p>
             </section>
 
-            <section id="information-collection" class="privacy-section">
-                <h4>2. Information We Collect</h4>
-                <p>We may collect, use, store, and transfer different kinds of personal data about you which we have
-                    grouped together as follows:</p>
-
-                <h5>Identity Data</h5>
-                <p>Includes first name, last name, username or similar identifier, title, date of birth, and gender.</p>
-
-                <h5>Contact Data</h5>
-                <p>Includes billing address, delivery address, email address, and telephone numbers.</p>
-
-                <h5>Financial Data</h5>
-                <p>Includes bank account and payment card details. Note that we use third-party payment processors and
-                    do not store your financial information on our servers.</p>
-
-                <h5>Technical Data</h5>
-                <p>Includes internet protocol (IP) address, your login data, browser type and version, time zone setting
-                    and location, browser plug-in types and versions, operating system and platform, and other
-                    technology on the devices you use to access our services.</p>
-
-                <h5>Usage Data</h5>
-                <p>Includes information about how you use our website, products, and services.</p>
-
-                <div class="privacy-highlight">
-                    <p><strong>Note:</strong> We do not collect any Special Categories of Personal Data about you (this
-                        includes details about your race or ethnicity, religious or philosophical beliefs, sex life,
-                        sexual orientation, political opinions, trade union membership, information about your health,
-                        and genetic and biometric data).</p>
-                </div>
-            </section>
-
-            <section id="how-we-use" class="privacy-section">
-                <h4>3. How We Use Your Information</h4>
-                <p>We will only use your personal data when the law allows us to. Most commonly, we will use your
-                    personal data in the following circumstances:</p>
+            <section id="information-we-collect" class="privacy-section">
+                <h4>2. Information We Collect and Why</h4>
+                <p>The information depends on your sign-up method, the features you use and the records you provide. Required fields are identified when information is requested.</p>
 
                 <table class="privacy-table">
                     <tr>
+                        <th>Information</th>
                         <th>Purpose</th>
-                        <th>Type of Data</th>
-                        <th>Lawful Basis</th>
                     </tr>
                     <tr>
-                        <td>To register you as a new customer</td>
-                        <td>Identity, Contact</td>
-                        <td>Performance of a contract with you</td>
+                        <td>Name, email address, mobile number, account identifiers and verification information</td>
+                        <td>Create and authenticate your account, recover access and send essential service messages.</td>
                     </tr>
                     <tr>
-                        <td>To process and deliver your orders</td>
-                        <td>Identity, Contact, Financial</td>
-                        <td>Performance of a contract with you</td>
+                        <td>Business name, address, contact details, GSTIN or PAN where entered, and authorised user details</td>
+                        <td>Set up your business profile and prepare the records and invoices you request.</td>
                     </tr>
                     <tr>
-                        <td>To manage our relationship with you</td>
-                        <td>Identity, Contact, Marketing</td>
-                        <td>Necessary for our legitimate interests</td>
+                        <td>Invoice details, customer and supplier contacts, ledger entries, transaction amounts, bank details and documents you enter or upload</td>
+                        <td>Provide accounting, invoicing, record storage and the reports supported by your plan.</td>
                     </tr>
                     <tr>
-                        <td>To administer and protect our business</td>
-                        <td>Identity, Contact, Technical</td>
-                        <td>Necessary for our legitimate interests</td>
+                        <td>Subscription details, billing address, tax details, payment references, payment status and refund records where relevant</td>
+                        <td>Administer your purchases from Fintle, reconcile payments and meet our own recordkeeping duties.</td>
                     </tr>
                     <tr>
-                        <td>To deliver relevant website content</td>
-                        <td>Identity, Contact, Usage, Technical</td>
-                        <td>Necessary for our legitimate interests</td>
+                        <td>IP address, device and browser information, app version, access times, security events and diagnostic information</td>
+                        <td>Protect accounts, investigate errors and maintain service reliability.</td>
                     </tr>
                     <tr>
-                        <td>To use data analytics to improve our website</td>
-                        <td>Technical, Usage</td>
-                        <td>Necessary for our legitimate interests</td>
+                        <td>Support messages, attachments, feedback and records of your privacy or marketing choices</td>
+                        <td>Respond to you, resolve issues and honour your preferences.</td>
                     </tr>
                 </table>
+
+                <p>When you use Google sign-up, Google provides the information covered by the permissions you approve, such as an account identifier, name and email address. Any additional information must be shown in the permission request. We do not receive your Google password. Google sign-up does not by itself authorise us to read your Gmail, Drive or contacts. Email and phone sign-up use the details and verification steps shown in the registration flow.</p>
+                <p>Device permissions are requested only for enabled features that need them. For example, an attachment feature may request access to a selected file or the camera. The permission prompt explains the purpose. You can manage permissions in your device settings; denying a permission may prevent the related feature from working.</p>
+                <p>Please do not include unnecessary personal information in invoices, attachments or support messages. Do not send us banking passwords, card security codes, UPI PINs or unrelated identity documents.</p>
             </section>
 
-            <section id="data-sharing" class="privacy-section">
-                <h4>4. Data Sharing & Disclosure</h4>
-                <p>We may share your personal data with the parties set out below for the purposes set out in this
-                    policy:</p>
+            <section id="how-we-use" class="privacy-section">
+                <h4>3. How We Use Information and Obtain Choices</h4>
+                <p>We use information for the purposes described above, to administer your relationship with Fintle, prevent misuse, respond to lawful requests and comply with applicable obligations. Where consent is required, we request it for a stated purpose before the relevant processing. Where law permits processing without consent, we use only the applicable legal ground.</p>
+                <p>You may decline optional information or withdraw consent by contacting [[PRIVACY EMAIL]] or using [[PRIVACY CONTROLS LINK]]. If information is necessary for a requested feature, we will explain how refusal or withdrawal affects that feature. Withdrawal does not invalidate earlier lawful processing or prevent retention required by law.</p>
+                <p>Promotional communications require a separate choice where applicable. You can unsubscribe through the message or [[MARKETING PREFERENCES LINK]]. Essential account, security and billing messages may continue while relevant to your service. Accepting our Terms of Use is not consent to optional marketing or optional tracking.</p>
+            </section>
 
-                <h5>Internal Third Parties</h5>
-                <p>Other companies in the Fintle Group acting as joint controllers or processors and who are based in
-                    the United States and provide IT and system administration services and undertake leadership
-                    reporting.</p>
+            <section id="business-records" class="privacy-section">
+                <h4>4. Business Records and Other People</h4>
+                <p>When you provide another person's information, you must have an appropriate lawful basis and provide any required notice or permission. You control the users, accountants, advisers and recipients whom you authorise to access or receive your business records.</p>
+                <p>If your information appears in a Fintle customer's invoice or accounting record, contact that business first for matters it controls. You may also contact [[PRIVACY EMAIL]]. We will assist or route the request appropriately and remain responsible for processing that we control ourselves.</p>
+            </section>
 
-                <h5>External Third Parties</h5>
-                <ul>
-                    <li>Service providers acting as processors who provide IT and system administration services.</li>
-                    <li>Professional advisers including lawyers, bankers, auditors and insurers who provide consultancy,
-                        banking, legal, insurance and accounting services.</li>
-                    <li>Tax authorities, regulators and other authorities who require reporting of processing activities
-                        in certain circumstances.</li>
-                </ul>
-
-                <h5>Third Parties to Whom We May Choose to Sell, Transfer, or Merge Parts of Our Business or Our Assets
-                </h5>
-                <p>Alternatively, we may seek to acquire other businesses or merge with them. If a change happens to our
-                    business, then the new owners may use your personal data in the same way as set out in this privacy
-                    policy.</p>
+            <section id="when-shared" class="privacy-section">
+                <h4>5. When Information Is Shared</h4>
+                <p>We share relevant information with providers that support hosting, database management, authentication, communications, payment processing where enabled, support and service security. AWS provides infrastructure services and MongoDB Atlas provides managed database services. Google participates when you choose Google sign-up. The current provider details and processing locations are at [[PROVIDER LIST LINK]].</p>
+                <p>Providers acting on our behalf may process information only for contracted purposes and subject to appropriate confidentiality and security obligations. Some providers, such as payment or sign-in services, also have their own responsibilities and privacy notices.</p>
+                <p>We share records with people or services you direct us to, including authorised workspace users and invoice recipients. We may disclose information to advisers under confidentiality obligations, to comply with a binding legal requirement, or to establish or defend legal rights. We assess each request and limit disclosure to what is necessary and legally permitted.</p>
+                <p>If our business is reorganised or transferred, relevant information may be transferred with appropriate safeguards and notice where required. This does not remove your applicable rights.</p>
 
                 <div class="privacy-highlight">
-                    <p><strong>Important:</strong> We require all third parties to respect the security of your personal
-                        data and to treat it in accordance with the law. We do not allow our third-party service
-                        providers to use your personal data for their own purposes and only permit them to process your
-                        personal data for specified purposes and in accordance with our instructions.</p>
+                    <p><strong>Note:</strong> [[CONFIRM BUSINESS PRACTICE BEFORE PUBLICATION: We do not sell personal information or use the contents of your private accounting records for third-party advertising.]]</p>
                 </div>
             </section>
 
-            <section id="data-security" class="privacy-section">
-                <h4>5. Data Security</h4>
-                <p>We have put in place appropriate security measures to prevent your personal data from being
-                    accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we
-                    limit access to your personal data to those employees, agents, contractors and other third parties
-                    who have a business need to know.</p>
-                <p>We have put in place procedures to deal with any suspected personal data breach and will notify you
-                    and any applicable regulator of a breach where we are legally required to do so.</p>
-
-                <h5>Security Measures Include:</h5>
-                <ul>
-                    <li>Encryption of data in transit and at rest</li>
-                    <li>Regular security assessments and penetration testing</li>
-                    <li>Access controls and authentication mechanisms</li>
-                    <li>Regular staff training on data protection</li>
-                    <li>Secure development practices for our software</li>
-                </ul>
+            <section id="where-processed" class="privacy-section">
+                <h4>6. Where Information Is Processed</h4>
+                <p>Our primary application and database hosting locations are [[AWS AND MONGODB COUNTRIES OR REGIONS]]. Backup and disaster recovery locations are [[LOCATIONS]]. Our providers and authorised support teams may process information in [[OTHER COUNTRIES IF ANY]], as described in the provider list.</p>
+                <p>Where information is transferred outside India, we apply the protections and transfer conditions required by applicable law, including any applicable country restrictions. Using an Indian hosting region alone does not mean that every provider, support function or content delivery operation processes information only in India.</p>
             </section>
 
-            <section id="data-retention" class="privacy-section">
-                <h4>6. Data Retention</h4>
-                <p>We will only retain your personal data for as long as reasonably necessary to fulfill the purposes we
-                    collected it for, including for the purposes of satisfying any legal, regulatory, tax, accounting or
-                    reporting requirements.</p>
-
-                <p>To determine the appropriate retention period for personal data, we consider the amount, nature, and
-                    sensitivity of the personal data, the potential risk of harm from unauthorized use or disclosure of
-                    your personal data, the purposes for which we process your personal data and whether we can achieve
-                    those purposes through other means, and the applicable legal, regulatory, tax, accounting or other
-                    requirements.</p>
-
-                <p>By law we have to keep basic information about our customers (including Contact, Identity, Financial
-                    and Transaction Data) for six years after they cease being customers for tax purposes.</p>
+            <section id="security" class="privacy-section">
+                <h4>7. Security</h4>
+                <p>We use technical and organisational safeguards intended to protect information against unauthorised access, alteration, disclosure and loss. These include [[VERIFIED ENCRYPTION SCOPE]], [[VERIFIED ACCESS CONTROLS]] and [[VERIFIED SECURITY MONITORING AND BACKUP MEASURES]]. Access is limited according to role and legitimate operational need.</p>
+                <p>No service can guarantee absolute security. If a personal information incident occurs, we will investigate, take appropriate corrective action and notify affected people and authorities as required by applicable law. Report suspected misuse to [[SECURITY EMAIL]] without sending passwords or unnecessary confidential records.</p>
             </section>
 
-            <section id="your-rights" class="privacy-section">
-                <h4>7. Your Rights</h4>
-                <p>Under certain circumstances, you have rights under data protection laws in relation to your personal
-                    data:</p>
-
-                <h5>Request Access</h5>
-                <p>To your personal data (commonly known as a "data subject access request"). This enables you to
-                    receive a copy of the personal data we hold about you and to check that we are lawfully processing
-                    it.</p>
-
-                <h5>Request Correction</h5>
-                <p>Of the personal data that we hold about you. This enables you to have any incomplete or inaccurate
-                    data we hold about you corrected, though we may need to verify the accuracy of the new data you
-                    provide to us.</p>
-
-                <h5>Request Erasure</h5>
-                <p>Of your personal data. This enables you to ask us to delete or remove personal data where there is no
-                    good reason for us continuing to process it.</p>
-
-                <h5>Object to Processing</h5>
-                <p>Of your personal data where we are relying on a legitimate interest (or those of a third party) and
-                    there is something about your particular situation which makes you want to object to processing on
-                    this ground as you feel it impacts on your fundamental rights and freedoms.</p>
-
-                <h5>Request Restriction of Processing</h5>
-                <p>Of your personal data. This enables you to ask us to suspend the processing of your personal data in
-                    certain scenarios.</p>
-
-                <h5>Request the Transfer</h5>
-                <p>Of your personal data to you or to a third party. We will provide to you, or a third party you have
-                    chosen, your personal data in a structured, commonly used, machine-readable format.</p>
-
-                <h5>Right to Withdraw Consent</h5>
-                <p>At any time where we are relying on consent to process your personal data. However, this will not
-                    affect the lawfulness of any processing carried out before you withdraw your consent.</p>
+            <section id="retention" class="privacy-section">
+                <h4>8. Retention</h4>
+                <p>We retain information for the purpose for which it was collected and for any further period required or permitted by applicable law. Retention depends on the record type, account status, customer instructions, legal requirements and any specific dispute or investigation.</p>
+                <p>Account and customer workspace information follows [[ACCOUNT AND WORKSPACE RETENTION PERIODS]]. Routine backup copies expire under [[BACKUP RETENTION PERIOD]]. Our own billing records, required security records and legally preserved material follow [[CATEGORY SPECIFIC RETENTION PERIODS AND REASONS]].</p>
+                <p>Account deletion does not require us to erase records that must legally be retained. Such records remain protected, are restricted to the permitted purpose, and are deleted or anonymised when that purpose and required retention end. A customer's tax recordkeeping duty does not automatically require Fintle to keep every closed workspace indefinitely.</p>
             </section>
 
-            <section id="cookies" class="privacy-section">
-                <h4>8. Cookies & Tracking</h4>
-                <p>Our website uses cookies to distinguish you from other users of our website. This helps us to provide
-                    you with a good experience when you browse our website and also allows us to improve our site.</p>
-
-                <h5>Types of Cookies We Use:</h5>
-                <ul>
-                    <li><strong>Strictly Necessary Cookies:</strong> These are required for the operation of our
-                        website.</li>
-                    <li><strong>Analytical/Performance Cookies:</strong> These allow us to recognize and count the
-                        number of visitors and see how visitors move around our website.</li>
-                    <li><strong>Functionality Cookies:</strong> These are used to recognize you when you return to our
-                        website.</li>
-                    <li><strong>Targeting Cookies:</strong> These record your visit to our website, the pages you visit,
-                        and the links you follow.</li>
-                </ul>
-
-                <p>You can set your browser to refuse all or some browser cookies, or to alert you when websites set or
-                    access cookies. If you disable or refuse cookies, please note that some parts of this website may
-                    become inaccessible or not function properly.</p>
+            <section id="your-requests" class="privacy-section">
+                <h4>9. Your Requests and Complaints</h4>
+                <p>Contact [[PRIVACY EMAIL]] or use [[PRIVACY REQUEST LINK]] to request access to your information, correction, deletion or withdrawal of consent. We will handle the request according to the rights and exceptions applicable to you. Where applicable law provides a nomination right, you may nominate another person to exercise your rights following death or incapacity through the same channel.</p>
+                <p>We may take proportionate steps to verify identity and authority. We will explain any lawful refusal or restriction and the available escalation route. Our Account and Data Deletion Policy explains account closure, shared records and retained data.</p>
+                <p>Our Grievance Officer is [[FULL NAME AND DESIGNATION]], reachable at [[GRIEVANCE EMAIL]] and [[POSTAL ADDRESS]]. We will address privacy grievances expeditiously and within one month of receipt, or any shorter period required by law. Where the relevant provisions are in force and applicable, you may approach the Data Protection Board of India after using the required internal grievance process. The current applicable complaint route is [[OFFICIAL COMPLAINT LINK WHEN APPLICABLE]]. Other legal remedies remain available.</p>
             </section>
 
-            <section id="children-privacy" class="privacy-section">
-                <h4>9. Children's Privacy</h4>
-                <p>Our services are not intended for children under 18 years of age. No one under age 18 may provide any
-                    personal information to or on our services. We do not knowingly collect personal information from
-                    children under 18.</p>
-                <p>If you are under 18, do not use or provide any information on our services or through any of its
-                    features, register on the services, make any purchases through the services, use any of the
-                    interactive or public comment features of our services, or provide any information about yourself to
-                    us.</p>
-                <p>If we learn we have collected or received personal information from a child under 18 without
-                    verification of parental consent, we will delete that information. If you believe we might have any
-                    information from or about a child under 18, please contact us at privacy@fintle.com.</p>
-            </section>
-
-            <section id="changes" class="privacy-section">
-                <h4>10. Changes to Policy</h4>
-                <p>We may update our privacy policy from time to time. We will notify you of any changes by posting the
-                    new privacy policy on this page and updating the "Last updated" date at the top of this privacy
-                    policy.</p>
-                <p>We will let you know via email and/or a prominent notice on our services, prior to the change
-                    becoming effective and update the "Last updated" date at the top of this privacy policy.</p>
-                <p>You are advised to review this privacy policy periodically for any changes. Changes to this privacy
-                    policy are effective when they are posted on this page.</p>
-            </section>
-
-            <section id="contact" class="privacy-section">
-                <h4>11. Contact Us</h4>
-                <p>If you have any questions about this privacy policy or our privacy practices, please contact our data
-                    privacy manager in the following ways:</p>
-
-                <p><strong>Full name of legal entity:</strong> Fintle Inc.<br>
-                    <strong>Email address:</strong> privacy@fintle.com<br>
-                    <strong>Postal address:</strong> Flat No.2 & 3 (II Floor) VOC Street, Indian Bank Colony, New Natham Road, Madurai-625014, Tamilnadu - India.
-                </p>
-
-                <p>You have the right to make a complaint at any time to the relevant data protection authority. We
-                    would, however, appreciate the chance to deal with your concerns before you approach the authority
-                    so please contact us in the first instance.</p>
+            <section id="children-updates" class="privacy-section">
+                <h4>10. Children and Policy Updates</h4>
+                <p>Fintle accounts are intended for people aged 18 or above. We do not knowingly permit children to create accounts. If you believe a child has registered, contact [[PRIVACY EMAIL]]. A business that includes information about children in its records must meet the applicable legal requirements and give us lawful processing instructions.</p>
+                <p>We may update this policy to reflect service or legal changes. We will revise the date and provide an appropriate notice of material changes. Where a new use requires consent, we will request it before starting that use. Continued use alone does not replace legally required consent.</p>
             </section>
         </div>
     </div>
 
-    <!-- Footer-Section start -->
-    <footer>
-        <div class="top_footer" id="contact">
+
+<!-- Footer-Section start -->
+<footer>
+    <div class="top_footer" id="contact">
+        <!-- container start -->
+        <div class="container">
+            <!-- row start -->
+            <div class="row footer_row">
+
+                <!-- Column 1: Brand + About -->
+                <div class="col-lg-4 col-md-6 col-12 footer_col">
+                    <div class="abt_side">
+                        <div class="logo">
+                            <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo">
+                        </div>
+                        <p class="footer_about">Fintle is your all-in-one accounting tool to create bills, track sales, and manage purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
+
+                        <!-- Contact info -->
+                        <ul class="footer_contact">
+                            <li>
+                                <i class="icofont-phone"></i>
+                                <a href="tel:+911234567890">+91 123 456 7890</a>
+                            </li>
+                            <li>
+                                <i class="icofont-email"></i>
+                                <a href="mailto:fintlesupport@gmail.com">fintlesupport@gmail.com</a>
+                            </li>
+                            <li>
+                                <i class="icofont-location-pin"></i>
+                                <span>Madurai, Tamil Nadu, India</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6 col-12 footer_col">
+                    <div class="links">
+                        <h6>Company</h6>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 3: Legal / Policies -->
+                <div class="col-lg-3 col-md-6 col-12 footer_col">
+                    <div class="links">
+                        <h6>Legal &amp; Policies</h6>
+                        <ul>
+                            <li><a href="termsofuse.html">Terms of Use</a></li>
+                            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                            <li><a href="cookiepolicy.html">Cookie Policy</a></li>
+                            <li><a href="Subscription-cancellation.html">Cancellation &amp; Refund Policy</a></li>
+                            <li><a href="account_data.html">Account &amp; Data Deletion Policy</a></li>
+                            <li><a href="acceptableusepolicy.html">Acceptable Use Policy</a></li>
+                            <li><a href="business_data_processing.html">Business Data Processing Addendum</a></li>
+                            <li><a href="implementation_appendix.html">Implementation Appendix</a></li>
+                            <li><a href="disclaimer.html">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 4: Support & Preferences -->
+                <div class="col-lg-3 col-md-6 col-12 footer_col">
+                    <div class="links">
+                        <h6>Support</h6>
+                        <ul>
+                            <li><a href="helpcenter.html">Help Center</a></li>
+                            <li><a href="contact.html">Customer Support</a></li>
+                            <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Trust / Social block -->
+                    <div class="footer_social_block">
+                        <h6>Follow Us</h6>
+                        <ul class="social_media">
+                            <li><a href="#" aria-label="facebook"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="#" aria-label="instagram"><i class="icofont-instagram"></i></a></li>
+                            <li><a href="#" aria-label="youtube"><i class="icofont-youtube-play"></i></a></li>
+                            <li><a href="#" aria-label="linkedin"><i class="icofont-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <!-- row end -->
+        </div>
+        <!-- container end -->
+
+        <!-- last footer -->
+        <div class="bottom_footer">
             <!-- container start -->
             <div class="container">
                 <!-- row start -->
-                <div class="row">
-                    <!-- footer link 1 -->
-                    <div class="col-lg-5 col-md-6 col-12">
-                        <div class="abt_side">
-                            <div class="logo"> <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo">
-                            </div>
-                            <p>Fintle is your all-in-one accounting tool to create bills, track sales, and manage
-                                purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
-                            <a href="tel:1235678901" class="footer_cta_text">Call : +91 123 4567890 </a> <br>
-                            <a href="mailto:example@email.com" class="footer_cta_text"> Email : fintlesupport@gmail.com </a>
-                        </div>
+                <div class="row bottom_footer_row">
+                    <div class="col-md-6 col-12">
+                        <p class="copyright_text">© 2025 Fintle. All rights reserved.</p>
                     </div>
 
-                    <!-- footer link 2 -->
-                    <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
-                            <h6>Quick Links</h6>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="features.html">Features</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- footer link 3 -->
-                    <div class="col-lg-2 col-md-6 col-12">
-                        <div class="links">
-                            <h6>Suport</h6>
-                            <ul>
-                                <li><a href="faq.html">FAQs</a></li>
-                                <li><a href="helpcenter.html">Support</a></li>
-                               <li><a href="features.html">Features</a></li>
-                                <li><a href="termsofuse.html">Terms of use</a></li>
-                                  <li><a href="privacypolicy.html">Privacy policy</a></li>
-                 <li><a href="cookiepolicy.html">Cookie policy</a></li>
-                 <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- footer link 4 -->
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <h6>Subscribe us</h6>
-                        <div class="news_letter">
-                            <p>Subscribe our newsleter to receive latest updates regularly from us!</p>
-                            <form>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Enter your email">
-                                    <button class="btn" aria-label="subscribe"><i
-                                            class="icofont-paper-plane"></i></button>
-                                </div>
-                                <p class="note">By clicking send link you agree to receive message.</p>
-                            </form>
-                        </div>
+                    <div class="col-md-6 col-12">
+                        <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="_blank">Aparajayah</a></p>
                     </div>
                 </div>
                 <!-- row end -->
             </div>
             <!-- container end -->
-
-            <!-- last footer -->
-            <div class="bottom_footer">
-                <!-- container start -->
-                <div class="container">
-                    <!-- row start -->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p>© 2025 Fintle. All rights reserved.</p>
-                        </div>
-
-                        <div class="col-md-4">
-                            <ul class="social_media">
-                                <li><a href="#" aria-label="facebook page"><i class="icofont-facebook"></i></a></li>
-                                <li><a href="#" aria-label="instagram page"><i class="icofont-instagram"></i></a></li>
-                                <li><a href="#" aria-label="pinterest page"><i class="icofont-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-4">
-                            <p class="developer_text">Powered by <a href="https://www.aparajayah.com/"
-                                    target="blank">Aparajayah</a></p>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </div>
         </div>
-    </footer>
-    <!-- Footer-Section end -->
+
+    </div>
+</footer>
+<!-- Footer-Section end -->
+
+
+  <!-- Cookie Preferences Container -->
+  <div class="cookie-preferences-container" id="cookie-preferences-container">
+    <div class="cookie-panel">
+      <div class="cookie-header">
+        <h5><i class="fas fa-cookie-bite cookie-icon"></i> Cookie Preferences</h5>
+        <button class="close-cookie-btn" id="close-cookie-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="cookie-body">
+        <div class="cookie-text">
+          <p>We use cookies and similar technologies to enhance your experience on our website. <span class="highlight">Some cookies are essential</span> for the website to function properly, while others help us analyze usage and deliver personalized content.</p>
+          <p>By clicking "Accept All", you consent to our use of all cookies. You can customize your preferences or reject non-essential cookies using the options below.</p>
+          <p>For more details, see our <a href="#" style="color: #182961;">Cookie Policy</a> and <a href="#" style="color: #182961;">Privacy Policy</a>.</p>
+        </div>
+        
+        <div class="cookie-buttons">
+          <button class="btn-cookie btn-reject" id="reject-cookies-btn">Reject All</button>
+          <button class="btn-cookie btn-customize" id="customize-cookies-btn">Customize</button>
+          <button class="btn-cookie btn-accept" id="accept-cookies-btn">Accept All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Options Modal -->
+  <div class="cookie-options-modal" id="cookie-options-modal">
+    <div class="cookie-options-content">
+      <div class="cookie-options-header">
+        <h5><i class="fas fa-sliders-h cookie-icon"></i> Customize Cookie Preferences</h5>
+        <button class="close-options-btn" id="close-options-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="cookie-options-body">
+        <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
+        
+        <div class="cookie-categories">
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
+              <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="essential-cookies" checked disabled>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Analytics Cookies</div>
+              <div class="category-desc">Help us understand how visitors interact with our website.</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="analytics-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Marketing Cookies</div>
+              <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="marketing-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="options-buttons">
+          <button class="btn-options btn-cancel" id="cancel-options-btn">Cancel</button>
+          <button class="btn-options btn-save" id="save-options-btn">Save Preferences</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
     <!-- Page-wrapper-Start -->
     <div class="page_wrapper">
@@ -550,6 +523,13 @@
                 });
             }
         });
+
+            document.addEventListener('DOMContentLoaded', function () {
+        const dateEl = document.getElementById('last-updated-date');
+        if (dateEl) {
+            dateEl.textContent = MANUAL_LAST_UPDATED;
+        }
+    });
     </script>
 </body>
 
