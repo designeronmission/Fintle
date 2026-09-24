@@ -8973,7 +8973,7 @@ footer .developer_text a:hover {
 /* Ultra-wide desktops (1600px+) */
 @media (min-width: 1600px) {
     .privacy-container {
-        max-width: 1500px;
+        max-width: 1300px;
         gap: 50px;
     }
     .privacy-sidebar {
