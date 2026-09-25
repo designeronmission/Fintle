@@ -1489,7 +1489,7 @@ header.fixed .navbar {
 
 /* Task App section images*/
 .task_app_section .task_img img {
-    max-width: 100%;
+    max-width: 85%;
 }
 
 .task_app_section .task_img .screen_img {
@@ -7314,8 +7314,12 @@ footer .bottom_footer .developer_text a {
 
 
 .thumb-scroll {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
+}
+
+.head-new{
+    font-size: 40px;
 }
 
 
