@@ -2,49 +2,454 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Fintle – We are here to help.">
+  <title>Contact Us | Fintle</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta Description -->
-    <meta name="description" content=" ">
-    <title>Home</title>
+  <!-- icofont-css-link -->
+  <link rel="stylesheet" href="css/icofont.min.css">
+  <!-- Owl-Carosal-Style-link -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <!-- Bootstrap-Style-link -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Coustome-Style-link -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Responsive-Style-link -->
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/fav-icon.png" type="image/x-icon">
+  <!-- webfont-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+  <!-- Font Awesome for cookie icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- icofont-css-link -->
-    <link rel="stylesheet" href="css/icofont.min.css">
-    <!-- Owl-Carosal-Style-link -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- Bootstrap-Style-link -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Coustome-Style-link -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive-Style-link -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/logo/fav-icon.png" type="image/x-icon">
-    <!-- webfont-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       THEME COLOR: #223376  (primary brand)
+       ============================================================ */
+    :root {
+      --brand: #223376;
+      --brand-dark: #1a2759;
+      --brand-light: #2f4290;
+      --brand-soft: rgba(34, 51, 118, 0.08);
+      --brand-glow: rgba(34, 51, 118, 0.25);
+      --brand-gradient: linear-gradient(135deg, #223376 0%, #2f4290 100%);
+    }
+
+
+    .contact-hero .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .contact-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #0b0b2b;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .contact-hero h1 span {
+      color: var(--brand);
+    }
+
+    .contact-hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #5a5a7a;
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+
+    .contact-hero .ul-new {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .contact-hero .ul-new li a {
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-hero .ul-new li a:hover {
+      color: var(--brand-light);
+      text-decoration: underline;
+    }
+
+    .contact-hero .ul-new li span {
+      color: #b0b0c8;
+    }
+
+    .contact-hero .ul-new li:last-child a {
+      color: #5a5a7a;
+      font-weight: 500;
+    }
+
+    /* ====== MAIN CONTACT SECTION ====== */
+    .contact-modern {
+      padding: 80px 0 100px;
+      background: #ffffff;
+    }
+
+    /* contact info card */
+    .contact-info-card {
+      background: var(--brand-gradient);
+      border-radius: 28px;
+      padding: 44px 36px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      box-shadow: 0 24px 48px -12px rgba(34, 51, 118, 0.25);
+    }
+
+    .contact-info-card::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .contact-info-card::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+      bottom: -80px;
+      left: -80px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .contact-info-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .contact-info-card > p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* info item */
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .info-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .info-item .info-icon {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover .info-icon {
+      background: rgba(255, 255, 255, 0.22);
+      transform: scale(1.05);
+    }
+
+    .info-item .info-text h5 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .info-item .info-text a,
+    .info-item .info-text p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      margin: 0;
+      line-height: 1.5;
+      transition: color 0.3s ease;
+    }
+
+    .info-item .info-text a:hover {
+      color: #ffffff;
+    }
+
+    /* ticket button inside card */
+    .ticket-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 13px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.25);
+    }
+
+    .ticket-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 34px -8px rgba(0, 0, 0, 0.35);
+      color: var(--brand-dark);
+    }
+
+    .ticket-btn i {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .ticket-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    /* ====== FORM CARD ====== */
+    .contact-form-card {
+      background: #ffffff;
+      border: 1px solid #e8ecf5;
+      border-radius: 28px;
+      padding: 44px 40px;
+      box-shadow: 0 24px 48px -12px rgba(34, 51, 118, 0.08);
+      height: 100%;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form-card:hover {
+      box-shadow: 0 32px 60px -12px rgba(34, 51, 118, 0.14);
+    }
+
+    .contact-form-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b0b2b;
+      margin-bottom: 6px;
+    }
+
+    .contact-form-card > p {
+      font-size: 14px;
+      color: #7a7a9a;
+      margin-bottom: 30px;
+    }
+
+    /* form fields */
+    .contact-form-card .form-group {
+      margin-bottom: 18px;
+    }
+
+    .contact-form-card .form-control {
+      height: 52px;
+      border: 1.5px solid #e8ecf5;
+      border-radius: 14px;
+      padding: 0 18px;
+      font-size: 14px;
+      color: #1e1e3a;
+      background: #f7f9fc;
+      transition: all 0.3s ease;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .contact-form-card .form-control:focus {
+      border-color: var(--brand);
+      background: #fff;
+      box-shadow: 0 0 0 4px var(--brand-soft);
+      outline: none;
+    }
+
+    .contact-form-card .form-control::placeholder {
+      color: #b0b0c8;
+    }
+
+    .contact-form-card textarea.form-control {
+      height: 130px;
+      padding: 16px 18px;
+      resize: vertical;
+    }
+
+    .contact-form-card select.form-control {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23223376' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      cursor: pointer;
+    }
+
+    /* checkbox */
+    .contact-form-card .term_check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0 26px;
+    }
+
+    .contact-form-card .term_check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--brand);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .contact-form-card .term_check label {
+      font-size: 13px;
+      color: #5a5a7a;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    /* submit button */
+    .contact-form-card .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--brand-gradient);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 28px -8px var(--brand-glow);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .contact-form-card .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 34px -8px rgba(34, 51, 118, 0.5);
+      background: linear-gradient(135deg, #1a2759 0%, #223376 100%);
+    }
+
+    .contact-form-card .btn-submit i {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-form-card .btn-submit:hover i {
+      transform: translateX(4px);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 991px) {
+      .contact-hero {
+        padding: 70px 0 60px;
+      }
+
+      .contact-hero h1 {
+        font-size: 36px;
+      }
+
+      .contact-info-card {
+        margin-bottom: 30px;
+        padding: 36px 28px;
+      }
+
+      .contact-form-card {
+        padding: 36px 28px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .contact-hero {
+        padding: 55px 0 45px;
+      }
+
+      .contact-hero h1 {
+        font-size: 28px;
+      }
+
+      .contact-hero p {
+        font-size: 15px;
+      }
+
+      .contact-modern {
+        padding: 50px 0 70px;
+      }
+
+      .contact-info-card,
+      .contact-form-card {
+        padding: 28px 22px;
+        border-radius: 22px;
+      }
+
+      .contact-form-card h3,
+      .contact-info-card h3 {
+        font-size: 20px;
+      }
+
+      .contact-form-card .form-control {
+        height: 48px;
+        font-size: 13px;
+      }
+
+      .info-item .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Header Start -->
     <!-- Header Start -->
     <header>
-        <!-- container start -->
         <div class="container">
-            <!-- navigation bar -->
             <nav class="navbar navbar-expand-lg">
-                <!-- logo-->
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo/fintle_logo.png" alt="image">
+                    <img src="assets/images/logo/fintle_logo.png" alt="Fintle Logo">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
-                        <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
                         <div class="toggle-wrap">
                             <span class="toggle-bar"></span>
                         </div>
@@ -53,56 +458,47 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-
-                        <!-- secondery menu start -->
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
-                        <!-- secondery menu end -->
-
                         <li class="nav-item">
                             <a class="nav-link" href="features.html">Features</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="about.html">About us</a>
+                            <a class="nav-link" href="about.html">About us</a>
                         </li>
-
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="faq.html">FAQ</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link " href="blog.html">Blogs</a>
+                            <a class="nav-link" href="blog.html">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="helpcenter.html">Help Center</a>
+                            <a class="nav-link  primary-gradient" href="helpcenter.html">Help Center</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link primary-gradient" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.html">Contact</a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="signin.html" class="btn puprple_btn">Get Started</a>
+                         <a href="signin.html" class="btn puprple_btn">Get Started</a>
                         </li>
                     </ul>
                 </div>
-
             </nav>
-            <!-- navigation end -->
         </div>
-        <!-- container end -->
     </header>
 
 
-    <!-- contact Hero -->
+        <!-- Help Center Hero -->
     <section class="help-center-hero">
         <div class="container">
             <h1>We are here to help</h1>
-            <p>Need support ? or if you have an query, please get in touch with us, our team will revert back
-                quickly for support.</p>
+            <p>Need support? Or if you have a query, please get in touch with us. Our team will revert back quickly for
+        support.</p>
 
-            <ul class="ul-new pb-4">
+                <ul class="ul-new pb-4">
                 <li><a href="index.html">Home</a></li>
                 <li><span>»</span></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -111,227 +507,221 @@
     </section>
 
 
-    <!-- Contact Us Section Start -->
-    <section class="row_am contact_page_section">
-        <div class="container">
-            <div class="contact_inner">
-                <div class="row">
 
-                    <!-- left colom -->
-                    <div class="col-lg-6">
-                        <div class="contact_info">
+  <!-- ========== CONTACT SECTION ========== -->
+  <section class="contact-modern">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
 
-                            <div class="col-lg-12 row ticket_box">
-                                <div class="col-lg-3 icon"><img src="assets/images/icons/email.png" alt="image"></div>
-                                <div class="col-lg-9 section_title">
-                                    <h4>Email Us</h4>
-                                    <a href="mailto:fintle@gmail.com">fintlesupport@gmail.com</a>
-                                </div>
-                            </div>
+        <!-- LEFT: Info Card -->
+        <div class="col-lg-5">
+          <div class="contact-info-card" data-aos="fade-right" data-aos-duration="1000">
+            <h3>Get in touch</h3>
+            <p>We'd love to hear from you. Reach out through any of the channels below.</p>
 
-                            <div class="col-lg-12 row ticket_box mt-4">
-                                <div class="col-lg-3 icon"><img src="assets/images/icons/contact.png" alt="image"></div>
-                                <div class="col-lg-9 section_title">
-                                    <h4>Call Us</h4>
-                                    <a href="tel:+1(888)553-46-11"> +1 (456) 125-45-678 </a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12 row ticket_box mt-4">
-                                <div class="icon"><img src="assets/images/icons/ticket.png" alt="image"></div>
-                                <div class="section_title">
-                                    <h4>Generate Ticket</h4>
-                                    <p>Need support or have query for our application, service ?, Please submit ticket.
-                                    </p>
-                                </div>
-                                <a href="#" class="btn puprple_btn">Generate Ticket Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- left colom -->
-
-                    <!-- right colom -->
-                    <div class="col-lg-6">
-                        <div class="contact_form">
-                            <div class="section_title">
-                                <h3>Message us</h3>
-                                <p> Fill up form below, our team will get back soon </p>
-                            </div>
-                            <form action="">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Name" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" placeholder="Email" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control">
-                                        <option value="">Country</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" placeholder="Phone" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your message"></textarea>
-                                </div>
-                                <div class="form-group term_check">
-                                    <input type="checkbox" id="term">
-                                    <label for="term">I agree to terms and conditions.</label>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <button type="submit" class="btn puprple_btn">Submit your Message</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- right colom -->
-
-                </div>
+            <!-- Email -->
+            <div class="info-item">
+              <div class="info-icon"><i class="icofont-email"></i></div>
+              <div class="info-text">
+                <h5>Email Us</h5>
+                <a href="mailto:fintlesupport@gmail.com">fintlesupport@gmail.com</a>
+              </div>
             </div>
-        </div>
-    </section>
-    <!-- Contact Us Section End -->
 
-
-
-<!-- Footer-Section start -->
-<footer>
-    <div class="top_footer" id="contact">
-        <!-- container start -->
-        <div class="container">
-            <!-- row start -->
-            <div class="row footer_row">
-
-                <!-- Column 1: Brand + About -->
-                <div class="col-lg-4 col-md-6 col-12 footer_col">
-                    <div class="abt_side">
-                        <div class="logo">
-                            <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo">
-                        </div>
-                        <p class="footer_about">Fintle is your all-in-one accounting tool to create bills, track sales, and manage purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
-
-                        <!-- Contact info -->
-                        <ul class="footer_contact">
-                            <li>
-                                <i class="icofont-phone"></i>
-                                <a href="tel:+911234567890">+91 123 456 7890</a>
-                            </li>
-                            <li>
-                                <i class="icofont-email"></i>
-                                <a href="mailto:fintlesupport@gmail.com">fintlesupport@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="icofont-location-pin"></i>
-                                <span>Madurai, Tamil Nadu, India</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 2: Quick Links -->
-                <div class="col-lg-2 col-md-6 col-12 footer_col">
-                    <div class="links">
-                        <h6>Company</h6>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="features.html">Features</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 3: Legal / Policies -->
-                <div class="col-lg-3 col-md-6 col-12 footer_col">
-                    <div class="links">
-                        <h6>Legal &amp; Policies</h6>
-                        <ul>
-                          <li><a href="privacypolicy.html">Privacy Policy</a></li>
-                            <li><a href="termsofuse.html">Terms of Use</a></li>
-                            <li><a href="disclaimer.html">Disclaimer</a></li>
-                            <li><a href="cookiepolicy.html">Cookie Policy</a></li>
-                            <li><a href="Subscription-cancellation.html">Cancellation &amp; Refund Policy</a></li>
-                            <li><a href="account_data.html">Account &amp; Data Deletion Policy</a></li>
-                            <li><a href="acceptableusepolicy.html">Acceptable Use Policy</a></li>
-                            <li><a href="business_data_processing.html">Business Data Processing Addendum</a></li>
-                            <li><a href="implementation_appendix.html">Implementation Appendix</a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 4: Support & Preferences -->
-                <div class="col-lg-3 col-md-6 col-12 footer_col">
-                    <div class="links">
-                        <h6>Support</h6>
-                        <ul>
-                            <li><a href="helpcenter.html">Help Center</a></li>
-                            <li><a href="contact.html">Customer Support</a></li>
-                            <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Trust / Social block -->
-                    <div class="footer_social_block">
-                        <h6>Follow Us</h6>
-                        <ul class="social_media">
-                            <li><a href="#" aria-label="facebook"><i class="icofont-facebook"></i></a></li>
-                            <li><a href="#" aria-label="instagram"><i class="icofont-instagram"></i></a></li>
-                            <li><a href="#" aria-label="youtube"><i class="icofont-youtube-play"></i></a></li>
-                            <li><a href="#" aria-label="linkedin"><i class="icofont-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-
+            <!-- Phone -->
+            <div class="info-item">
+              <div class="info-icon"><i class="icofont-phone"></i></div>
+              <div class="info-text">
+                <h5>Call Us</h5>
+                <a href="tel:+145612545678">+1 (456) 125-45-678</a>
+              </div>
             </div>
-            <!-- row end -->
-        </div>
-        <!-- container end -->
 
-        <!-- last footer -->
-        <div class="bottom_footer">
-            <!-- container start -->
-            <div class="container">
-                <!-- row start -->
-                <div class="row bottom_footer_row">
-                    <div class="col-md-6 col-12">
-                        <p class="copyright_text">© 2026 Fintle. All rights reserved.</p>
-                    </div>
-
-                    <div class="col-md-6 col-12">
-                        <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="_blank">Aparajayah</a></p>
-                    </div>
-                </div>
-                <!-- row end -->
+            <!-- Address -->
+            <div class="info-item">
+              <div class="info-icon"><i class="icofont-location-pin"></i></div>
+              <div class="info-text">
+                <h5>Visit Us</h5>
+                <p>Flat No.2 & 3 (II Floor VOC Street), Indian Bank Colony, Madurai, Tamil Nadu 625014</p>
+              </div>
             </div>
-            <!-- container end -->
+
+            <!-- Ticket -->
+            <div class="info-item" style="border-bottom: none;">
+              <div class="info-icon"><i class="icofont-ticket"></i></div>
+              <div class="info-text">
+                <h5>Generate Ticket</h5>
+                <p>Need support or have a query for our application? Submit a ticket.</p>
+              </div>
+            </div>
+
+            <a href="#" class="ticket-btn">Generate Ticket Now <i class="icofont-arrow-right"></i></a>
+          </div>
         </div>
 
+        <!-- RIGHT: Form Card -->
+        <div class="col-lg-7">
+          <div class="contact-form-card" data-aos="fade-left" data-aos-duration="1000">
+            <h3>Message us</h3>
+            <p>Fill up the form below, our team will get back soon.</p>
+
+            <form action="">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" placeholder="Name" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="email" placeholder="Email" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option value="">Country</option>
+                      <option value="India">India</option>
+                      <option value="USA">USA</option>
+                      <option value="UK">UK</option>
+                      <option value="Australia">Australia</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" placeholder="Phone" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Your message"></textarea>
+              </div>
+
+              <div class="term_check">
+                <input type="checkbox" id="term">
+                <label for="term">I agree to terms and conditions.</label>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                Submit your Message <i class="icofont-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
     </div>
-</footer>
-<!-- Footer-Section end -->
+  </section>
 
+  <!-- Footer-Section start -->
+  <footer>
+    <div class="top_footer" id="contact">
+      <div class="container">
+        <div class="row footer_row">
+          <div class="col-lg-4 col-md-6 col-12 footer_col">
+            <div class="abt_side">
+              <div class="logo">
+                <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo">
+              </div>
+              <p class="footer_about">Fintle is your all-in-one accounting tool to create bills, track sales, and manage
+                purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
+              <ul class="footer_contact">
+                <li><i class="icofont-phone"></i> <a href="tel:+911234567890">+91 123 456 7890</a></li>
+                <li><i class="icofont-email"></i> <a href="mailto:fintlesupport@gmail.com">fintlesupport@gmail.com</a>
+                </li>
+                <li><i class="icofont-location-pin"></i> <span>Flat No.2 & 3 (II Floor VOC Street), Indian Bank Colony, Madurai, Tamil Nadu 625014</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-12 footer_col">
+            <div class="links">
+              <h6>Company</h6>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 footer_col">
+            <div class="links">
+              <h6>Legal &amp; Policies</h6>
+              <ul>
+                <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                <li><a href="termsofuse.html">Terms of Use</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+                <li><a href="cookiepolicy.html">Cookie Policy</a></li>
+                <li><a href="Subscription-cancellation.html">Cancellation &amp; Refund Policy</a></li>
+                <li><a href="account_data.html">Account &amp; Data Deletion Policy</a></li>
+                <li><a href="acceptableusepolicy.html">Acceptable Use Policy</a></li>
+                <li><a href="business_data_processing.html">Business Data Processing Addendum</a></li>
+                <li><a href="implementation_appendix.html">Implementation Appendix</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 footer_col">
+            <div class="links">
+              <h6>Support</h6>
+              <ul>
+                <li><a href="helpcenter.html">Help Center</a></li>
+                <li><a href="contact.html">Customer Support</a></li>
+                <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
+              </ul>
+            </div>
+            <div class="footer_social_block">
+              <h6>Follow Us</h6>
+              <ul class="social_media">
+                <li><a href="#" aria-label="facebook"><i class="icofont-facebook"></i></a></li>
+                <li><a href="#" aria-label="instagram"><i class="icofont-instagram"></i></a></li>
+                <li><a href="#" aria-label="youtube"><i class="icofont-youtube-play"></i></a></li>
+                <li><a href="#" aria-label="linkedin"><i class="icofont-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom_footer">
+        <div class="container">
+          <div class="row bottom_footer_row">
+            <div class="col-md-6 col-12">
+              <p class="copyright_text">© 2026 Fintle. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 col-12">
+              <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="_blank">Aparajayah</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer-Section end -->
 
   <!-- Cookie Preferences Container -->
   <div class="cookie-preferences-container" id="cookie-preferences-container">
     <div class="cookie-panel">
       <div class="cookie-header">
         <h5><i class="fas fa-cookie-bite cookie-icon"></i> Cookie Preferences</h5>
-        <button class="close-cookie-btn" id="close-cookie-btn">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="close-cookie-btn" id="close-cookie-btn"><i class="fas fa-times"></i></button>
       </div>
-      
       <div class="cookie-body">
         <div class="cookie-text">
-          <p>We use cookies and similar technologies to enhance your experience on our website. <span class="highlight">Some cookies are essential</span> for the website to function properly, while others help us analyze usage and deliver personalized content.</p>
-          <p>By clicking "Accept All", you consent to our use of all cookies. You can customize your preferences or reject non-essential cookies using the options below.</p>
-          <p>For more details, see our <a href="#" style="color: #182961;">Cookie Policy</a> and <a href="#" style="color: #182961;">Privacy Policy</a>.</p>
+          <p>We use cookies and similar technologies to enhance your experience on our website. <span
+              class="highlight">Some cookies are essential</span> for the website to function properly, while others
+            help us analyze usage and deliver personalized content.</p>
+          <p>By clicking "Accept All", you consent to our use of all cookies. You can customize your preferences or
+            reject non-essential cookies using the options below.</p>
+          <p>For more details, see our <a href="#" style="color: #223376;">Cookie Policy</a> and <a href="#"
+              style="color: #223376;">Privacy Policy</a>.</p>
         </div>
-        
         <div class="cookie-buttons">
           <button class="btn-cookie btn-reject" id="reject-cookies-btn">Reject All</button>
           <button class="btn-cookie btn-customize" id="customize-cookies-btn">Customize</button>
@@ -346,14 +736,10 @@
     <div class="cookie-options-content">
       <div class="cookie-options-header">
         <h5><i class="fas fa-sliders-h cookie-icon"></i> Customize Cookie Preferences</h5>
-        <button class="close-options-btn" id="close-options-btn">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="close-options-btn" id="close-options-btn"><i class="fas fa-times"></i></button>
       </div>
-      
       <div class="cookie-options-body">
         <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
-        
         <div class="cookie-categories">
           <div class="cookie-category">
             <div class="category-info">
@@ -365,7 +751,6 @@
               <span class="toggle-slider"></span>
             </label>
           </div>
-          
           <div class="cookie-category">
             <div class="category-info">
               <div class="category-name">Analytics Cookies</div>
@@ -376,7 +761,6 @@
               <span class="toggle-slider"></span>
             </label>
           </div>
-          
           <div class="cookie-category">
             <div class="category-info">
               <div class="category-name">Marketing Cookies</div>
@@ -388,7 +772,6 @@
             </label>
           </div>
         </div>
-        
         <div class="options-buttons">
           <button class="btn-options btn-cancel" id="cancel-options-btn">Cancel</button>
           <button class="btn-options btn-save" id="save-options-btn">Save Preferences</button>
@@ -397,44 +780,19 @@
     </div>
   </div>
 
+  <!-- go top button -->
+  <div class="go_top" id="Gotop">
+    <span><i class="icofont-arrow-up"></i></span>
+  </div>
 
-
-
-
-    <!-- Page-wrapper-Start -->
-    <div class="page_wrapper">
-
-        <!-- go top button -->
-        <div class="go_top" id="Gotop">
-            <span><i class="icofont-arrow-up"></i></span>
-        </div>
-
-    </div>
-    <!-- Page-wrapper-End -->
-
-
-
-    <!-- Jquery-js-Link -->
-    <script src="js/jquery.js"></script>
-    <!-- owl-js-Link -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- bootstrap-js-Link -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- main-js-Link -->
-    <script src="js/main.js"></script>
-
-    <script>
-        // Scroll Down Window 
-        $(document).ready(function () {
-            // Attach a click event handler to the button
-            $('#scrollButton').click(function () {
-                // Scroll down smoothly 200 pixels from the current position
-                $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
-            });
-        });
-    </script>
-
-
+  <!-- Jquery-js-Link -->
+  <script src="js/jquery.js"></script>
+  <!-- owl-js-Link -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- bootstrap-js-Link -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- main-js-Link -->
+  <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -6700,6 +6700,7 @@ footer .bottom_footer .developer_text a {
 
 .mission_image {
     margin-right: 10px;
+    margin-bottom: -35px;
     text-align: right;
 }
 
@@ -8991,3 +8992,258 @@ footer .developer_text a:hover {
         font-size: 15.5px;
     }
 }
+
+
+ /* ============================================================
+     MODERN CORE VALUES SECTION
+     ============================================================ */
+  .core_values_modern {
+    padding: 90px 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle decorative background blob */
+  .core_values_modern::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(78, 81, 255, 0.04) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .core_values_modern::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(122, 129, 255, 0.04) 0%, transparent 70%);
+    bottom: -180px;
+    left: -180px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .core_values_modern .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* heading */
+  .core_values_modern .section_title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .core_values_modern .section_title .title_badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #223376;
+    background: rgba(107, 78, 255, 0.08);
+    padding: 7px 20px;
+    border-radius: 40px;
+    margin-bottom: 14px;
+  }
+
+  .core_values_modern .section_title h2 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #0b0b2b;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  /* ====== VALUE CARD ====== */
+  .core_values_modern .value-card {
+    background: #ffffff;
+    border: 1px solid #eeecf5;
+    border-radius: 24px;
+    padding: 40px 32px 36px;
+    height: 100%;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .core_values_modern .value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #223376, #223376);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .core_values_modern .value-card:hover {
+    border-color: #d9d2f0;
+    box-shadow: 0 24px 48px -12px rgba(107, 78, 255, 0.12);
+    transform: translateY(-6px);
+  }
+
+  .core_values_modern .value-card:hover::before {
+    opacity: 1;
+  }
+
+  /* icon + number row */
+  .core_values_modern .value-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+  }
+
+  .core_values_modern .value-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #223376, #223376);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 28px;
+    box-shadow: 0 12px 24px -6px rgba(107, 78, 255, 0.30);
+    transition: transform 0.35s ease;
+  }
+
+  .core_values_modern .value-card:hover .value-icon {
+    transform: scale(1.05) rotate(-3deg);
+  }
+
+  .core_values_modern .value-icon i {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .core_values_modern .value-number {
+    font-size: 44px;
+    font-weight: 800;
+    color: #f0edff;
+    line-height: 1;
+    letter-spacing: -1px;
+    transition: color 0.35s ease;
+    user-select: none;
+  }
+
+  .core_values_modern .value-card:hover .value-number {
+    color: #e2dbff;
+  }
+
+  /* card heading */
+  .core_values_modern .value-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b0b2b;
+    margin-bottom: 14px;
+    line-height: 1.35;
+  }
+
+  /* card paragraph */
+  .core_values_modern .value-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #5a5a7a;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  /* decorative bottom line */
+  .core_values_modern .value-line {
+    width: 40px;
+    height: 3px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #223376, #223376);
+    opacity: 0.25;
+    transition: width 0.4s ease, opacity 0.4s ease;
+  }
+
+  .core_values_modern .value-card:hover .value-line {
+    width: 70px;
+    opacity: 0.8;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 991px) {
+    .core_values_modern {
+      padding: 70px 0;
+    }
+
+    .core_values_modern .section_title h2 {
+      font-size: 30px;
+    }
+
+    .core_values_modern .value-card {
+      padding: 32px 26px 30px;
+    }
+
+    .core_values_modern .value-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      font-size: 24px;
+    }
+
+    .core_values_modern .value-icon i {
+      font-size: 24px;
+    }
+
+    .core_values_modern .value-number {
+      font-size: 38px;
+    }
+
+    .core_values_modern .value-card h4 {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .core_values_modern {
+      padding: 55px 0;
+    }
+
+    .core_values_modern .section_title h2 {
+      font-size: 26px;
+    }
+
+    .core_values_modern .value-card {
+      padding: 28px 22px 26px;
+      border-radius: 20px;
+    }
+
+    .core_values_modern .value-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      font-size: 20px;
+    }
+
+    .core_values_modern .value-icon i {
+      font-size: 20px;
+    }
+
+    .core_values_modern .value-number {
+      font-size: 34px;
+    }
+
+    .core_values_modern .value-card h4 {
+      font-size: 17px;
+    }
+
+    .core_values_modern .value-card p {
+      font-size: 14px;
+    }
+  }

@@ -2,318 +2,545 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Meta Description -->
-  <meta name="description" content=" ">
-  <title>Home</title>
+  <meta name="description" content="Fintle - Powerful tools for smarter financial management.">
+  <title>Features | Fintle</title>
 
-  <!-- icofont-css-link -->
-  <link rel="stylesheet" href="css/icofont.min.css">
-  <!-- Owl-Carosal-Style-link -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <!-- Bootstrap-Style-link -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- Coustome-Style-link -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css">
+  
+    <!-- icofont-css-link -->
+    <link rel="stylesheet" href="css/icofont.min.css">
+    <!-- Owl-Carosal-Style-link -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Bootstrap-Style-link -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Coustome-Style-link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-Style-link -->
+    <link rel="stylesheet" href="css/responsive.css">
   <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <!-- webfont-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/images/logo/fav-icon.png" type="image/x-icon">
+    <!-- webfont-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
 
 
+  <style>
+    /* ============================================================
+       MODERN FEATURE SECTION – CARD GRID (NO BULLET LISTS)
+       ============================================================ */
+    .feature-modern {
+      padding: 90px 0;
+      background: #ffffff;
+    }
+
+    .feature-modern.alt-bg {
+      background: #faf9ff;
+    }
+
+    /* grid layout: text left, image right (or reversed) */
+    .feature-modern .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .feature-modern .feature-grid.reverse {
+      direction: rtl;
+    }
+
+    .feature-modern .feature-grid.reverse > * {
+      direction: ltr;
+    }
+
+    /* badge */
+    .feature-modern .title_badge mb-1 {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #6b4eff;
+      background: rgba(107, 78, 255, 0.08);
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin-bottom: 16px;
+    }
+
+    .feature-modern h3 {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.22;
+      color: #0b0b2b;
+      margin-bottom: 14px;
+    }
+
+    .feature-modern .lead-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #4a4a6a;
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+
+    /* ====== CARD GRID – replaces bullet points ====== */
+    .feature-modern .feature-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .feature-modern .feature-card {
+      background: #ffffff;
+      border: 1px solid #eeecf5;
+      border-radius: 16px;
+      padding: 18px 16px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .feature-modern .feature-card:hover {
+      border-color: #d9d2f0;
+      box-shadow: 0 12px 28px -8px rgba(107, 78, 255, 0.10);
+      transform: translateY(-3px);
+    }
+
+    .feature-modern .feature-card .card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1a2c68, #1a2c68);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .feature-modern .feature-card .card-icon i {
+      font-size: 16px;
+    }
+
+    .feature-modern .feature-card .card-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e1e3a;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* optional small description inside card */
+    .feature-modern .feature-card .card-desc {
+      font-size: 12px;
+      color: #7a7a9a;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* CTA button modern */
+    .feature-modern .btn puprple_btn aos-init aos-animate {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1a2c68, #726ffd);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 36px;
+      border-radius: 50px;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 12px 28px -8px rgba(107, 78, 255, 0.35);
+    }
+
+    .feature-modern .btn puprple_btn aos-init aos-animate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 34px -8px rgba(107, 78, 255, 0.5);
+      color: #fff;
+    }
+
+    .feature-modern .btn puprple_btn aos-init aos-animate i {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-modern .btn puprple_btn aos-init aos-animate:hover i {
+      transform: translateX(4px);
+    }
+
+    /* mockup image */
+    .feature-modern .feature-image {
+      position: relative;
+    }
+
+    .feature-modern .feature-image img {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-modern .feature-image img:hover {
+      transform: scale(1.01);
+    }
+
+    .feature-modern .feature-image::before {
+      content: '';
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(107, 78, 255, 0.06) 0%, transparent 70%);
+      top: 10%;
+      left: 10%;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(40px);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 991px) {
+      .feature-modern .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .feature-modern .feature-grid.reverse {
+        direction: ltr;
+      }
+
+      .feature-modern h3 {
+        font-size: 28px;
+      }
+
+      .feature-modern .lead-text {
+        max-width: 100%;
+      }
+
+      .feature-modern .feature-image img {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .feature-modern {
+        padding: 55px 0;
+      }
+
+      .feature-modern h3 {
+        font-size: 24px;
+      }
+
+      .feature-modern .feature-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .feature-modern .feature-card {
+        padding: 16px 14px;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .feature-modern .feature-card .card-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        font-size: 15px;
+      }
+
+      .feature-modern .feature-card .card-label {
+        font-size: 13px;
+      }
+
+      .feature-modern .btn puprple_btn aos-init aos-animate {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Header Start -->
-  <header>
-    <!-- container start -->
-    <div class="container">
-      <!-- navigation bar -->
-      <nav class="navbar navbar-expand-lg">
-        <!-- logo  -->
-        <a class="navbar-brand" href="index.html">
-          <img src="assets/images/logo/fintle_logo.png" alt="image">
-        </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-            <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
-            <div class="toggle-wrap">
-              <span class="toggle-bar"></span>
-            </div>
-          </span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-
-            <!-- secondery menu start -->
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <!-- secondery menu end -->
-
-            <li class="nav-item">
-              <a class="nav-link primary-gradient" href="features.html">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="about.html">About us</a>
-            </li>
-           <li class="nav-item">
-              <a class="nav-link" href="faq.html">FAQ</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="blog.html">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="helpcenter.html">Help Center</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-
-            <li class="nav-item">
-           <a href="signin.html" class="btn puprple_btn">Get Started</a>
-            </li>
-          </ul>
-        </div>
-
-      </nav>
-      <!-- navigation end -->
-    </div>
-    <!-- container end -->
-  </header>
-
-
-      <!-- BredCrumb-Section -->
-    <div class="bred_crumb">
-
-        <!--  container  -->
+    <!-- Header Start -->
+    <header>
+        <!-- container start -->
         <div class="container">
-            <!--  banner text  -->
-            <div class="bred_text">
-                <span class="title_badge mb-1">Fintle Features</span>
-                <h1  class="mt-2">Powerful Tools for Smarter <span class="primary-gradient">Financial Management.</span></h1>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><span>»</span></li>
-                      <li><a href="Subscription-cancellation.html">Subscription Cancellation and Refund Policy</a></li>
-                </ul>
-            </div>
+            <!-- navigation bar -->
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo  -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo/fintle_logo.png" alt="image">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
+                        <div class="toggle-wrap">
+                            <span class="toggle-bar"></span>
+                        </div>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- secondery menu start -->
+                        <li class="nav-item has_dropdown">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <!-- secondery menu end -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link primary-gradient" href="about.html">About us</a>
+                        </li>
+
+                         <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="helpcenter.html">Help Center</a>
+                        </li>
+
+           
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+
+                        <li class="nav-item">
+                         <a href="signin.html" class="btn puprple_btn">Get Started</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+            <!-- navigation end -->
         </div>
+        <!-- container end -->
+    </header>
+
+  <!-- BredCrumb-Section -->
+  <div class="bred_crumb">
+    <div class="container">
+      <div class="bred_text">
+        <span class="title_badge mb-1">Fintle Features</span>
+        <h1 class="mt-2">Powerful Tools for Smarter <span class="primary-gradient">Financial Management.</span></h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><span>»</span></li>
+          <li><a href="Subscription-cancellation.html">Subscription Cancellation and Refund Policy</a></li>
+        </ul>
+      </div>
     </div>
+  </div>
 
+  <!-- ============================================================
+  SECTION 1 – ACCOUNTS PAYABLE & VENDOR MANAGEMENT
+  ============================================================ -->
+  <section class="feature-modern">
+    <div class="container">
+      <div class="feature-grid">
+        <!-- text -->
+        <div class="feature-text" data-aos="fade-up" data-aos-duration="1000">
+          <span class="title_badge mb-1">Payables</span>
+          <h3>Accounts Payable &amp; Vendor Management</h3>
+          <p class="lead-text">Stay on top of bills and build stronger vendor relationships.</p>
 
-
-
- <!-- App-Solution-Section-Start -->
-    <section class="row_am app_solution_section">
-      <!-- container start -->
-      <div class="container">
-        <!-- row start -->
-        <div class="row">
-          <div class="col-lg-6">
-            <!-- UI content -->
-            <div class="app_text">
-              <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <span class="title_badge mb-1">Payables</span>
-                <h3>Accounts Payable & Vendor Management</h3>
-              </div>
-              <p data-aos="fade-up" data-aos-duration="1500">
-                Stay on top of bills and build stronger vendor relationships.
-              </p>
-
-               <ul class="mb-4 pt-4 pb-4 text-left">
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> Automated Bill
-                        Tracking</li><br>
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> Purchase Order
-                        Workflow</li><br>
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> Expense Management
-                      </li><br>
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> 3-Way Matching</li>
-                      <br>
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> Multi-Level Approvals
-                      </li>
-                    </ul>
-
-              <!-- button   -->
-              <div class="btn_block">
-                <a href="#" class="btn puprple_btn aos-init aos-animate" data-aos="fade-in" data-aos-duration="500">Get Started</a>
-              </div>
-
+          <!-- CARD GRID – replaces old bullet list -->
+          <div class="feature-cards">
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-document-folder"></i></div> 
+              <p class="card-label">Automated Bill Tracking</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-cart-alt"></i></div>
+              <p class="card-label">Purchase Order Workflow</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-wallet"></i></div>
+              <p class="card-label">Expense Management</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-checked"></i></div>
+              <p class="card-label">3-Way Matching</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-users-alt-4"></i></div>
+              <p class="card-label">Multi-Level Approvals</p>
             </div>
           </div>
 
-          <!--  image  -->
-          <div class="col-lg-6">
-            <div class="app_images" data-aos="fade-in" data-aos-duration="1500">
-              <img src="assets/images/mockups/Accounts-Payable.png"  alt="image" >
-            </div>
-          </div>
+          <a href="#" class="btn puprple_btn aos-init aos-animate">Get Started <i class="icofont-arrow-right"></i></a>
         </div>
-        
-      </div>
-      <!-- container end -->
-    </section>
-    <!-- App-Solution-Section-end -->
 
-    <!-- About-App-Section-Start -->
-    <section class="row_am about_app_section about_page_sectino we_best">
-      <!-- container start -->
-      <div class="container">
-        <!-- row start -->
-        <div class="row flex-row-reverse">
-
-          <div class="col-lg-6">
-            <!-- about text -->
-            <div class="about_text">
-              <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <span class="title_badge mb-1"> Taxes</span>
-                <!-- h2 --> 
-                <h3>Tax Compliance & GST Automation</h3>
-                <!-- p -->
-                <p> Never miss a deadline with stress-free tax management.</p>
-
-                 <ul class="mb-4 pt-4 pb-4 text-left">
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> GST & E-Invoicing</li><br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> Auto-Tax Calculation </li>
-                  <br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">Direct GST Filing</li><br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">E-Way Bill Integration
-                  </li><br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">Invoice Management System
-                  </li>
-                </ul>
-                </div>
-                <div class="btn_block">
-                  <a href="#" class="btn puprple_btn aos-init aos-animate" data-aos="fade-in" data-aos-duration="1500">Get Started</a>
-                </div>
-              </div>
-          </div>
-
-          <div class="col-lg-6">
-            <!-- about images -->
-            <div class="abt_img" data-aos="fade-in" data-aos-duration="1500">
-                <img src="assets/images/mockups/Tax-Compliance.png"  alt="image" >
-            </div>
-          </div>
-          
+        <!-- image -->
+        <div class="feature-image" data-aos="fade-in" data-aos-duration="1200">
+          <img src="assets/images/mockups/Accounts-Payable.png" alt="Accounts Payable">
         </div>
-        <!-- row end -->
       </div>
-      <!-- container end -->
-    </section>
-    <!-- About-App-Section-end -->
+    </div>
+  </section>
 
-     <!-- App-Solution-Section-Start -->
-    <section class="row_am app_solution_section no_top_padding">
-      <!-- container start -->
-      <div class="container">
-        <!-- row start -->
-        <div class="row">
-          <div class="col-lg-6">
-            <!-- UI content -->
-            <div class="app_text">
-              <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <span class="title_badge mb-1">Trackings</span>
-                <h3>Projects & Time Tracking</h3>
-              </div>
-              <p data-aos="fade-up" data-aos-duration="1500">
-                Manage client projects, track time, control budgets, and bill with precision—all from Fintle.
-              </p>
+  <!-- ============================================================
+  SECTION 2 – TAX COMPLIANCE & GST AUTOMATION
+  ============================================================ -->
+  <section class="feature-modern alt-bg">
+    <div class="container">
+      <div class="feature-grid reverse">
+        <!-- text -->
+        <div class="feature-text" data-aos="fade-up" data-aos-duration="1000">
+          <span class="title_badge mb-1">Taxes</span>
+          <h3>Tax Compliance &amp; GST Automation</h3>
+          <p class="lead-text">Never miss a deadline with stress-free tax management.</p>
 
-               <ul class="mb-4 pt-4 pb-4 text-left">
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">  Project Budgeting </li><br>
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> Timesheet Logging & Approval </li><br>
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">Smart Billing & Expenses
-                      </li><br>
-                      <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">  Profitability Reports </li>
-                      <br>
-                    </ul>
-
-              <!-- button   -->
-              <div class="btn_block">
-                <a href="#" class="btn puprple_btn aos-init aos-animate" data-aos="fade-in" data-aos-duration="500">Get Started</a>
-              </div>
-
+          <div class="feature-cards">
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-file-document"></i></div>
+              <p class="card-label">GST &amp; E-Invoicing</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-calculator-alt-2"></i></div>
+              <p class="card-label">Auto-Tax Calculation</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-upload-alt"></i></div>
+              <p class="card-label">Direct GST Filing</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-truck-alt"></i></div>
+              <p class="card-label">E-Way Bill Integration</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-file-alt"></i></div>
+              <p class="card-label">Invoice Management System</p>
             </div>
           </div>
 
-          <!--  image  -->
-          <div class="col-lg-6">
-            <div class="app_images" data-aos="fade-in" data-aos-duration="1500">
-              <img src="assets/images/mockups/project.png"  alt="image" >
-            </div>
-          </div>
+          <a href="#" class="btn puprple_btn aos-init aos-animate">Get Started <i class="icofont-arrow-right"></i></a>
         </div>
-        
+
+        <!-- image -->
+        <div class="feature-image" data-aos="fade-in" data-aos-duration="1200">
+          <img src="assets/images/mockups/Tax-Compliance.png" alt="Tax Compliance">
+        </div>
       </div>
-      <!-- container end -->
-    </section>
-    <!-- App-Solution-Section-end -->
+    </div>
+  </section>
 
-    <!-- About-App-Section-Start -->
-    <section class="row_am about_app_section about_page_sectino we_best">
-      <!-- container start -->
-      <div class="container">
-        <!-- row start -->
-        <div class="row flex-row-reverse">
+  <!-- ============================================================
+  SECTION 3 – PROJECTS & TIME TRACKING
+  ============================================================ -->
+  <section class="feature-modern">
+    <div class="container">
+      <div class="feature-grid">
+        <!-- text -->
+        <div class="feature-text" data-aos="fade-up" data-aos-duration="1000">
+          <span class="title_badge mb-1">Trackings</span>
+          <h3>Projects &amp; Time Tracking</h3>
+          <p class="lead-text">Manage client projects, track time, control budgets, and bill with precision—all from
+            Fintle.</p>
 
-          <div class="col-lg-6">
-            <!-- about text -->
-            <div class="about_text">
-              <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <span class="title_badge mb-1"> Insights</span>
-                <!-- h2 --> 
-                <h3>Insightful Reports & Dashboards</h3>
-                <!-- p -->
-                <p> Get instant clarity with powerful reports and real-time insights.</p>
-
-                 <ul class="mb-4 pt-4 pb-4 text-left">
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> Core Financial Reports</li><br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img"> 50+ Built-in Reports </li>
-                  <br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">Build Your Own Reports</li><br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">3-Way Matching
-                  </li><br>
-                  <li><img src="assets/images/icons/list.png" alt="icon-1" class="icons-img">Reporting Tags for Divisions
-                  </li>
-                </ul>
-                </div>
-                <div class="btn_block">
-                  <a href="#" class="btn puprple_btn aos-init aos-animate" data-aos="fade-in" data-aos-duration="1500">Get Started</a>
-                </div>
-              </div>
-          </div>
-
-          <div class="col-lg-6">
-            <!-- about images -->
-            <div class="abt_img" data-aos="fade-in" data-aos-duration="1500">
-                <img src="assets/images/mockups/Insightful_Reports.png"  alt="image" >
+          <div class="feature-cards">
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-chart-pie-alt"></i></div>
+              <p class="card-label">Project Budgeting</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-clock-time"></i></div>
+              <p class="card-label">Timesheet Logging &amp; Approval</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-bill-alt"></i></div>
+              <p class="card-label">Smart Billing &amp; Expenses</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-chart-growth"></i></div>
+              <p class="card-label">Profitability Reports</p>
             </div>
           </div>
-          
+
+          <a href="#" class="btn puprple_btn aos-init aos-animate">Get Started <i class="icofont-arrow-right"></i></a>
         </div>
-        <!-- row end -->
+
+        <!-- image -->
+        <div class="feature-image" data-aos="fade-in" data-aos-duration="1200">
+          <img src="assets/images/mockups/project.png" alt="Projects &amp; Time Tracking">
+        </div>
       </div>
-      <!-- container end -->
-    </section>
-    <!-- About-App-Section-end -->
+    </div>
+  </section>
 
+  <!-- ============================================================
+  SECTION 4 – INSIGHTFUL REPORTS & DASHBOARDS
+  ============================================================ -->
+  <section class="feature-modern alt-bg">
+    <div class="container">
+      <div class="feature-grid reverse">
+        <!-- text -->
+        <div class="feature-text" data-aos="fade-up" data-aos-duration="1000">
+          <span class="title_badge mb-1">Insights</span>
+          <h3>Insightful Reports &amp; Dashboards</h3>
+          <p class="lead-text">Get instant clarity with powerful reports and real-time insights.</p>
 
+          <div class="feature-cards">
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-chart-bar-graph"></i></div>
+              <p class="card-label">Core Financial Reports</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-layout"></i></div>
+              <p class="card-label">50+ Built-in Reports</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-ui-edit"></i></div>
+              <p class="card-label">Build Your Own Reports</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-checked"></i></div>
+              <p class="card-label">3-Way Matching</p>
+            </div>
+            <div class="feature-card">
+              <div class="card-icon"><i class="icofont-tags"></i></div>
+              <p class="card-label">Reporting Tags for Divisions</p>
+            </div>
+          </div>
 
+          <a href="#" class="btn puprple_btn aos-init aos-animate">Get Started <i class="icofont-arrow-right"></i></a>
+        </div>
 
+        <!-- image -->
+        <div class="feature-image" data-aos="fade-in" data-aos-duration="1200">
+          <img src="assets/images/mockups/Insightful_Reports.png" alt="Insightful Reports">
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- FAQ Section Start -->
+  <!-- ============================================================
+  FAQ SECTION
+  ============================================================ -->
   <section class="row_am faq_section" id="faqsec">
     <div class="container">
       <div class="section_title" data-aos="fade-up" data-aos-duration="1500">
@@ -506,144 +733,110 @@
   </section>
   <!-- FAQ Section End -->
 
-
-<!-- Footer-Section start -->
-<footer>
+  <!-- Footer-Section start -->
+  <footer>
     <div class="top_footer" id="contact">
-        <!-- container start -->
+      <div class="container">
+        <div class="row footer_row">
+          <div class="col-lg-4 col-md-6 col-12 footer_col">
+            <div class="abt_side">
+              <div class="logo">
+                <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo">
+              </div>
+              <p class="footer_about">Fintle is your all-in-one accounting tool to create bills, track sales, and manage
+                purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
+              <ul class="footer_contact">
+                <li><i class="icofont-phone"></i> <a href="tel:+911234567890">+91 123 456 7890</a></li>
+                <li><i class="icofont-email"></i> <a href="mailto:fintlesupport@gmail.com">fintlesupport@gmail.com</a>
+                </li>
+                <li><i class="icofont-location-pin"></i> <span>Flat No.2 & 3 (II Floor VOC Street), Indian Bank Colony, Madurai, Tamil Nadu 625014</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-12 footer_col">
+            <div class="links">
+              <h6>Company</h6>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 footer_col">
+            <div class="links">
+              <h6>Legal &amp; Policies</h6>
+              <ul>
+                <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                <li><a href="termsofuse.html">Terms of Use</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+                <li><a href="cookiepolicy.html">Cookie Policy</a></li>
+                <li><a href="Subscription-cancellation.html">Cancellation &amp; Refund Policy</a></li>
+                <li><a href="account_data.html">Account &amp; Data Deletion Policy</a></li>
+                <li><a href="acceptableusepolicy.html">Acceptable Use Policy</a></li>
+                <li><a href="business_data_processing.html">Business Data Processing Addendum</a></li>
+                <li><a href="implementation_appendix.html">Implementation Appendix</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 footer_col">
+            <div class="links">
+              <h6>Support</h6>
+              <ul>
+                <li><a href="helpcenter.html">Help Center</a></li>
+                <li><a href="contact.html">Customer Support</a></li>
+                <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
+              </ul>
+            </div>
+            <div class="footer_social_block">
+              <h6>Follow Us</h6>
+              <ul class="social_media">
+                <li><a href="#" aria-label="facebook"><i class="icofont-facebook"></i></a></li>
+                <li><a href="#" aria-label="instagram"><i class="icofont-instagram"></i></a></li>
+                <li><a href="#" aria-label="youtube"><i class="icofont-youtube-play"></i></a></li>
+                <li><a href="#" aria-label="linkedin"><i class="icofont-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom_footer">
         <div class="container">
-            <!-- row start -->
-            <div class="row footer_row">
-
-                <!-- Column 1: Brand + About -->
-                <div class="col-lg-4 col-md-6 col-12 footer_col">
-                    <div class="abt_side">
-                        <div class="logo">
-                            <img src="assets/images/logo/fintle_logo_white.png" alt="Fintle Logo">
-                        </div>
-                        <p class="footer_about">Fintle is your all-in-one accounting tool to create bills, track sales, and manage purchase reports — designed to simplify financial tasks for businesses of all sizes.</p>
-
-                        <!-- Contact info -->
-                        <ul class="footer_contact">
-                            <li>
-                                <i class="icofont-phone"></i>
-                                <a href="tel:+911234567890">+91 123 456 7890</a>
-                            </li>
-                            <li>
-                                <i class="icofont-email"></i>
-                                <a href="mailto:fintlesupport@gmail.com">fintlesupport@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="icofont-location-pin"></i>
-                                <span>Madurai, Tamil Nadu, India</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 2: Quick Links -->
-                <div class="col-lg-2 col-md-6 col-12 footer_col">
-                    <div class="links">
-                        <h6>Company</h6>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="features.html">Features</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 3: Legal / Policies -->
-                <div class="col-lg-3 col-md-6 col-12 footer_col">
-                    <div class="links">
-                        <h6>Legal &amp; Policies</h6>
-                        <ul>
-                          <li><a href="privacypolicy.html">Privacy Policy</a></li>
-                            <li><a href="termsofuse.html">Terms of Use</a></li>
-                            <li><a href="disclaimer.html">Disclaimer</a></li>
-                            <li><a href="cookiepolicy.html">Cookie Policy</a></li>
-                            <li><a href="Subscription-cancellation.html">Cancellation &amp; Refund Policy</a></li>
-                            <li><a href="account_data.html">Account &amp; Data Deletion Policy</a></li>
-                            <li><a href="acceptableusepolicy.html">Acceptable Use Policy</a></li>
-                            <li><a href="business_data_processing.html">Business Data Processing Addendum</a></li>
-                            <li><a href="implementation_appendix.html">Implementation Appendix</a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 4: Support & Preferences -->
-                <div class="col-lg-3 col-md-6 col-12 footer_col">
-                    <div class="links">
-                        <h6>Support</h6>
-                        <ul>
-                            <li><a href="helpcenter.html">Help Center</a></li>
-                            <li><a href="contact.html">Customer Support</a></li>
-                            <li><a href="#" id="show-cookie-preferences">Cookie Preferences</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Trust / Social block -->
-                    <div class="footer_social_block">
-                        <h6>Follow Us</h6>
-                        <ul class="social_media">
-                            <li><a href="#" aria-label="facebook"><i class="icofont-facebook"></i></a></li>
-                            <li><a href="#" aria-label="instagram"><i class="icofont-instagram"></i></a></li>
-                            <li><a href="#" aria-label="youtube"><i class="icofont-youtube-play"></i></a></li>
-                            <li><a href="#" aria-label="linkedin"><i class="icofont-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-
+          <div class="row bottom_footer_row">
+            <div class="col-md-6 col-12">
+              <p class="copyright_text">© 2026 Fintle. All rights reserved.</p>
             </div>
-            <!-- row end -->
-        </div>
-        <!-- container end -->
-
-        <!-- last footer -->
-        <div class="bottom_footer">
-            <!-- container start -->
-            <div class="container">
-                <!-- row start -->
-                <div class="row bottom_footer_row">
-                    <div class="col-md-6 col-12">
-                        <p class="copyright_text">© 2026 Fintle. All rights reserved.</p>
-                    </div>
-
-                    <div class="col-md-6 col-12">
-                        <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="_blank">Aparajayah</a></p>
-                    </div>
-                </div>
-                <!-- row end -->
+            <div class="col-md-6 col-12">
+              <p class="developer_text">Powered by <a href="https://www.aparajayah.com/" target="_blank">Aparajayah</a>
+              </p>
             </div>
-            <!-- container end -->
+          </div>
         </div>
-
+      </div>
     </div>
-</footer>
-<!-- Footer-Section end -->
-
+  </footer>
+  <!-- Footer-Section end -->
 
   <!-- Cookie Preferences Container -->
   <div class="cookie-preferences-container" id="cookie-preferences-container">
     <div class="cookie-panel">
       <div class="cookie-header">
         <h5><i class="fas fa-cookie-bite cookie-icon"></i> Cookie Preferences</h5>
-        <button class="close-cookie-btn" id="close-cookie-btn">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="close-cookie-btn" id="close-cookie-btn"><i class="fas fa-times"></i></button>
       </div>
-      
       <div class="cookie-body">
         <div class="cookie-text">
-          <p>We use cookies and similar technologies to enhance your experience on our website. <span class="highlight">Some cookies are essential</span> for the website to function properly, while others help us analyze usage and deliver personalized content.</p>
-          <p>By clicking "Accept All", you consent to our use of all cookies. You can customize your preferences or reject non-essential cookies using the options below.</p>
-          <p>For more details, see our <a href="#" style="color: #182961;">Cookie Policy</a> and <a href="#" style="color: #182961;">Privacy Policy</a>.</p>
+          <p>We use cookies and similar technologies to enhance your experience on our website. <span
+              class="highlight">Some cookies are essential</span> for the website to function properly, while others
+            help us analyze usage and deliver personalized content.</p>
+          <p>By clicking "Accept All", you consent to our use of all cookies. You can customize your preferences or
+            reject non-essential cookies using the options below.</p>
+          <p>For more details, see our <a href="#" style="color: #182961;">Cookie Policy</a> and <a href="#"
+              style="color: #182961;">Privacy Policy</a>.</p>
         </div>
-        
         <div class="cookie-buttons">
           <button class="btn-cookie btn-reject" id="reject-cookies-btn">Reject All</button>
           <button class="btn-cookie btn-customize" id="customize-cookies-btn">Customize</button>
@@ -658,14 +851,10 @@
     <div class="cookie-options-content">
       <div class="cookie-options-header">
         <h5><i class="fas fa-sliders-h cookie-icon"></i> Customize Cookie Preferences</h5>
-        <button class="close-options-btn" id="close-options-btn">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="close-options-btn" id="close-options-btn"><i class="fas fa-times"></i></button>
       </div>
-      
       <div class="cookie-options-body">
         <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
-        
         <div class="cookie-categories">
           <div class="cookie-category">
             <div class="category-info">
@@ -677,7 +866,6 @@
               <span class="toggle-slider"></span>
             </label>
           </div>
-          
           <div class="cookie-category">
             <div class="category-info">
               <div class="category-name">Analytics Cookies</div>
@@ -688,7 +876,6 @@
               <span class="toggle-slider"></span>
             </label>
           </div>
-          
           <div class="cookie-category">
             <div class="category-info">
               <div class="category-name">Marketing Cookies</div>
@@ -700,7 +887,6 @@
             </label>
           </div>
         </div>
-        
         <div class="options-buttons">
           <button class="btn-options btn-cancel" id="cancel-options-btn">Cancel</button>
           <button class="btn-options btn-save" id="save-options-btn">Save Preferences</button>
@@ -709,29 +895,34 @@
     </div>
   </div>
 
-
-
-
   <!-- go top button -->
   <div class="go_top" id="Gotop">
     <span><i class="icofont-arrow-up"></i></span>
   </div>
+    <!-- Jquery-js-Link -->
+    <script src="js/jquery.js"></script>
+    <!-- owl-js-Link -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- bootstrap-js-Link -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- main-js-Link -->
+    <script src="js/main.js"></script>
+  <!-- initialize AOS -->
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
 
-
-
-
-
-  <!-- Jquery-js-Link -->
-  <script src="js/jquery.js"></script>
-  <!-- owl-js-Link -->
-  <script src="js/owl.carousel.min.js"></script>
-  <!-- bootstrap-js-Link -->
-  <script src="js/bootstrap.min.js"></script>
-  <!-- aos-js-Link -->
-  <script src="js/aos.js"></script>
-  <!-- main-js-Link -->
-  <script src="js/main.js"></script>
-
+            // Scroll Down Window 
+        $(document).ready(function () {
+            // Attach a click event handler to the button
+            $('#scrollButton').click(function () {
+                // Scroll down smoothly 200 pixels from the current position
+                $('html, body').animate({ scrollTop: $(window).scrollTop() + 600 }, 800); // Adjust the speed (800ms) as needed
+            });
+        });
+  </script>
 </body>
 
 </html>
